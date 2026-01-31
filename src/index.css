@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --font-welcome: "Comforter", sans-serif;
+  --font-subwelcome: "Varela", sans-serif;
+}
