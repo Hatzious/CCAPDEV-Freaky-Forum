@@ -1,5 +1,5 @@
-import Contain from "./welcome/Contain.jsx";
-import Circle from "./welcome/Circle.jsx";
+import Contain from "./page-welcome/Contain.jsx";
+import Circle from "./page-welcome/Circle.jsx";
 
 export default function App() {
   return (
