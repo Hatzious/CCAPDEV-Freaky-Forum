@@ -3,8 +3,8 @@ import LoginPage from "./page-login/LoginPage.jsx";
 
 export default function App() {
   return (
-    // <WelcomePage />
-    <LoginPage />
+    <WelcomePage />
+    //<LoginPage />
 
     // Routing DOESNT WORK yet so ill commenting this out
     // <Router>

@@ -1,11 +1,11 @@
+import Freakyname from "./Freakyname.jsx";
+
 export default function Contain() {
     return (
         <div className="w-[911px] h-[418px] flex flex-col items-center justify-center">
             {/* Main title - "Freaky Archives" */}
-            <div className="relative">
-                <p className="text-secondary-1 text-xl font-comforter leading-none tracking-normal whitespace-nowrap">
-                    Freaky Archives
-                </p>
+            <div className="relative text-xl mb-10">
+                <Freakyname />
             </div>
             
             {/* Subtitle - "Make your statement. State your fear." */}

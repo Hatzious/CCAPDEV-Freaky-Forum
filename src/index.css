@@ -27,6 +27,9 @@
   --text-medium: 32px;
   --text-l: 52px;
   --text-xl: 140px;
+
+  /* Border Sizes */
+  --spacing-button: 100px;
 }
 
 /* Optional: CSS Custom Properties for more flexibility */
