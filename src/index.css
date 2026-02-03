@@ -20,7 +20,7 @@
   --color-primary-2: #ebedd4;
   --color-secondary-1: #246638;
   
-  /* Font sizes */
+  /* Font Sizes */
   --text-xs: 12px;
   --text-small: 16px;
   --text-normal: 24px;
@@ -34,6 +34,13 @@
 
 /* Optional: CSS Custom Properties for more flexibility */
 :root {
+  /* Fonts */
+  --font-comforter: "Comforter", sans-serif;
+  --font-varela: "Varela", sans-serif;
+  --font-french-canon: "IM Fell French Canon", sans-serif;
+  --font-island: "Island Moments", sans-serif;
+
+  /* Colors */
   --accent-dark-1: #0c0d01;
   --accent-dark-2: #252618;
   --accent-dark-3: #595959;
@@ -41,12 +48,16 @@
   --primary-2: #ebedd4;
   --secondary-1: #246638;
 
+  /* Font Sizes */
   --f-xs: 12px;
   --f-small: 16px;
   --f-normal: 24px;
   --f-medium: 32px;
   --f-l: 52px;
   --f-xl: 140px;
+
+  /* Border Sizes */
+  --spacing-button: 100px;
 }
 
 /* 

@@ -1,0 +1,91 @@
+@import "../global.css";
+
+body {
+    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+}
+
+.freaky {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+    row-gap: 16px;
+}
+
+.title {
+    font-family: var(--font-comforter);
+    color: var(--secondary-1);
+    font-size: var(--f-xl);
+    display: flex;
+}
+
+.subtitle {
+    font-family: var(--font-french-canon);
+    color: var(--primary-2);
+    font-size: var(--f-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 8vh;
+    top: 1.25rem;
+    padding: 6px;
+}
+
+.dual {
+    color: var(--primary-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+    font-family: var(--font-french-canon);
+}
+
+#smol {
+    font-size: var(--f-l);
+    display: flex;
+}
+
+#midset {
+    flex-grow: 300;
+    padding-left: 100px;
+}
+
+#rightset {
+    justify-content: flex-end;
+    padding-right: 100px;
+}
+
+.rightsetclick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+
+    font-family: var(--font-island);
+    font-size: var(--f-normal);
+    color: var(--primary-2);
+    background-color: var(--accent-dark-3);
+    border: solid;
+    border-color: var(--primary-2);
+    border-width: 1px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.midsetclick {
+    font-family: var(--font-french-canon);
+    font-size: var(--f-small);
+}

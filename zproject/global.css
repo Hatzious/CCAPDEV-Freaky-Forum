@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Island+Moments&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Varela&display=swap');
+
+:root {
+    /* Fonts */
+    --font-comforter: "Comforter", sans-serif; /* Cursive-like */
+    --font-varela: "Varela", sans-serif; /* Arial-like */
+    --font-french-canon: "IM Fell French Canon", sans-serif; /* TNR-like */
+    --font-island: "Island Moments", sans-serif; /* Cursive-like */
+
+    /* Colors */
+    --accent-dark-1: #0c0d01;
+    --accent-dark-2: #252618;
+    --accent-dark-3: #595959;
+    --primary-1: #6f6f44;
+    --primary-2: #ebedd4;
+    --secondary-1: #246638;
+
+    /* Font Sizes */
+    --f-xs: 12px;
+    --f-small: 16px;
+    --f-normal: 24px;
+    --f-medium: 32px;
+    --f-l: 52px;
+    --f-ml: 70px;
+    --f-xl: 140px;
+
+    /* Border Sizes */
+    --spacing-button: 100px;
+}
+

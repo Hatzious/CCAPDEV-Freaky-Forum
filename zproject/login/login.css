@@ -1,0 +1,112 @@
+@import "../global.css";
+
+body {
+    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    padding-top: 64px;
+}
+
+.title {
+    font-family: var(--font-comforter);
+    color: var(--secondary-1);
+    font-size: var(--f-ml);
+    display: flex;
+    justify-content: center;
+}
+
+.logintop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--primary-2);
+    border: solid;
+    border-color: var(--primary-2);
+    border-width: 1px;
+    background: var(--accent-dark-1);
+    height: 467px;
+    width: 572px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.logtitle {
+    font-family: var(--font-comforter);
+    display: flex;
+    justify-content: center;
+    font-size: var(--f-l);
+}
+
+.credential {
+    font-family: var(--font-french-canon);
+    border: solid;
+    border-color: var(--primary-2);
+    border-width: 1px;
+    background-color: var(--primary-1);
+    border-radius: 3px;
+    width: 420px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#forgot {
+    display: flex;
+    align-self: start;
+    padding-left: 77px;
+    font-family: var(--font-french-canon);
+    color: var(--primary-1);
+}
+
+#forgot:hover {
+    color: green;
+}
+
+#viewandcreate {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.noaccount {
+    display: flex;
+    font-family: var(--font-varela);
+    font-size: var(--f-xs);
+}
+
+.nocontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.line {
+    height: 1px;
+    width: 115px;
+    margin-top: 6px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+
+    font-family: var(--font-island);
+    font-size: var(--f-normal);
+    color: var(--primary-2);
+    background-color: var(--accent-dark-3);
+    border: solid;
+    border-color: var(--primary-2);
+    border-width: 1px;
+    border-radius: 5px;
+}
