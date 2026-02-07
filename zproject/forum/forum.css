@@ -22,12 +22,12 @@ body {
 .navbar .title {
     font-family: var(--font-comforter);
     color: var(--secondary-1);
-    font-size: 35px;
+    font-size: 36px;
 }
 
 .navbar .title p {
     margin: 0;
-    padding: 7px 10px 0 100px;
+    padding: 7px 0 0 100px;
     white-space: nowrap;
 }
 
@@ -56,7 +56,6 @@ body {
     0 0 60px #EBECDA,
     0 0 10px #EBECDA,
     0 0 10px #EBECDA;
-    filter: blur(0); 
     cursor: pointer;
 }
 
@@ -103,11 +102,76 @@ body {
     height: 75px;
     background-color: #0A0B01;
     border: solid 1px #757849;
-    margin: 22px 0 15px 20px;
-
+    margin: 22px 5px 15px 25px;
 }
 
 .main .contentbox .forumbox .titlebox {
+    width: 80%;
     margin-left: 20px;
-    color: #FFFFFF;
+}
+
+.main .contentbox .forumbox .titlebox .title {
+    font-family: 'IM Fell French Canon', serif;
+    color: #EBECDA;
+    font-size: 22px;
+    letter-spacing: 1.6px;
+    margin: 20px 0 8px 0;
+}
+
+.main .contentbox .forumbox .titlebox .info {
+    display: flex;
+    gap: 10px;
+}
+
+.main .contentbox .forumbox .titlebox .info .author,.date {
+    font-family: 'Varela', sans-serif;
+    color: #757849;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.main .contentbox .forumbox .titlebox .info .divider {
+    height: 10px;
+    width: 1px;
+    margin-top: 3px;
+    border-right: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.main .contentbox .forumbox .titlebox .tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.main .contentbox .forumbox .titlebox .tags p {
+    font-family: 'Varela', sans-serif;
+    color: #757849;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 1px 6px;
+    border: 1px solid #757849;
+}
+
+.main .contentbox .forumbox .vote {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.main .contentbox .forumbox .vote .upvote {
+    border-left: 22px solid transparent;   
+    border-right: 22px solid transparent;  
+    border-bottom: 30px solid #16361B;
+    margin: 20px 30px auto auto;
+}
+
+.main .contentbox .forumbox .vote .downvote {
+    border-top: 30px solid #5D0D0D;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent; 
+    margin:  auto 30px 20px auto;
 }
