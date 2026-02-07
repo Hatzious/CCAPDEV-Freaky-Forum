@@ -1,0 +1,30 @@
+@import "../global.css";
+@import "../pic/pic.css";
+@import "../login/login.css";
+
+body {
+    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+}
+
+.logintop {
+    justify-content: start;
+    gap: 30px;
+    height: 896px;
+    width: 1117px;
+}
+
+.card {
+    flex: 2;
+    width: 336px;
+    height: 487px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0 50px;
+}
