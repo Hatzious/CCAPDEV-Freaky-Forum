@@ -1,0 +1,182 @@
+@import "../global.css";
+
+body {
+    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+    position: relative;
+    height: 300vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 8vh;
+    padding: 6px;
+    background-color: #0A0B01;
+    border-bottom: #252618 solid 1px;
+}
+
+.navbar .title {
+    font-family: var(--font-comforter);
+    color: var(--secondary-1);
+    font-size: 35px;
+}
+
+.navbar .title p {
+    margin: 0;
+    padding: 7px 10px 0 100px;
+    white-space: nowrap;
+}
+
+.navbar .hover {
+    justify-content: space-evenly;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .hover p {
+    margin: 15px 0 0 50px;
+    font-family: 'IM Fell French Canon', serif;
+    font-size: 25px;
+    display: flex;
+    gap: 20px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+    transition: text-shadow 0.05s ease-in-out, color 0.05s ease-in-out;
+}
+
+.navbar .hover p:hover {
+    color: #FFFFFF;
+    text-shadow: 
+    0 0 30px #EBECDA, 
+    0 0 60px #EBECDA,
+    0 0 10px #EBECDA,
+    0 0 10px #EBECDA;
+    filter: blur(0); 
+    cursor: pointer;
+}
+
+.navbar .setting {
+    display: flex;
+    width: 10%;
+}
+
+.navbar .setting .icon {
+    width: 35px;
+    height: 35px;
+    background-color: #252618;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.navbar .setting .icon:hover {
+    background-color: #EBECDA;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.main .profilebox {
+    width: 90%;
+    height: 300px;
+    display: flex;
+    height: 200px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+
+.main .profilebox .pfp {
+    width: 150px;
+    height: 150px;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+    margin: 22px 0 15px 18px;
+    
+}
+
+.main .profilebox .title {
+    
+    color: #EBECDA;
+    font-family: 'IM Fell French Canon', serif;
+    font-size: 38px;
+    margin: 18px 0 0 38px ;
+}
+
+.main .profilebox .subtitle {
+    
+    color: #EBECDA;
+    font-family: 'Varela', serif;
+    font-size: 13px;
+    margin: 8px 0 0 38px ;
+}
+
+.main .profilebox .titlebox .info-container {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* color: #EBECDA;
+    font-family: 'Varela', serif; */
+    /* font-size: 13px; */
+    /* gap: 10px; */
+    margin: 40px 0 0 38px ;
+    column-gap: -200px;
+
+}
+
+.main .profilebox .titlebox .info-item {
+    
+    color: #EBECDA;
+    font-family: 'Varela', serif;
+    font-size: 13px;
+
+}
+
+
+
+.line {
+    height: 1px;
+    width: 91%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.main .contentbox {
+    width: 90%;
+    height: 2000px;
+}
+
+.main .contentbox .forumbox {
+    display: flex;
+    height: 120px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+.main .contentbox .forumbox .pfp {
+    width: 75px;
+    height: 75px;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+    margin: 22px 0 15px 20px;
+
+}
+
+.main .contentbox .forumbox .titlebox {
+    margin-left: 20px;
+    color: #EBECDA;
+}
