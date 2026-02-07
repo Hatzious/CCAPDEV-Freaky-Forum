@@ -2,11 +2,11 @@
 
 body {
     background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
-    width: 100vw;
     position: relative;
     height: 300vh;
     display: flex;
     margin: 0;
+    padding: 0;
 }
 
 .navbar {
@@ -44,7 +44,9 @@ body {
     font-size: 25px;
     display: flex;
     gap: 20px;
-    color:#EBECDA;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+    transition: text-shadow 0.05s ease-in-out, color 0.05s ease-in-out;
 }
 
 .navbar .hover p:hover {
@@ -54,6 +56,7 @@ body {
     0 0 60px #EBECDA,
     0 0 10px #EBECDA,
     0 0 10px #EBECDA;
+    filter: blur(0); 
     cursor: pointer;
 }
 
@@ -73,4 +76,38 @@ body {
 .navbar .setting .icon:hover {
     background-color: #EBECDA;
     cursor: pointer;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.main .contentbox {
+    width: 90%;
+    height: 2000px;
+}
+
+.main .contentbox .forumbox {
+    display: flex;
+    height: 120px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+.main .contentbox .forumbox .pfp {
+    width: 75px;
+    height: 75px;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+    margin: 22px 0 15px 20px;
+
+}
+
+.main .contentbox .forumbox .titlebox {
+    margin-left: 20px;
+    color: #FFFFFF;
 }
