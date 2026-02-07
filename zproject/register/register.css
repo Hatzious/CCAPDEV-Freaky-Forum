@@ -6,25 +6,64 @@ body {
     background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
 }
 
-.logintop {
-    justify-content: start;
-    gap: 30px;
-    height: 896px;
-    width: 1117px;
-}
-
 .card {
     flex: 2;
     width: 336px;
     height: 487px;
+    padding-right: 100px;
 }
 
 .main-container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    width: 100vw;
+    height: 90vh;
+    width: 70vw;
     justify-content: center;
     align-items: center;
     margin: 0 50px;
+    margin-left: 20px;
+    padding-right: 67px;
+}
+
+.logintop {
+    flex: 2;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+    height: 60vh;
+    width: 90%;
+}
+
+.label {
+    font-family: var(--font-french-canon);
+    align-self: flex-start;
+}
+
+.infotainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 460px;
+}
+
+.midtainer {
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    width: 422px;
+}
+
+.midcredential {
+    width: 200px;
+}
+
+.main-container .logintop .midtainer {
+    justify-content: start;
+    padding-right: 38px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
