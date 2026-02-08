@@ -7,7 +7,7 @@ body {
 }
 
 .card {
-    flex: 2;
+    flex: 1;
     width: 336px;
     height: 487px;
     padding-right: 100px;
@@ -26,12 +26,13 @@ body {
 }
 
 .logintop {
-    flex: 2;
+    flex: 1;
     min-width: 0;
     align-items: center;
     gap: 10px;
     height: 60vh;
     width: 90%;
+    padding: 0 64px 0 128px;
 }
 
 .label {
@@ -42,24 +43,21 @@ body {
 .infotainer {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
     width: 460px;
 }
 
 .midtainer {
     display: flex;
     flex-direction: row;
-    row-gap: 20px;
+    gap: 4px;
     width: 422px;
+    justify-content: start;
+    padding-right: 38px;
 }
 
 .midcredential {
     width: 200px;
-}
-
-.main-container .logintop .midtainer {
-    justify-content: start;
-    padding-right: 38px;
 }
 
 .buttons {
