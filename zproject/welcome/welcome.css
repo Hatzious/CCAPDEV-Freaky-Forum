@@ -88,4 +88,6 @@ body {
 .midsetclick {
     font-family: var(--font-french-canon);
     font-size: var(--f-small);
+    cursor: pointer;
+    color: var(--primary-2);
 }

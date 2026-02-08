@@ -9,70 +9,101 @@ body {
     padding: 0;
 }
 
-.navbar {
-    position: fixed;
+.main {
     display: flex;
-    width: 100vw;
-    height: 8vh;
-    padding: 6px;
-    background-color: #0A0B01;
-    border-bottom: #252618 solid 1px;
-}
-
-.navbar .title {
-    font-family: var(--font-comforter);
-    color: var(--secondary-1);
-    font-size: 36px;
-}
-
-.navbar .title p {
-    margin: 0;
-    padding: 7px 0 0 100px;
-    white-space: nowrap;
-}
-
-.navbar .hover {
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: start;
+    margin-top: 100px;
     width: 100%;
-    display: flex;
-    gap: 20px;
 }
 
-.navbar .hover p {
-    margin: 15px 0 0 50px;
+.main .contentbox {
+    width: 90%;
+    height: 2000px;
+}
+
+.main .contentbox .forumbox {
+    display: flex;
+    height: 120px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+.main .contentbox .forumbox .pfp {
+    width: 75px;
+    height: 75px;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+    margin: 22px 5px 15px 25px;
+}
+
+.main .contentbox .forumbox .titlebox {
+    width: 80%;
+    margin-left: 20px;
+}
+
+.main .contentbox .forumbox .titlebox .title {
     font-family: 'IM Fell French Canon', serif;
-    font-size: 25px;
+    color: #EBECDA;
+    font-size: 22px;
+    letter-spacing: 1.6px;
+    margin: 20px 0 8px 0;
+}
+
+.main .contentbox .forumbox .titlebox .info {
     display: flex;
-    gap: 20px;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
-    transition: text-shadow 0.05s ease-in-out, color 0.05s ease-in-out;
+    gap: 10px;
 }
 
-.navbar .hover p:hover {
-    color: #FFFFFF;
-    text-shadow: 
-    0 0 30px #EBECDA, 
-    0 0 60px #EBECDA,
-    0 0 10px #EBECDA,
-    0 0 10px #EBECDA;
-    cursor: pointer;
+.main .contentbox .forumbox .titlebox .info .author,.date {
+    font-family: 'Varela', sans-serif;
+    color: #757849;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
-.navbar .setting {
+.main .contentbox .forumbox .titlebox .info .divider {
+    height: 10px;
+    width: 1px;
+    margin-top: 3px;
+    border-right: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.main .contentbox .forumbox .titlebox .tags {
     display: flex;
-    width: 10%;
-}
-
-.navbar .setting .icon {
-    width: 35px;
-    height: 35px;
-    background-color: #252618;
-    border-radius: 50%;
+    gap: 10px;
     margin-top: 10px;
 }
 
-.navbar .setting .icon:hover {
-    background-color: #EBECDA;
-    cursor: pointer;
+.main .contentbox .forumbox .titlebox .tags p {
+    font-family: 'Varela', sans-serif;
+    color: #757849;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 1px 6px;
+    border: 1px solid #757849;
+}
+
+.main .contentbox .forumbox .vote {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.main .contentbox .forumbox .vote .upvote {
+    border-left: 22px solid transparent;   
+    border-right: 22px solid transparent;  
+    border-bottom: 30px solid #16361B;
+    margin: 20px 30px auto auto;
+}
+
+.main .contentbox .forumbox .vote .downvote {
+    border-top: 30px solid #5D0D0D;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent; 
+    margin:  auto 30px 20px auto;
 }
