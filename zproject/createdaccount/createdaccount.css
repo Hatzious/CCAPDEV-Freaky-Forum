@@ -1,0 +1,55 @@
+@import "../global.css";
+@import "../pic/pic.css";
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.primary {
+    display: flex;
+    height: 100vh;
+    max-width: 100vw;
+    padding: 120px 0 20px;
+    row-gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col {
+    display: grid;
+    place-items: center;
+    column-gap: 4rem;
+}
+
+.colfive {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.colsix {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.card {
+    height: 25vh;
+    width: 10vw;
+}
+
+.hybrid {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+}
+
+.scary {
+    font-family: var(--font-scary);
+    display: block;
+    font-size: 48px;
+    max-width: 520px;
+    text-align: center;
+    padding-top: 50px;
+    color: var(--primary-2);
+}

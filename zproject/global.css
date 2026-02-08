@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Island+Moments&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
 
 :root {
     /* Fonts */
@@ -9,6 +10,7 @@
     --font-varela: "Varela", sans-serif; /* Arial-like */
     --font-french-canon: "IM Fell French Canon", sans-serif; /* TNR-like */
     --font-island: "Island Moments", sans-serif; /* Cursive-like */
+    --font-scary: "IM Fell Great Primer", sans-serif; /* TNR but made by a frenchman */
 
     /* Colors */
     --accent-dark-1: #0c0d01;
@@ -29,6 +31,15 @@
 
     /* Border Sizes */
     --spacing-button: 100px;
+}
+
+body {
+    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+    position: relative;
+    height: 300vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar {
@@ -98,4 +109,8 @@
 .navbar .setting .icon:hover {
     background-color: #EBECDA;
     cursor: pointer;
+}
+
+.green {
+    color: var(--secondary-1);
 }
