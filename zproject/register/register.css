@@ -67,3 +67,8 @@ body {
     flex-direction: row;
     gap: 8px;
 }
+
+.back {
+    border: none;
+    background-color: var(--accent-dark-1);
+}
