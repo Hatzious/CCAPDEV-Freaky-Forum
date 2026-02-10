@@ -64,6 +64,16 @@ body {
     white-space: nowrap;
 }
 
+.navbar .title a {
+    color: var(--secondary-1);
+    text-decoration: none;
+}
+
+.navbar .title a:visited {
+    color: var(--secondary-1);
+    text-decoration: none;
+}
+
 .navbar .hover {
     justify-content: space-evenly;
     width: 100%;

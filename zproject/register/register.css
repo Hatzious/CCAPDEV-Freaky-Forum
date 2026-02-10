@@ -64,6 +64,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 8px;
+    margin-right: 64px;
 }
 
 .back {

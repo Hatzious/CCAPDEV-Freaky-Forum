@@ -19,28 +19,20 @@ body {
     row-gap: 16px;
 }
 
-.title {
+.freaky .title {
     font-family: var(--font-comforter);
     color: var(--secondary-1);
     font-size: var(--f-xl);
     display: flex;
 }
 
-.subtitle {
+.freaky .subtitle {
     font-family: var(--font-french-canon);
     color: var(--primary-2);
     font-size: var(--f-small);
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.navbar {
-    position: fixed;
-    display: flex;
-    width: 100vw;
-    height: 8vh;
-    padding: 6px;
 }
 
 .dual {
@@ -52,19 +44,13 @@ body {
     font-family: var(--font-french-canon);
 }
 
-#smol {
-    font-size: var(--f-l);
-    display: flex;
-}
-
 #midset {
-    flex-grow: 300;
-    padding-left: 100px;
+    flex-grow: 1;
 }
 
 #rightset {
     justify-content: flex-end;
-    padding-right: 100px;
+    padding-right: 70px;
 }
 
 .rightsetclick {
@@ -87,7 +73,7 @@ body {
 
 .midsetclick {
     font-family: var(--font-french-canon);
-    font-size: var(--f-small);
+    font-size: 25px;
     cursor: pointer;
     color: var(--primary-2);
 }
