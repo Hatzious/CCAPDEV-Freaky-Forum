@@ -71,3 +71,21 @@ body {
     border: none;
     background-color: var(--accent-dark-1);
 }
+
+.infotainer input.credential {
+    display: block;     
+    height: auto;           
+    width: 100%;             
+    max-width: 100%;           
+    padding: 12px 16px;      
+    box-sizing: border-box;    
+    line-height: normal;     
+    color: var(--primary-2); 
+    background-color: var(--primary-1);
+}
+
+.infotainer input.credential:focus {
+    outline: none;
+    border-color: var(--secondary-1);
+    box-shadow: 0 0 5px var(--secondary-1);
+}
