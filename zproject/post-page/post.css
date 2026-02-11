@@ -112,20 +112,18 @@ body {
 .main .contentbox .postcontent {
     display: flex;
     flex-direction: column;
-    /* height: 220px; */
     background-color: #0A0B01;
     border: solid 1px #252618;
     justify-content: center;
 }
 
 .main .contentbox .postcontent p {
-    /* display: flex; */
-    font-size: var(--f-normal);
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    font-family: var(--font-french-canon);
     width: 1200px;
     color: #EBECDA;
-    /* padding: 20px; */
     margin-left: 50px;
     margin-right: 50px;
-    /* border: solid 1px #252618; */
 }
 
