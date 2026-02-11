@@ -56,7 +56,7 @@ body {
 .navbar .title {
     font-family: var(--font-comforter);
     color: var(--secondary-1);
-    font-size: 35px;
+    font-size: var(--f-medium);
 }
 
 .navbar .title p {
@@ -85,7 +85,7 @@ body {
 .navbar .hover p {
     margin: 15px 0 0 50px;
     font-family: 'IM Fell French Canon', serif;
-    font-size: 25px;
+    font-size: var(--f-normal);
     display: flex;
     gap: 20px;
     color: #fff;
@@ -155,7 +155,7 @@ body {
     margin: 0;
     text-align: center;
     font-family: 'IM Fell French Canon', serif;
-    font-size: 25px;
+    font-size: var(--f-normal);
 }
 
 .navbar .setting .icon .popup-container .popup-content a:hover {
