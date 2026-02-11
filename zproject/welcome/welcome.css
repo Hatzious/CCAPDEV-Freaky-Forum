@@ -39,14 +39,14 @@ body {
 .freaky .title {
     font-family: var(--font-comforter);
     color: var(--secondary-1);
-    font-size: var(--f-xl);
+    font-size: var(--f-xxl);
     display: flex;
 }
 
 .freaky .subtitle {
     font-family: var(--font-french-canon);
     color: var(--primary-2);
-    font-size: var(--f-small);
+    font-size: var(--f-medium);
     display: flex;
     align-items: center;
     justify-content: center;
