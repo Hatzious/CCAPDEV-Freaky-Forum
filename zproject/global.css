@@ -113,12 +113,12 @@ body {
     width: 35px;
     height: 35px;
     background-color: #252618;
-    border-radius: 50%;
     margin-top: 10px;
 }
 
 .navbar .setting .icon:hover {
-    background-color: #EBECDA;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
     cursor: pointer;
 }
 
@@ -126,9 +126,10 @@ body {
     display: none;
     position: absolute;
     background-color: #0A0B01;
-    width: 150px;
-    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
-    margin-top: 52px;
+    width: 250px;
+    margin-top: 36px;
+    margin-left: -150px;
+    border-bottom: solid 1px #252618;
 }
 
 .navbar .setting .icon:hover .popup-container {
@@ -136,16 +137,45 @@ body {
 }
 
 .navbar .setting .icon .popup-container .popup-content {
-    display: flex;
+    display: none;
     flex-direction: column;
-    padding: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.navbar .setting .icon:hover .popup-container .popup-content {
+    display: block;
 }
 
 .navbar .setting .icon .popup-container .popup-content a {
+    display: block;
     color: #EBECDA;
     text-decoration: none;
-    padding: 5px 0;
+    padding: 0.1px 0 0 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'IM Fell French Canon', serif;
+    font-size: 25px;
 }
+
+.navbar .setting .icon .popup-container .popup-content a:hover {
+    color: #FFFFFF;
+    text-shadow: 
+    0 0 30px #EBECDA, 
+    0 0 60px #EBECDA,
+    0 0 10px #EBECDA,
+    0 0 10px #EBECDA;
+    filter: blur(0); 
+    cursor: pointer;
+}
+
+.navbar .setting .icon .popup-container .popup-content .divider {
+    width: 80%;
+    height: 1px;
+    background-color: #252618;
+    margin: 0px 25px;
+}
+
 .green {
     color: var(--secondary-1);
 }
