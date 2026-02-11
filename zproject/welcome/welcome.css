@@ -1,5 +1,22 @@
 @import "../global.css";
 
+@keyframes glow {
+    0% {
+        text-shadow: 
+        0 0 30px #EBECDA, 
+        0 0 60px #EBECDA,
+        0 0 10px #EBECDA,
+        0 0 10px #EBECDA;
+    }
+    100% {
+        text-shadow: 
+        0 0 30px #EBECDA, 
+        0 0 60px #EBECDA,
+        0 0 10px #EBECDA,
+        0 0 10px #EBECDA;
+    }
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -35,7 +52,7 @@ body {
     justify-content: center;
 }
 
-.dual {
+/* .dual {
     color: var(--primary-2);
     display: flex;
     align-items: center;
@@ -76,4 +93,4 @@ body {
     font-size: 25px;
     cursor: pointer;
     color: var(--primary-2);
-}
+} */
