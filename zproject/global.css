@@ -13,8 +13,8 @@
     --font-scary: "IM Fell Great Primer", sans-serif; /* TNR but made by a frenchman */
 
     /* Colors */
-    --accent-dark-1: #0c0d01;
-    --accent-dark-2: #252618;
+    --accent-dark-1: #000000;
+    --accent-dark-2: #030C02;
     --accent-dark-3: #595959;
     --primary-1: #6f6f44;
     --primary-2: #ebedd4;
@@ -35,7 +35,7 @@
 }
 
 body {
-    background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
+    background: radial-gradient(circle, var(--accent-dark-2) 0%, var(--accent-dark-1) 90%);
     position: relative;
     height: 300vh;
     display: flex;
