@@ -122,6 +122,30 @@ body {
     cursor: pointer;
 }
 
+.navbar .setting .icon .popup-container {
+    display: none;
+    position: absolute;
+    background-color: #0A0B01;
+    width: 150px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+    margin-top: 52px;
+}
+
+.navbar .setting .icon:hover .popup-container {
+    display: block;
+}
+
+.navbar .setting .icon .popup-container .popup-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.navbar .setting .icon .popup-container .popup-content a {
+    color: #EBECDA;
+    text-decoration: none;
+    padding: 5px 0;
+}
 .green {
     color: var(--secondary-1);
 }
