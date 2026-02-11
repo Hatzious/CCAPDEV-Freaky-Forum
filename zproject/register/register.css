@@ -29,8 +29,9 @@ body {
     flex: 1;
     min-width: 0;
     align-items: center;
-    gap: 10px;
-    height: 60vh;
+    justify-content: center;
+    gap: 20px;
+    height: 70vh;
     width: 90%;
     padding: 0 64px 0 128px;
 }
@@ -56,10 +57,6 @@ body {
     padding-right: 38px;
 }
 
-.midcredential {
-    width: 200px;
-}
-
 .buttons {
     display: flex;
     flex-direction: row;
@@ -73,14 +70,14 @@ body {
 }
 
 .infotainer input.credential {
-    display: block;     
-    height: auto;           
-    width: 100%;             
-    max-width: 100%;           
-    padding: 12px 16px;      
-    box-sizing: border-box;    
-    line-height: normal;     
-    color: var(--primary-2); 
+    display: block;
+    height: 90%;
+    width: 416px;
+    max-width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    line-height: normal;
+    color: var(--primary-2);
     background-color: var(--primary-1);
 }
 
@@ -88,4 +85,8 @@ body {
     outline: none;
     border-color: var(--secondary-1);
     box-shadow: 0 0 5px var(--secondary-1);
+}
+
+.infotainer input.midcredential {
+    width: 200px;
 }
