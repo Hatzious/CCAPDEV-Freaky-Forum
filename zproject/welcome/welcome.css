@@ -1,20 +1,21 @@
 @import "../global.css";
 
-@keyframes glow {
-    0% {
-        text-shadow: 
-        0 0 30px #EBECDA, 
-        0 0 60px #EBECDA,
-        0 0 10px #EBECDA,
-        0 0 10px #EBECDA;
-    }
-    100% {
-        text-shadow: 
-        0 0 30px #EBECDA, 
-        0 0 60px #EBECDA,
-        0 0 10px #EBECDA,
-        0 0 10px #EBECDA;
-    }
+@keyframes flickerglow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+  70% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.anim-flickerglow {
+    transition: all 0.5s ease-in-out;
+    /* animation: name | duration | timing-function | iteration-count */
+    animation: flickerglow 4s ease-in-out infinite;
 }
 
 body {
@@ -63,4 +64,9 @@ body {
     0 0 10px #EBECDA;
     filter: blur(0); 
     cursor: pointer;
+}
+
+.freaky a:visited {
+    color: var(--primary-2);
+    text-decoration: none;
 }
