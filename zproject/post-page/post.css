@@ -117,16 +117,11 @@ body {
     border: solid 1px #252618;
     justify-content: center;
     container-type: inline;
-}
-
-.main .contentbox .postcontent p {
     font-size: 20px;
     letter-spacing: 0.5px;
     font-family: var(--font-french-canon);
-    width: 1200px;
+    width: 1171px;
     color: #EBECDA;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 
