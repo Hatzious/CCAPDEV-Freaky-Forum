@@ -17,6 +17,33 @@
         <div class="logintop">
             <div class="infotainer">
                 <div class="label">Email</div>
+                <input type="text" class="credential" id="reg-email">
+            </div>
+            <div class="infotainer">
+                <div class="label">Username</div>
+                <input type="text" class="credential" id="reg-username">
+            </div>
+            <div class="midtainer">
+                <div class="infotainer">
+                    <div class="label">Date of Birth</div>
+                    <input type="date" class="credential midcredential" id="reg-dob">
+                </div>
+                <div class="infotainer">
+                    <div class="label">Address</div>
+                    <input type="text" class="credential midcredential" id="reg-address">
+                </div>
+            </div>
+            <div class="infotainer">
+                <div class="label">Password</div>
+                <input type="password" class="credential" id="reg-password">
+            </div>
+            <div class="infotainer">
+                <div class="label">Re-enter Password</div>
+                <input type="password" class="credential" id="reg-re-password">
+            </div>
+
+            <!-- <div class="infotainer">
+                <div class="label">Email</div>
                 <form action="./register.html" method="POST"><input type="text" class="credential"></form>
             </div>
             <div class="infotainer">
@@ -40,14 +67,33 @@
             <div class="infotainer">
                 <div class="label">Re-enter Password</div>
                 <form action="./register.html" method="POST"><input type="password" class="credential"></form>
-            </div>
+            </div> -->
 
             <div class="buttons">
                 <a href="../welcome/welcome.html" rel="noopener noreferrer"><button class="click back"><</button></a>
-                <a href="../forum/forum.html" rel="noopener noreferrer"><button class="click">Create Account</button></a>
+                <button class="click" id="create-account-btn">Create Account</button></a>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("create-account-btn").addEventListener("click", function(e) {
+            const email = document.getElementById("reg-email").value;
+            const username = document.getElementById("reg-username").value;
+            const password = document.getElementById("reg-password").value;
+            const rePassword = document.getElementById("reg-re-password").value;
+
+            if (!email || !username || !password) {
+                alert("Please fill in all required fields. Before they come.");
+                return;
+            }
+
+            if (password !== rePassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+        })
+    </script>
 
     <span id="music-toggle" class="audier"></span>
     <audio id="bgm" loop autoplay>
