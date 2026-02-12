@@ -7,15 +7,16 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 100px;
-    width: 100%;
+    margin-top: 110px;
+    width: 70%;
 }
 
 .main .profilebox {
