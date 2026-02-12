@@ -197,3 +197,14 @@ body {
     width: 100px;
     border-radius: 5px;
 }
+
+.audier {
+    cursor: pointer;
+    position: absolute;
+    margin: 0;
+    right: 0;
+    bottom: 0;
+    width: 3vw;
+    height: 5vh;
+    font-size: var(--f-normal);
+}
