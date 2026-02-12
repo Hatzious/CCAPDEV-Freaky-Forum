@@ -176,6 +176,16 @@ body {
     margin: 0px 25px;
 }
 
+.navbar .setting-unregistered {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: space-evenly;
+    width: auto;
+    padding-top: 15px;
+    padding-right: 70px;
+    gap: 20px;
+}
+
 .green {
     color: var(--secondary-1);
 }

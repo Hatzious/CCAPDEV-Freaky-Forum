@@ -1,5 +1,5 @@
 // const isUserLoggedIn = localStorage.getItem("authToken") !== null;
-const isUserLoggedIn = true;
+const isUserLoggedIn = false;
 
 window.addEventListener('DOMContentLoaded', function() {
     const navbarRegistered = document.getElementById("navbar-registered");
