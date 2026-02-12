@@ -133,10 +133,23 @@ body {
     margin-bottom: 100px;
 }
 
+.replybar {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end;
+}
+
 .replybutton {
     width: 45px;
     padding: 5px;
-    align-self: flex-end;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+    color: #EBECDA;
+}
+
+.lockbutton {
+    width: 45px;
+    padding: 5px;
     background-color: #0A0B01;
     border: solid 1px #252618;
     color: #EBECDA;
