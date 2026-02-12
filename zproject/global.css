@@ -217,4 +217,15 @@ body {
     width: 3vw;
     height: 5vh;
     font-size: var(--f-normal);
+    z-index: 50;
+}
+
+.framer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 2;
 }
