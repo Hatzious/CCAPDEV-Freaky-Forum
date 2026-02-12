@@ -3,7 +3,7 @@ $(document).ready(function() {
     button = document.getElementById("music-toggle").innerHTML = "🔊";
     var isPlaying = !music.paused;
 
-    music.volume = 0.2;
+    music.volume = 0.1;
     $("#music-toggle").click(function() {
         if (isPlaying) {
             music.pause();
