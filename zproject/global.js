@@ -1,10 +1,9 @@
 $(document).ready(function() {
     var music = document.getElementById("bgm");
-    var isPlaying = false;
+    button = document.getElementById("music-toggle").innerHTML = "🔊";
+    var isPlaying = !music.paused;
 
     music.volume = 0.2;
-    document.getElementById("music-toggle").innerHTML = "🔊";
-
     $("#music-toggle").click(function() {
         if (isPlaying) {
             music.pause();
