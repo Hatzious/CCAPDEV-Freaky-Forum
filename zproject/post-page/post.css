@@ -127,3 +127,95 @@ body {
     margin-right: 50px;
 }
 
+
+.main .contentbox .replies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.replybutton {
+    width: 45px;
+    padding: 5px;
+    align-self: flex-end;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+    color: #EBECDA;
+}
+
+.reply{
+    display: flex;
+    gap: 20px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+.replies .pfp{
+    width: 75px;
+    height: 75px;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+    margin: 22px 5px 15px 25px;
+}
+
+.replybox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.replyauthor{
+    font-size: var(--f-normal);
+    letter-spacing: 0.5px;
+    font-family: var(--font-french-canon);
+    color: #EBECDA;
+}
+
+.replycontent {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-family: var(--font-french-canon);
+    color: #EBECDA;
+}
+
+.replyWquote {
+    display: flex;
+    gap: 20px;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+}
+
+.replybox {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.replyWquote .quote {
+    display: flex;
+    flex-direction: column;
+    background-color: #0A0B01;
+    border: solid 1px #757849;
+}
+
+.quoted {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    font-family: var(--font-french-canon);
+    /* width: 1200px; */
+    color: #EBECDA;
+    margin: 8px 10px 0 30px;
+}
+
+.quote .replycontent {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-family: var(--font-french-canon);
+    color: #EBECDA;
+    margin: 0 10px 8px 30px;
+}
+
