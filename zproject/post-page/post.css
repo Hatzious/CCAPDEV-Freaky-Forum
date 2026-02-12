@@ -25,7 +25,7 @@ body {
 
 .main .contentbox .forumbox {
     display: flex;
-    height: 120px;
+    height: 140px;
     background-color: #0A0B01;
     border: solid 1px #252618;
 }
@@ -120,8 +120,8 @@ body {
     font-size: 20px;
     letter-spacing: 0.5px;
     font-family: var(--font-french-canon);
-    width: 1171px;
     color: #EBECDA;
+    padding: 20px;
 }
 
 

@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: start;
     margin-top: 100px;
-    width: 100%;
+    width: 70%;
 }
 
 .main .contentbox {
@@ -25,7 +25,7 @@ body {
 
 .main .contentbox .forumbox {
     display: flex;
-    height: 120px;
+    height: 140px;
     background-color: #0A0B01;
     border: solid 1px #252618;
 }
