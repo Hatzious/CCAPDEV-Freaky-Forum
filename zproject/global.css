@@ -82,6 +82,11 @@ body {
     gap: 20px;
 }
 
+.navbar .hover a {
+    color: var(--primary-2);
+    text-decoration: none;
+}
+
 .navbar .hover p {
     margin: 15px 0 0 50px;
     font-family: 'IM Fell French Canon', serif;
@@ -186,6 +191,11 @@ body {
     gap: 20px;
 }
 
+.navbar .setting-unregistered a {
+    color: var(--primary-2);
+    text-decoration: none;
+}
+
 .green {
     color: var(--secondary-1);
 }
@@ -197,15 +207,29 @@ body {
     text-align: center;
     cursor: pointer;
 
-    font-family: var(--font-island);
-    font-size: var(--f-normal);
+    font-family: var(--font-french-canon);
+    font-size: var(--f-small);
     color: var(--primary-2);
-    background-color: var(--accent-dark-3);
+    background-color: #0A0B01;
     border: solid;
-    border-color: var(--primary-2);
+    border-color: #252618;
     border-width: 1px;
     width: 100px;
-    border-radius: 5px;
+    height: 30px;
+}
+
+.navbutton:hover {
+    color: var(--primary-2);
+    background-color: var(--accent-dark-2);
+    border-color: var(--primary-2);
+    border-width: 1px;
+    color: #FFFFFF;
+    text-shadow: 
+    0 0 30px #EBECDA, 
+    0 0 60px #EBECDA,
+    0 0 10px #EBECDA,
+    0 0 10px #EBECDA;
+    filter: blur(0); 
 }
 
 .audier {

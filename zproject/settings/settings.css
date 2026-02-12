@@ -108,5 +108,9 @@ body {
     border: none;
 
     font-family: var(--font-varela);
+}
+
+.main .contentbox .buttonbox .button a {
     color: var(--primary-2);
+    text-decoration: none;
 }
