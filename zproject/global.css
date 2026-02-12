@@ -179,3 +179,21 @@ body {
 .green {
     color: var(--secondary-1);
 }
+
+.navbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+
+    font-family: var(--font-island);
+    font-size: var(--f-normal);
+    color: var(--primary-2);
+    background-color: var(--accent-dark-3);
+    border: solid;
+    border-color: var(--primary-2);
+    border-width: 1px;
+    width: 100px;
+    border-radius: 5px;
+}

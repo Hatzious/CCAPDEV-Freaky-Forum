@@ -7,12 +7,12 @@
     <link rel="stylesheet" type="text/css" href="forum.css"> 
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar" id="navbar-registered">
             <div class="title">
                 <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
             </div>
             <div class="hover">
-                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="search">FORUM</p></a>
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="">FORUM</p></a>
                 <p>SEARCH</p>
             </div>
             <div class="setting">
@@ -29,6 +29,20 @@
                 </div>
             </div>
     </div>
+    <div class="navbar" id="navbar-unregistered" style="display: none;">
+            <div class="title">
+                <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
+            </div>
+            <div class="hover">
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="">FORUM</p></a>
+                <p>SEARCH</p>
+            </div>
+            <div class="setting">
+                <a href="../login/login.html" rel="noopener noreferrer"><button class="navbutton">Sign In</button></a>
+                <a href="../register/register.html" rel="noopener noreferrer"><button class="navbutton">Register</button></a>
+            </div>
+    </div>
+
     <div class="main">
         <div class="contentbox">
             <div class="forumbox">
