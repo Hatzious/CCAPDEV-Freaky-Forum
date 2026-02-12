@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
     <link rel="stylesheet" type="text/css" href="post.css">
-    <script src="../jquery-4.0.0.min.js"></script> 
-    <script src="../global.js"></script> 
 </head>
 <body>
-    <div class="navbar">
+    <script src="navbar.js"></script>
+    <div class="navbar" id="navbar-registered">
             <div class="title">
                 <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
             </div>
             <div class="hover">
-                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="search">FORUM</p></a>
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="">FORUM</p></a>
                 <p>SEARCH</p>
             </div>
             <div class="setting">
-                 <!-- <a href="../profile-page/profile.html" ref="noopener noreferrer"><div class="icon"></div></a> -->
                 <div class="icon">
                     <div class="popup-container">
                         <div class="popup-content">
@@ -26,12 +24,26 @@
                             <div class="divider"></div>
                             <a href="../settings/settings.html" rel="noopener noreferrer"><p>SETTINGS</p></a>
                             <div class="divider"></div>
-                            <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>LOGOUT</p></a>
+                            <a href="../welcome/welcome.html" rel="noopener noreferrer" id="logout-redirect"><p>LOGOUT</p></a>
                         </div>
                     </div>
                 </div>
             </div>
     </div>
+    <div class="navbar" id="navbar-unregistered" style="display: none;">
+            <div class="title">
+                <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
+            </div>
+            <div class="hover">
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="">FORUM</p></a>
+                <p>SEARCH</p>
+            </div>
+            <div class="setting-unregistered">
+                <a href="../login/login.html" rel="noopener noreferrer"><button class="navbutton">Sign In</button></a>
+                <a href="../register/register.html" rel="noopener noreferrer"><button class="navbutton">Register</button></a>
+            </div>
+    </div>
+    
     <div class="main">
         <div class="contentbox">
             <div class="forumbox">
@@ -120,10 +132,5 @@
                 </div>
             </div>
     </div>
-
-    <span id="music-toggle" class="audier"></span>
-    <audio id="bgm" loop autoplay>
-    <source src="../audio/Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster).mp3" type="audio/mpeg">
-    </audio>
 </body>
 </html>

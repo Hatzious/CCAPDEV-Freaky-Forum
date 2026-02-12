@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="register.css">
-    <script src="../jquery-4.0.0.min.js"></script> 
-    <script src="../global.js"></script> 
 </head>
 <body>
     <div class="circle"></div>
@@ -42,33 +40,6 @@
                 <input type="password" class="credential" id="reg-re-password">
             </div>
 
-            <!-- <div class="infotainer">
-                <div class="label">Email</div>
-                <form action="./register.html" method="POST"><input type="text" class="credential"></form>
-            </div>
-            <div class="infotainer">
-                <div class="label">Username</div>
-                <form action="./register.html" method="POST"><input type="text" class="credential"></form>
-            </div>
-            <div class="midtainer">
-                <div class="infotainer">
-                    <div class="label">Date of Birth</div>
-                    <form action="./register.html" method="POST"><input type="date" class="credential midcredential"></form>
-                </div>
-                <div class="infotainer">
-                    <div class="label">Address</div>
-                    <form action="./register.html" method="POST"><input type="text" class="credential midcredential"></form>
-                </div>
-            </div>
-            <div class="infotainer">
-                <div class="label">Password</div>
-                <form action="./register.html" method="POST"><input type="password" class="credential"></form>
-            </div>
-            <div class="infotainer">
-                <div class="label">Re-enter Password</div>
-                <form action="./register.html" method="POST"><input type="password" class="credential"></form>
-            </div> -->
-
             <div class="buttons">
                 <a href="../welcome/welcome.html" rel="noopener noreferrer"><button class="click back"><</button></a>
                 <button class="click" id="create-account-btn">Create Account</button></a>
@@ -92,12 +63,14 @@
                 alert("Passwords do not match.");
                 return;
             }
+
+            // Save login details to localStorage
+            localStorage.setItem("authToken", "logged_in_user_" + Date.now());
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+
+            window.location.href = "../forum/forum.html";
         })
     </script>
-
-    <span id="music-toggle" class="audier"></span>
-    <audio id="bgm" loop autoplay>
-    <source src="../audio/Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster).mp3" type="audio/mpeg">
-    </audio>
 </body>
 </html>

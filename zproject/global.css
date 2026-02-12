@@ -210,7 +210,7 @@ body {
 
 .audier {
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     margin: 0;
     right: 0;
     bottom: 0;
