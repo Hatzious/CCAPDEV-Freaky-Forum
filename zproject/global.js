@@ -2,8 +2,8 @@ $(document).ready(function() {
     var music = document.getElementById("bgm");
     var isPlaying = false;
 
-    music.volume = 0.1;
-    var button = document.getElementById("music-toggle").innerHTML = "🔊";
+    music.volume = 0.2;
+    document.getElementById("music-toggle").innerHTML = "🔊";
 
     $("#music-toggle").click(function() {
         if (isPlaying) {
