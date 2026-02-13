@@ -39,6 +39,7 @@ body {
     text-align: center;
     font-family: var(--font-french-canon);
     color: var(--primary-2);
+    text-decoration: none;
 }
 
 .main .contentbox .createpost:hover {

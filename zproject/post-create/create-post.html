@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" type="text/css" href="create-post.css">
+</head>
+<body>
+    <script src="navbar.js"></script>
+    <div class="navbar" id="navbar-registered">
+            <div class="title">
+                <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
+            </div>
+            <div class="hover">
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p>FORUM</p></a>
+                <p>SEARCH</p>
+            </div>
+            <div class="setting">
+                <div class="icon">
+                    <div class="popup-container">
+                        <div class="popup-content">
+                            <a href="../profile-page/profile.html" rel="noopener noreferrer"><p>ACCOUNT</p></a>
+                            <div class="divider"></div>
+                            <a href="../settings/settings.html" rel="noopener noreferrer"><p>SETTINGS</p></a>
+                            <div class="divider"></div>
+                            <a href="../welcome/welcome.html" rel="noopener noreferrer" id="logout-redirect"><p>LOGOUT</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="navbar" id="navbar-unregistered" style="display: none;">
+            <div class="title">
+                <a href="../welcome/welcome.html" rel="noopener noreferrer"><p>Freaky Archives</p></a>
+            </div>
+            <div class="hover">
+                <a href="../forum/forum.html" rel="noopener noreferrer"><p class="">FORUM</p></a>
+                <p>SEARCH</p>
+            </div>
+            <div class="setting-unregistered">
+                <a href="../login/login.html" rel="noopener noreferrer"><button class="navbutton">Sign In</button></a>
+                <a href="../register/register.html" rel="noopener noreferrer"><button class="navbutton">Register</button></a>
+            </div>
+    </div>
+
+    <div class="main">
+        <div class="contentbox">
+            <div class="header">
+                <div class="heading">Create Post</div>
+                <div class="subheading">Write in plain text or use simple Markdown. Preview is sanitized to avoid script injection.</div>
+            </div>
+
+            <form id="post-form" class="postform" novalidate>
+                <label class="field">
+                    <span class="label">Title</span>
+                    <input id="post-title" class="input" type="text" name="title" placeholder="Give your post a title" maxlength="120" required>
+                </label>
+
+                <div class="field">
+                    <span class="label">Body</span>
+                    <div class="toolbar" role="toolbar" aria-label="Formatting">
+                        <button type="button" class="tool" data-md="**">Bold</button>
+                        <button type="button" class="tool" data-md="*">Italic</button>
+                        <button type="button" class="tool" data-md="~~">Strike</button>
+                        <button type="button" class="tool" data-md="`">Code</button>
+                        <button type="button" class="tool" data-md="> ">Quote</button>
+                        <button type="button" class="tool" data-md="- ">List</button>
+                    </div>
+                    <textarea id="post-body" class="textarea" name="body" rows="14" placeholder="Share your story..." required></textarea>
+                    <div class="hint">Supported: # Heading, **bold**, *italic*, ~~strike~~, `code`, > quote, - list, [text](https://link)</div>
+                </div>
+
+                <div class="actions">
+                    <div class="status" id="post-status" aria-live="polite"></div>
+                    <button class="submit" type="submit">Post</button>
+                </div>
+            </form>
+
+            <div class="previewwrap">
+                <div class="previewtitle">Preview</div>
+                <div id="post-preview" class="preview">Start typing to see a safe preview.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="create-post.js"></script>
+</body>
+</html>
