@@ -26,18 +26,26 @@ body {
 }
 
 .main .contentbox .createpost {
+    display: flex;
     width: 6vw;
     height: 4vh;
     margin-bottom: 4vh;
     background-color: #0A0B01;
     border: solid 1px #252618;
     align-self: flex-end;
+    /* justify-content: center; */
+    align-items: center;
     justify-content: center;
-    align-items: center;    
+    text-align: center;
     font-family: var(--font-french-canon);
     color: var(--primary-2);
 }
 
+.main .contentbox .createpost:hover {
+    background-color: var(--primary-2);
+    color: var(--primary-1);
+    cursor: pointer;
+}
 
 .main .contentbox .forumbox {
     display: flex;
