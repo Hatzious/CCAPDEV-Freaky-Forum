@@ -147,7 +147,7 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    statusText.textContent = "Post saved locally. This demo does not publish to a server.";
+    statusText.textContent = "Snow Halation Success";
 });
 
 renderPreview();

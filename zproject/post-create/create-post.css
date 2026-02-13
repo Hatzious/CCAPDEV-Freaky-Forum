@@ -111,23 +111,10 @@ body {
     color: var(--primary-1);
 }
 
-.hint {
-    font-family: var(--font-varela);
-    color: #757849;
-    font-size: 11px;
-    letter-spacing: 0.8px;
-}
-
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.status {
-    font-family: var(--font-varela);
-    color: #757849;
-    font-size: 12px;
 }
 
 .submit {

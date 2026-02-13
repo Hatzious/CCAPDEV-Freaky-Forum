@@ -48,7 +48,7 @@
         <div class="contentbox">
             <div class="header">
                 <div class="heading">Create Post</div>
-                <div class="subheading">Write in plain text or use simple Markdown. Preview is sanitized to avoid script injection.</div>
+                <div class="subheading">Make your statement. Face your fears.</div>
             </div>
 
             <form id="post-form" class="postform" novalidate>
@@ -68,18 +68,16 @@
                         <button type="button" class="tool" data-md="- ">List</button>
                     </div>
                     <textarea id="post-body" class="textarea" name="body" rows="14" placeholder="Share your story..." required></textarea>
-                    <div class="hint">Supported: # Heading, **bold**, *italic*, ~~strike~~, `code`, > quote, - list, [text](https://link)</div>
                 </div>
 
                 <div class="actions">
-                    <div class="status" id="post-status" aria-live="polite"></div>
                     <button class="submit" type="submit">Post</button>
                 </div>
             </form>
 
             <div class="previewwrap">
                 <div class="previewtitle">Preview</div>
-                <div id="post-preview" class="preview">Start typing to see a safe preview.</div>
+                <div id="post-preview" class="preview"></div>
             </div>
         </div>
     </div>
