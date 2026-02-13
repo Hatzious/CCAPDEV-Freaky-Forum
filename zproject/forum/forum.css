@@ -21,7 +21,23 @@ body {
 .main .contentbox {
     width: 90%;
     height: 2000px;
+    display: flex;
+    flex-direction: column;
 }
+
+.main .contentbox .createpost {
+    width: 6vw;
+    height: 4vh;
+    margin-bottom: 4vh;
+    background-color: #0A0B01;
+    border: solid 1px #252618;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;    
+    font-family: var(--font-french-canon);
+    color: var(--primary-2);
+}
+
 
 .main .contentbox .forumbox {
     display: flex;
@@ -33,6 +49,7 @@ body {
 .main .contentbox .forumbox .pfp {
     width: 75px;
     height: 75px;
+    
     background-color: #0A0B01;
     border: solid 1px #757849;
     margin: 22px 5px 15px 25px;
