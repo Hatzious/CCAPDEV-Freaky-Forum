@@ -1,13 +1,17 @@
 @import "../global.css";
 
+::placeholder {
+    color: var(--primary-2);
+    opacity: .25;
+}
+
 body {
     background: radial-gradient(circle, var(--accent-dark-2) 10%, var(--accent-dark-1) 100%);
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     position: relative;
     height: 100vh;
-    display: flex;
     padding-top: 64px;
 }
 

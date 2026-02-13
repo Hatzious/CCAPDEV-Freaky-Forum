@@ -3,7 +3,7 @@ $(document).ready(function() {
     button = document.getElementById("music-toggle").innerHTML = "🔊";
     
     music.muted = true;
-    music.volume = 0.1;
+    music.volume = 0.5;
     music.play();
 
     var isPlaying = !music.paused;
