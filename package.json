@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.0",
     "express": "^5.2.1"
   },
   "devDependencies": {
