@@ -19,14 +19,14 @@
     --color-secondary-1: #246638; /* Green */
 
     /* Font Sizes */
-    --f-xs: 12px;
-    --f-small: 16px;
-    --f-normal: 24px;
-    --f-medium: 32px;
-    --f-l: 52px;
-    --f-ml: 70px;
-    --f-xl: 140px;
-    --f-xxl: 180px;
+    --text-xs: 12px;
+    --text-small: 16px;
+    --text-normal: 24px;
+    --text-medium: 32px;
+    --text-l: 52px;
+    --text-ml: 70px;
+    --text-xl: 140px;
+    --text-xxl: 180px;
 
     /* Border Sizes */
     --spacing-button: 100px;

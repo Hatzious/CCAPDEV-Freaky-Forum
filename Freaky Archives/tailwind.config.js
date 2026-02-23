@@ -9,7 +9,7 @@ export default {
         fiftyGray: "#595959",
         paleGold: "#6f6f44",
         peach: "#ebedd4",
-        green: "#246638"
+        freaky: "#246638"
       },
       fontFamily: {
         comforter: ['Comforter', 'cursive'],
