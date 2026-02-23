@@ -17,6 +17,8 @@
     --color-primary-1: #6f6f44; /* Pale Gold */
     --color-primary-2: #ebedd4; /* Peachy */
     --color-secondary-1: #246638; /* Green */
+    --color-hover: #FFFFFF; /* Text color when hovering on */
+    --color-glow: #EBECDA; /* Peachy-color for glowing */
 
     /* Font Sizes */
     --text-xs: 12px;
@@ -27,6 +29,9 @@
     --text-ml: 70px;
     --text-xl: 140px;
     --text-xxl: 180px;
+
+    /* Glow */
+    --text-shadow-glow: 0 0 10px var(--color-glow), 0 0 20px var(--color-glow);
 
     /* Border Sizes */
     --spacing-button: 100px;
