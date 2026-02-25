@@ -1,5 +1,6 @@
 import Logo from "./Logo";
 import Click from "./Click";
+import Icon from "./Icon";
 
 export default function Navbar() {
     return (
@@ -9,15 +10,14 @@ export default function Navbar() {
             <div className="flex-1 flex justify-start">
                 <Logo />
             </div>
-
            
-            <div className="flex-none flex justify-center gap-16">
+            <div className="flex-none flex justify-center gap-24">
                 <Click label="FORUM" />
                 <Click label="SEARCH" />
             </div>
 
             <div className="flex-1 flex justify-end">
-                <div className="w-4 h-4 bg-accent-dark-3 opacity-50"></div>
+                <Icon />
             </div>
         </nav>
     );
