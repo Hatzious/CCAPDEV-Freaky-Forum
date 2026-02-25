@@ -1,11 +1,9 @@
-import Logo from "./Global/Logo";
-import Click from "./Global/Click";
+import Navbar from "./Global/Navbar";
 
 export default function App() {
   return (
-    <>
-    <Logo />
-    <Click />
-    </>
+    <div className="h-full w-full">
+    <Navbar />
+    </div>
   );
 }

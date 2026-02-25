@@ -9,7 +9,11 @@ export default {
         fiftyGray: "#595959",
         paleGold: "#6f6f44",
         peach: "#ebedd4",
-        freaky: "#246638"
+        freaky: "#246638",
+        hover: "#FFFFFF", /* Text color when hovering on */
+        glow: "#EBECDA", /* Peachy-color for glowing */
+        olive: "#0A0B01", /* Navbar color */
+        border: "#252618" /* Light olive for borders */
       },
       fontFamily: {
         comforter: ['Comforter', 'cursive'],

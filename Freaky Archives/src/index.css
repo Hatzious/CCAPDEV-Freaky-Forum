@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@tailwind utilities;
 
 @theme {
   /* Fonts */
@@ -19,8 +17,11 @@
     --color-secondary-1: #246638; /* Green */
     --color-hover: #FFFFFF; /* Text color when hovering on */
     --color-glow: #EBECDA; /* Peachy-color for glowing */
+    --color-olive: #0A0B01; /* Navbar color */
+    --color-border: #252618; /* Light olive for borders */
 
     /* Font Sizes */
+    --text-xxs: 10px;
     --text-xs: 12px;
     --text-small: 16px;
     --text-normal: 24px;
@@ -31,30 +32,21 @@
     --text-xxl: 180px;
 
     /* Glow */
-    --text-shadow-glow: 0 0 10px var(--color-glow), 0 0 20px var(--color-glow);
+    --text-shadow-glow: 
+      0 0 5px #fff,
+      0 0 10px var(--color-glow), 
+      0 0 20px var(--color-glow),
+      0 0 30px var(--color-glow);
+    --text-shadow-faint: 0 0 4px var(--color-glow);
 
     /* Border Sizes */
     --spacing-button: 100px;
 }
 
 body {
-    background: radial-gradient(circle, var(--color-accent-dark-2) 0%, var(--color-accent-dark-1) 90%);
-    position: relative;
-    height: 300vh;
-    display: flex;
-    margin: 0;
-    padding: 0;
+  background-color: black;
 }
 
 a {
     text-decoration: none;
-}
-
-.hover-glow {
-  transition: text-shadow 0.1s ease-in-out, color 0.1s ease-in-out;
-}
-
-.hover-glow:hover {
-  color: #FFFFFF;
-  text-shadow: 0 0 30px #EBECDA, 0 0 60px #EBECDA, 0 0 10px #EBECDA, 0 0 10px #EBECDA;
 }
