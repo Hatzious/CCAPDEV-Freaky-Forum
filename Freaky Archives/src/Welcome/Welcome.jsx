@@ -8,7 +8,7 @@ export default function Welcome() {
             <div className="flex flex-col items-center gap-y-1">
                 <Logo size="text-l" />
                 <Click label="Make your statement. Face your fear."
-                size="text-xs" to="/dread"
+                size="text-xs" to="/forum"
                 />
             </div>
         </Explayout>

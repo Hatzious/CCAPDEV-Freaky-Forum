@@ -28,8 +28,13 @@
     --color-glow: #EBECDA; /* Peachy-color for glowing */
     --color-olive: #0A0B01; /* Navbar color */
     --color-border: #252618; /* Light olive for borders */
+    --color-upvote: #16361B;/* Upvote color */
+    --color-downvote: #5D0D0D;/* Downvote color */
+    --color-info: #757849; /* For small info on post */
 
     /* Font Sizes */
+    --text-xxxxs: 4px;
+    --text-xxxs: 8px;
     --text-xxs: 10px;
     --text-xs: 12px;
     --text-small: 16px;
@@ -53,4 +58,20 @@
 
     /* Idle glowing */
     --animate-pulse: glow-pulse 4s infinite ease-in-out;
+}
+
+@layer utilities {
+  .border-post {
+    border-width: 0.8px;
+  }
+
+@layer components {
+  .badge {
+    padding: 1px;
+  }
+}
+
+  .border-badge {
+    border-width: 0.6px;
+  }
 }
