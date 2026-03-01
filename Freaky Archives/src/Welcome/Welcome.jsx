@@ -5,10 +5,10 @@ import Explayout from "../Contain/Explayout";
 export default function Welcome() {
     return (
         <Explayout classes="items-center justify-center pb-8">
-            <div className="flex flex-col items-center gap-y-1">
-                <Logo size="text-l" />
+            <div className="flex flex-col items-center gap-y-2">
+                <Logo size="text-xl" />
                 <Click label="Make your statement. Face your fear."
-                size="text-xs" to="/forum"
+                size="text-small" to="/dread"
                 />
             </div>
         </Explayout>

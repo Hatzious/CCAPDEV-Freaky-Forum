@@ -2,10 +2,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    text-shadow: 0 0 2px var(--color-glow);
+    text-shadow: 0 0 4px var(--color-glow);
   }
   50% {
-    text-shadow: 0 0 4px var(--color-glow), 0 0 6px var(--color-glow);
+    text-shadow: 0 0 6px var(--color-glow), 0 0 8px var(--color-glow);
   }
 }
 
@@ -33,23 +33,23 @@
     --color-info: #757849; /* For small info on post */
 
     /* Font Sizes */
-    --text-xxxxs: 4px;
-    --text-xxxs: 8px;
-    --text-xxs: 10px;
-    --text-xs: 12px;
-    --text-small: 16px;
-    --text-normal: 24px;
-    --text-medium: 32px;
-    --text-l: 52px;
-    --text-ml: 70px;
-    --text-xl: 140px;
-    --text-xxl: 180px;
+    --text-xxxxs: 16px;
+    --text-xxxs: 20px;
+    --text-xxs: 22px;
+    --text-xs: 24px;
+    --text-small: 28px;
+    --text-normal: 36px;
+    --text-medium: 44px;
+    --text-l: 64px;
+    --text-ml: 82px;
+    --text-xl: 152px;
+    --text-xxl: 192px;
 
     /* Glow */
     --text-shadow-glow: 
-      0 0 3px var(--color-glow),
       0 0 5px var(--color-glow),
-      0 0 8px var(--color-glow);
+      0 0 7px var(--color-glow),
+      0 0 10px var(--color-glow);
 
     --text-shadow-faint: 0 0 10px rgba(255, 255, 255, 0.5);
 

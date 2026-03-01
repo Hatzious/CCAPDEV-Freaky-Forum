@@ -10,7 +10,7 @@ export default function Dread() {
     const midRow1= allImages.slice(11, 13);
     const midRow2= allImages.slice(13, 16);
     return (
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-24">
         <div className="flex items-center flex-col gap-x-1">
             <Row arr={topRow}/>
         </div>

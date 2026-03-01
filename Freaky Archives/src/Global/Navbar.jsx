@@ -5,10 +5,10 @@ import Icon from "./Icon";
 export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 w-full bg-olive border-b border-border 
-                        flex items-center px-8 h-8 z-50">
+                        flex items-center px-8 h-[10vh] z-50">
                   
             <div className="flex-1 flex justify-start">
-                <Logo />
+                <Logo size="text-normal" />
             </div>
            
             <div className="flex-none flex justify-center gap-24">

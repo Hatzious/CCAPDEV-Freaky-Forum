@@ -6,7 +6,7 @@ export default function Mainlayout() {
     return (
         <Explayout>
             <Navbar />
-            <main className="flex-1 w-full pt-10"> 
+            <main className="flex-1 w-full pt-28"> 
                 <Outlet /> 
             </main>
         </Explayout>
