@@ -3,7 +3,7 @@ import VoteTrack from "./VoteTrack";
 
 export default function Vote() {
     return (
-        <div className="flex w-3/12 h-full flex-col items-end">
+        <div className="flex grow-2 h-full flex-col items-end justify-center">
             <Arrow />
             <VoteTrack />
             <Arrow direction="down" color="var(--color-downvote)"/>

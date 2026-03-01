@@ -2,10 +2,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    text-shadow: 0 0 4px var(--color-glow);
+    text-shadow: 0 0 6px var(--color-glow);
   }
   50% {
-    text-shadow: 0 0 6px var(--color-glow), 0 0 8px var(--color-glow);
+    text-shadow: 0 0 8px var(--color-glow), 0 0 10px var(--color-glow);
   }
 }
 
@@ -33,6 +33,7 @@
     --color-info: #757849; /* For small info on post */
 
     /* Font Sizes */
+    --text-xxxxxs: 12px;
     --text-xxxxs: 16px;
     --text-xxxs: 20px;
     --text-xxs: 22px;
@@ -47,11 +48,11 @@
 
     /* Glow */
     --text-shadow-glow: 
-      0 0 5px var(--color-glow),
       0 0 7px var(--color-glow),
-      0 0 10px var(--color-glow);
+      0 0 9px var(--color-glow),
+      0 0 12px var(--color-glow);
 
-    --text-shadow-faint: 0 0 10px rgba(255, 255, 255, 0.5);
+    --text-shadow-faint: 0 0 12px rgba(255, 255, 255, 0.5);
 
     /* Border Sizes */
     --spacing-button: 100px;

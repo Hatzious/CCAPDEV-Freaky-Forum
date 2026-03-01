@@ -1,12 +1,12 @@
 export default function Arrow({ direction = "up", color = "var(--color-upvote)" }) {
     return (
         <button 
-            className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none w-6 h-6"
+            className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none w-fit h-fit"
             aria-label={direction === "up" ? "Upvote" : "Downvote"}
         >
             <svg 
-                width="16" 
-                height="16" 
+                width="50" 
+                height="50" 
                 viewBox="0 0 100 100" 
                 className="block"
             >
