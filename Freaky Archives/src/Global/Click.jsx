@@ -25,6 +25,14 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
         );
     }
 
+    if (label === "LOGOUT" || label === "SETTINGS" || label === "ACCOUNT") {
+        return (
+            <span className={styles + "text-center bg-olive border-none p-0"}>
+                {label}
+            </span>
+        );
+    }
+
     return (
         <span className={styles}>
             {label}

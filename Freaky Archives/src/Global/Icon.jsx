@@ -1,5 +1,9 @@
-export default function Icon() {
+export default function Icon({classes = ""}) {
+    const iconStyles = `flex w-12 h-12 bg-olive border-1 border-solid border-border
+            ${classes}
+            `;
+
     return (
-        <div className="flex w-16 h-16 bg-accent-dark-3 opacity-50"></div>
+        <div className={iconStyles}></div>
     );
 }
