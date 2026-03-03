@@ -11,7 +11,7 @@ export default function Arrow({ direction = "up", color = "var(--color-upvote)" 
                 className="block"
             >
                 <polygon 
-                    points={direction === "up" ? "50,15 100,95 0,95" : "0,5 100,5 50,85"} 
+                    points={direction === "up" ? "50,45 100,95 0,95" : "0,5 100,5 50,55"} 
                     fill={color}
                 />
             </svg>

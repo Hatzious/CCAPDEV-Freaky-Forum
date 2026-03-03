@@ -24,10 +24,18 @@ export default function Navbar() {
                 <Logo size="text-normal" />
             </div>
            
-            <div className="flex-none flex justify-center gap-24">
+           {user ? (
+            <div className="flex-none flex justify-center gap-24 pr-25">
                 <Click label="FORUM" to="/forum" />
                 <Click label="SEARCH" />
             </div>
+            ) : (
+            <div className="flex-none flex justify-center gap-24 pl-5">
+                <Click label="FORUM" to="/forum" />
+                <Click label="SEARCH" />
+            </div>
+            )
+           }
 
             <div className="flex justify-end relative gap-x-4">
                 {user ? (
