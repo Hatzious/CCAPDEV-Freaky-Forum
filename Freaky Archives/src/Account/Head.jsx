@@ -8,8 +8,8 @@ export default function Account() {
         <Resizebox>
             <Icon dimensions="w-40 h-38" />
             <Mastercontainer>
-                <Prettytext>
-                    I shall be the last, and when the universe is silent and still forever, I shall, perhaps, in that impossible moment, before I vanish, finally be satisfied.
+                <Prettytext fontSize="text-medium">
+                    John Oliver
                 </Prettytext>
                 <Prettytext>
                     I shall be the last, and when the universe is silent and still forever, I shall, perhaps, in that impossible moment, before I vanish, finally be satisfied.
