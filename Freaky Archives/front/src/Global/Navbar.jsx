@@ -52,7 +52,7 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Click label="Sign in" to="/login" size="text-xxs" bordered={true}/>
-                                <Click label="Sign up" onClick={signingUp} size="text-xxs" bordered={true}/>
+                                <Click label="Sign up" to="/register" size="text-xxs" bordered={true}/>
                             </>)
                 }
             </div>
