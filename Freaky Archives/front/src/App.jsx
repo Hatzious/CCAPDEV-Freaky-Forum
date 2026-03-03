@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
-import Login from "./login/login";
+import Login from "./Login/Login";
 import Dread from "./Dread/Dread";
 import Mainlayout from "./Contain/Mainlayout";
 import Forum from "./Forum/Forum";
@@ -8,6 +8,7 @@ import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
 import { AuthProvider } from "./Services/Auth";
 import Account from "./Account/Account";
+import Register from "./Register/Register";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           <Route element={<Mainlayout />}>
             <Route path="/dread" element={<Dread />} />

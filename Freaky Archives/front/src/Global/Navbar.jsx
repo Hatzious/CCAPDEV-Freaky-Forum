@@ -32,7 +32,7 @@ export default function Navbar() {
             ) : (
             <div className="flex-none flex justify-center gap-24 pl-5">
                 <Click label="FORUM" to="/forum" />
-                <Click label="SEARCH" />
+                <Click label="SEARCH" to="/account" />
             </div>
             )
            }
@@ -52,7 +52,7 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Click label="Sign in" to="/login" size="text-xxs" bordered={true}/>
-                                <Click label="Sign up" onClick={signingUp} size="text-xxs" bordered={true}/>
+                                <Click label="Sign up" to="/register" size="text-xxs" bordered={true}/>
                             </>)
                 }
             </div>

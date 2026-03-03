@@ -1,0 +1,61 @@
+User collection
+{
+  "_id": "ObjectId", 
+  "username": "DetectiveDaisy",
+  "email": "daisy@archives.gov",
+  "password": "hashed_password_here", 
+  "dob": "1995-05-15",
+  "role": "user",
+  "profile": {
+    "bio": "Searching for the truth in the static.",
+    "avatarUrl": "/assets/avatars/default.png"
+  },
+  "stats": {
+    "followingCount": 0,
+    "followerCount": 0
+  },
+  "status": {
+    "lastActive": "ISODate",
+    "isOnline": false
+  },
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate"
+}
+
+This collection is 
+{
+  "follower": "ID_OF_ALICE",
+  "following": "ID_OF_BOB"
+}
+To see greateststrongestbbc's followers: Your code asks the follows collection: "Find all documents where following is greateststrongestbbc's ID."
+To see who greateststrongestbbc is following: Your code asks: "Find all documents where follower is greateststrongestbbc's ID."
+
+greateststrongestbbc follower
+fake euha following
+
+greateststrongestbbc follower
+kalel following
+
+greateststrongestbbc follower
+rafale following
+
+The posts Collection
+Instead of storing the "Score" as just a number, we store the metadata needed to display the post.
+{
+  "_id": "ObjectId",
+  "authorId": "ObjectId(user_id_here)",
+  "title": "Statement of Detective Alice Daisy Tonner",
+  "content": "Full text of the statement...",
+  "tags": ["statement", "detective", "trafficstop"],
+  "createdAt": "ISODate",
+  "score": 124 
+}
+
+ The votes Collection (The "Logic" Hub)
+To prevent double-voting and track user interaction, you need a separate collection that links a User to a Post.
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId(user_id_here)",
+  "postId": "ObjectId(post_id_here)",
+  "voteValue": 1, // 1 for upvote, -1 for downvote
+}

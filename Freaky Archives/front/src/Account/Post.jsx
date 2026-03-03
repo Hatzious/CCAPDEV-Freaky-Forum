@@ -8,7 +8,7 @@ export default function Post({ title = "Title", content = "Content" }) {
         <Resizebox>
             <Icon dimensions="w-26 h-24" />
             <Mastercontainer>
-                <Prettytext textSize="text-xxxs">
+                <Prettytext fontSize="text-xxxs">
                     {title}
                 </Prettytext>
                 <Prettytext>
