@@ -48,7 +48,7 @@ export default function Register() {
         localStorage.setItem("username", form.username);
         localStorage.setItem("email", form.email);
 
-        navigate("/forum");
+        navigate("/dread");
     };
 
     return (
@@ -81,7 +81,7 @@ export default function Register() {
                                 />
 
                                 <div className="flex justify-between mt-6">
-                                    <Click to="/welcome" label="Back" size="text-xxs" />
+                                    <Click to="/forum" label="Back" size="text-xxs" />
                                     <Click onClick={handleCreateAccount} label="Create Account" size="text-sm" />
                                 </div>
                             </div>
