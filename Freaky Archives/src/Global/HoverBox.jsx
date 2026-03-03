@@ -9,7 +9,7 @@ export default function HoverBox({classes = "visible"}) {
         logout();
         navigate("/");
     };
-    const HoverStyles = `absolute -z-0 w-60 h-50 -ml-55 bg-olive border-1 border-solid border-border
+    const HoverStyles = `absolute -z-0 w-60 h-50 -mr-8 bg-olive border-1 border-solid border-border
             flex flex-col items-center justify-center top-full right-0 blur-none
             before:content-[''] 
             before:absolute 
@@ -20,10 +20,12 @@ export default function HoverBox({classes = "visible"}) {
             `;
 
     return (
+        <><div className="">
+        </div>
         <nav className={`${HoverStyles} ${classes}`}>
             <Click label="ACCOUNT" menu={true} to="/account" /> <br></br>
-            <Click label="SETTINGS" menu={true} /> <br></br>
-            <Click label="LOGOUT" menu={true } onClick={loggingout} />
-        </nav>
+            <Click label="SETTINGS" menu={true} to="/settings" /> <br></br>
+            <Click label="LOGOUT" menu={true} onClick={loggingout} />
+        </nav></>
     );
 }
