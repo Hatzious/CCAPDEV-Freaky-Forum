@@ -1,5 +1,5 @@
-export default function Icon({classes = ""}) {
-    const iconStyles = `flex w-12 h-12 bg-olive border-1 border-solid border-border
+export default function Icon({classes = "", dimensions = "w-12 h-12"}) {
+    const iconStyles = `flex ${dimensions} bg-olive border-1 border-solid border-info
             ${classes}
             `;
 

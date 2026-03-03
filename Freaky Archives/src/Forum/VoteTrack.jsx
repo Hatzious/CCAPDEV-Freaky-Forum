@@ -1,7 +1,10 @@
-export default function VoteTrack() {
+import { useState } from "react";
+
+export default function VoteTrack({ initial=0 }) {
+    const [score, useScore] = useState(initial);
     return (
-        <div className="text-glow text-xxxxs w-7 flex pr-1">
-            0
-        </div>
+        <button className="text-glow text-xxxxs w-7 flex pr-1 cursor-pointer">
+            {score}
+        </button>
     );
 }
