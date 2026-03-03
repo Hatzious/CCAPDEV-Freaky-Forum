@@ -26,7 +26,7 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
 
     if (onClick) {
         return (
-            <button onClick={onClick} className={styles + "  bg-olive border-none p-0"}>
+            <button onClick={onClick} className={styles}>
                 {label}
             </button>
         );

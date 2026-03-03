@@ -25,6 +25,5 @@ export default function HoverBox({classes = "visible"}) {
             <Click label="SETTINGS" menu={true} /> <br></br>
             <Click label="LOGOUT" menu={true } onClick={loggingout} />
         </nav>
-        
     );
 }
