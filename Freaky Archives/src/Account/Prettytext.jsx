@@ -1,5 +1,5 @@
-export default function Prettytext({ children, textSize = "text-xxxxs", font }) {
-    let styles = `text-glow ${textSize} font-french-canon`;
+export default function Prettytext({ children, fontSize = "text-xxxxs", fontStyle="font-french-canon" }) {
+    let styles = `text-glow ${fontSize} ${fontStyle}`;
 
     return (
         <span className={styles}>
