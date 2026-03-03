@@ -8,6 +8,7 @@ export default function Titlebox() {
             <Click 
             label="Statement of Detective Alice Daisy Tonner, regarding a traffic stop..."
             size="text-xxxs"
+            to="/postview"
             />
             <Info />
             <Tags />

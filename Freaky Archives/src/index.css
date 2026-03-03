@@ -52,6 +52,10 @@
       0 0 9px var(--color-glow),
       0 0 12px var(--color-glow);
 
+     --text-shadow-compact: 
+        0 0 6px var(--color-glow), 
+        0 0 7px var(--color-glow);
+
     --text-shadow-faint: 0 0 12px rgba(255, 255, 255, 0.5);
 
     /* Border Sizes */

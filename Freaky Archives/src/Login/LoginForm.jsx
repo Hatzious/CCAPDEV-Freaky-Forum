@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Services/Auth/Auth";
+
 export default function LoginForm({
     username,
     password,
@@ -9,6 +12,13 @@ export default function LoginForm({
     onSignIn,
     disableSignIn,
 }) {
+    const { login } = useAuth();
+    const navigate = useNavigate();
+     const handleSignIn = () => {
+        login(); 
+        navigate("/forum"); 
+    };
+
     return (
         <form
             onSubmit={(e) => {
@@ -68,6 +78,7 @@ export default function LoginForm({
                 type="submit"
                 disabled={disableSignIn}
                 className="inline-flex text-glow font-french-canon animate-pulse text-shadow-faint transition-all duration-300 ease-in-out hover:text-shadow-glow hover:brightness-300 hover:animate-none text-sm bg-olive border-none p-0 disabled:opacity-50 disabled:cursor-default"
+                onClick={handleSignIn}
             >
                 Sign In
             </button>
