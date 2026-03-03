@@ -3,7 +3,7 @@ import Click from "./Click";
 import Icon from "./Icon";
 import HoverBox from "./HoverBox";
 import { useState } from "react";
-import { useAuth } from "../Services/Auth/Auth";
+import { useAuth } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 
 

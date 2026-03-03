@@ -6,7 +6,8 @@ import Mainlayout from "./Contain/Mainlayout";
 import Forum from "./Forum/Forum";
 import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
-import { AuthProvider } from "./Services/Auth/Auth";
+import { AuthProvider } from "./Services/Auth";
+import Account from "./Account/Account";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/forum" element={<Forum />} />
             <Route path="/postview" element={<PostView />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/account" element={<Account />} />
           </Route>
         </Routes>
       </Router>

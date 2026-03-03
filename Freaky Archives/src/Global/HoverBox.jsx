@@ -1,6 +1,6 @@
 import Click from "./Click";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../Services/Auth/Auth";
+import { useAuth } from "../Services/Auth";
 
 export default function HoverBox({classes = "visible"}) {
     const { logout } = useAuth();
@@ -21,7 +21,7 @@ export default function HoverBox({classes = "visible"}) {
 
     return (
         <nav className={`${HoverStyles} ${classes}`}>
-            <Click label="ACCOUNT" menu={true} /> <br></br>
+            <Click label="ACCOUNT" menu={true} to="/account" /> <br></br>
             <Click label="SETTINGS" menu={true} /> <br></br>
             <Click label="LOGOUT" menu={true } onClick={loggingout} />
         </nav>

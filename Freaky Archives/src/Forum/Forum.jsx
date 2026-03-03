@@ -1,10 +1,12 @@
-import Click from "../Global/Click";
-import Posts from "./Posts";
+import Post from "./Post";
+import Middlelayout from "../Contain/Middlelayout";
 
 export default function Forum() {
     return (
-        <div className="flex justify-center">
-            <Posts />
-        </div>
+        <Middlelayout>
+            <Post />
+            <Post />
+            <Post />
+        </Middlelayout>
     );
 }
