@@ -8,6 +8,7 @@ import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
 import { AuthProvider } from "./Services/Auth";
 import Account from "./Account/Account";
+import Register from "./Register/Register";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           <Route element={<Mainlayout />}>
             <Route path="/dread" element={<Dread />} />
