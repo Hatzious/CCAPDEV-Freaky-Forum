@@ -4,8 +4,42 @@ import Logo from "../Global/Logo";
 import Explayout from "../Contain/Explayout";
 import Click from "../Global/Click";
 import RegisterForm from "./RegisterForm";
+import { useAuth } from "../Services/Auth";
 
 export default function Register() {
+    const { login } = useAuth;
+
+    const handleRegister = async (username, email, password, dob) => {
+        const userData = {
+            username: username,
+            email: email,
+            password: password,
+            dob: dob
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/api/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
+            });
+            const data = await response.json();
+
+            if (response.ok) {        
+                login(data.user); 
+                return true;
+            } 
+            else {
+                alert(data.message);
+                return false;
+            }
+
+        } catch (error) {
+            console.error("Error connecting to server:", error);
+            return false;
+        }
+    };
+
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -32,7 +66,7 @@ export default function Register() {
         }));
     };
 
-    const handleCreateAccount = () => {
+    const handleCreateAccount = async () => {
         setHasSubmitted(true);
 
         if (emailInvalid || 
@@ -44,11 +78,11 @@ export default function Register() {
             return;
         }
 
-        localStorage.setItem("authToken", "logged_in_user_" + Date.now());
-        localStorage.setItem("username", form.username);
-        localStorage.setItem("email", form.email);
+        const success = handleRegister(form.username, form.email, form.password, form.dob);
 
-        navigate("/dread");
+        if (success) {
+            navigate("/dread");
+        }
     };
 
     return (

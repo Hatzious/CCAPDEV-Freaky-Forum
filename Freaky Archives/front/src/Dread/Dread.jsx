@@ -1,5 +1,6 @@
 import Row from "./Row";
 import Middle from "./Middle";
+import { useAuth } from "../Services/Auth";
 
 const images = import.meta.glob('../../public/pic/*.{png,jpg,jpeg,SVG}', { eager: true });
 const allImages = Object.values(images).map((mod) => mod.default);
