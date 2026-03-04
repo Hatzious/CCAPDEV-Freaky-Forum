@@ -1,7 +1,7 @@
 import Row from "./Row";
 import Middle from "./Middle";
 
-const images = import.meta.glob('./pic/*.{png,jpg,jpeg,SVG}', { eager: true });
+const images = import.meta.glob('../../public/pic/*.{png,jpg,jpeg,SVG}', { eager: true });
 const allImages = Object.values(images).map((mod) => mod.default);
 
 export default function Dread() {
