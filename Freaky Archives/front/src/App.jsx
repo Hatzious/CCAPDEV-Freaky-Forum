@@ -6,13 +6,11 @@ import Mainlayout from "./Contain/Mainlayout";
 import Forum from "./Forum/Forum";
 import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
-import { AuthProvider } from "./Services/Auth";
 import Account from "./Account/Account";
 import Register from "./Register/Register";
 
 export default function App() {
-  return (
-    <AuthProvider>
+  return ( 
       <Router>
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -28,6 +26,5 @@ export default function App() {
           </Route>
         </Routes>
       </Router>
-    </AuthProvider>
   );
 }

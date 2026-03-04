@@ -16,7 +16,7 @@ app.post('/api/Register', async (req, res) => {
         const newUser = await User.create({username, email, password, dob});
         res.status(201).json({
             message: "User registered successfully!",
-            user: { id: newUser._id, username: newUser.username }
+            user: newUser
         });
     } catch (error) {
         res.status(500).json({message: error.message});
@@ -33,7 +33,7 @@ app.put('/api/Dread', async (req, res) => {
             { new: true }
         );
 
-        res.status(200).json({ message: "Avatar updated!", user: updatedUser });
+        res.status(200).json({ message: "Avatar updated", user: updatedUser });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

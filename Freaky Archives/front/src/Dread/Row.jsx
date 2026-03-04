@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Row({ arr }) {
+export default function Row({ arr, onSelect }) {
     if (!arr) {
         return (<Link to="/"><span className="text-white">Problem with component, return to welcome</span></Link>);
     }
@@ -10,7 +10,7 @@ export default function Row({ arr }) {
     return (
         <div className="grid gap-x-7" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
             {arr.map((imgSrc, index) => (
-                <div key={index} className="h-[16vh] w-[8vw]">
+                <div key={index} onClick={() => onSelect(imgSrc)} className="h-[16vh] w-[8vw]">
                     <img src={imgSrc} alt={`Dread item ${index}`} />
                 </div>
             ))}

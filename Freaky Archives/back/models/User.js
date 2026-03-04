@@ -17,6 +17,8 @@ const UserSchema =  new mongoose.Schema({
         bio: { type: String, default: "Wow, such empty", trim: true },
         avatarUrl: { type: String, default: "./puppy.jpg" }
     }
-}, { timestamps: true });
+}, { timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }});
 
 module.exports = mongoose.model("User", UserSchema);

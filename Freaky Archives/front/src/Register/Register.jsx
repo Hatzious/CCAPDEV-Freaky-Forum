@@ -7,8 +7,8 @@ import RegisterForm from "./RegisterForm";
 import { useAuth } from "../Services/Auth";
 
 export default function Register() {
-    const { login } = useAuth;
-
+    const { login } = useAuth();
+    
     const handleRegister = async (username, email, password, dob) => {
         const userData = {
             username: username,
@@ -25,8 +25,10 @@ export default function Register() {
             });
             const data = await response.json();
 
+            console.log("Response data:", data);
+
             if (response.ok) {        
-                login(data.user); 
+                login(data.user);            
                 return true;
             } 
             else {
