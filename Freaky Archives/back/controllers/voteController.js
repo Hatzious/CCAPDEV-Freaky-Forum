@@ -55,7 +55,7 @@ exports.vote = async(req, res) => {
 };
 
 // Get user's votes for a post
-exports.getUserVote = async(req, res) => {
+exports.getUserVotes = async(req, res) => {
     try {
         let votes = await Vote.find({ userId: req.params.userId }).populate('postId', 'title');
 

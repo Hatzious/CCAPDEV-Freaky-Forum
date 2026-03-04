@@ -7,7 +7,7 @@ const {
     unfollowUser,
     getFollowers,
     getFollowing
-} = require('../kontollers/authController');
+} = require('../controllers/userController');
 
 router.get('/:userId', getUserProfile);
 router.post('/:userId/follow', auth, followUser);

@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const {
-    votePost,
+    vote,
     getUserVotes
-} = require('../kontollers/postController');
+} = require('../controllers/voteController');
 
-router.post('/', auth, votePost);
+router.post('/', auth, vote);
 router.get('/user/:userId', getUserVotes);
 
 module.exports = router;

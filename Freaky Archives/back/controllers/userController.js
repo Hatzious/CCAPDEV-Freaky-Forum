@@ -11,11 +11,11 @@ exports.getUserProfile = async(req, res) => {
         }
 
         // Count followers and following count
-        const followers = await Follow.countDocuments({ following: req.params.userId });
-        const following = await Follow.countDocuments({ follower: req.params.userId });
+        // const followers = await Follow.countDocuments({ following: req.params.userId });
+        // const following = await Follow.countDocuments({ follower: req.params.userId });
 
-        user.stats.followerCount = followers;
-        user.stats.followingCount = following;
+        // user.stats.followerCount = followers;
+        // user.stats.followingCount = following;
 
         res.json(user);
     } catch (err) {
@@ -81,7 +81,7 @@ exports.unfollowUser = async(req, res) => {
 // Get followers
 exports.getFollowers = async(req, res) => {
     try {
-        let followers = await Follow.find({ following: req.params.userId }).populate('follower', 'username profile.avatarUrl status.isOnline');
+        let followers = await Follow.find({ following: req.params.userId }).populate('follower', 'username profile.avatarUrl');
 
         res.json(followers.map(f => f.follower));
     } catch (err) {
@@ -93,7 +93,7 @@ exports.getFollowers = async(req, res) => {
 // Get following
 exports.getFollowing = async(req, res) => {
     try {
-        let following = await Follow.find({ follower: req.params.userId }).populate('following', 'username profile.avatarUrl status.isOnline');
+        let following = await Follow.find({ follower: req.params.userId }).populate('following', 'username profile.avatarUrl');
 
         res.json(following.map(f => f.following));
     } catch (err) {

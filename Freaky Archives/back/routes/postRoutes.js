@@ -5,7 +5,7 @@ const {
     createPost,
     getPosts,
     getPost
-} = require('../kontollers/authController');
+} = require('../controllers/postController');
 
 router.post('/', auth, createPost);
 router.get('/', getPosts);
