@@ -4,9 +4,13 @@ import Logo from "../Global/Logo";
 import Explayout from "../Contain/Explayout";
 import Click from "../Global/Click";
 import RegisterForm from "./RegisterForm";
+import axios from "axios";
+import CreateAccountClick from "./CreateAccountClick";
 
 export default function Register() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const [form, setForm] = useState({
         email: "",
@@ -32,8 +36,9 @@ export default function Register() {
         }));
     };
 
-    const handleCreateAccount = () => {
+    const handleCreateAccount = async() => {
         setHasSubmitted(true);
+        setError("");
 
         if (emailInvalid || 
             usernameInvalid ||
@@ -44,11 +49,31 @@ export default function Register() {
             return;
         }
 
-        localStorage.setItem("authToken", "logged_in_user_" + Date.now());
-        localStorage.setItem("username", form.username);
-        localStorage.setItem("email", form.email);
+        setLoading(true);
 
-        navigate("/dread");
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/register', {
+                email: form.email,
+                username: form.username,
+                password: form.password,
+                dob: form.dob
+            });
+
+            // localStorage.setItem("authToken", "logged_in_user_" + Date.now());
+            localStorage.setItem("authToken", response.data.token);
+            // localStorage.setItem("username", form.username);
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            localStorage.setItem("username", response.data.user.username);
+            // localStorage.setItem("email", form.email);
+            localStorage.setItem("email", response.data.user.email);
+
+            navigate("/dread");
+
+        } catch (err) {
+            setError(err.response?.data?.msg || "Registration failed. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -82,7 +107,8 @@ export default function Register() {
 
                                 <div className="flex justify-between mt-6">
                                     <Click to="/forum" label="Back" size="text-xxs" />
-                                    <Click onClick={handleCreateAccount} label="Create Account" size="text-sm" />
+                                    {/* <Click onClick={handleCreateAccount} label="Create Account" size="text-sm" /> */}
+                                    <CreateAccountClick handleCreateAccount={handleCreateAccount} loading={loading} />
                                 </div>
                             </div>
                         </div>
