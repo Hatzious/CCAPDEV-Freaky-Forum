@@ -3,6 +3,7 @@ import Head from "./Head";
 import Post from "./Post";
 
 export default function Account() {
+    
     return (
         <Middlelayout>
 

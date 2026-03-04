@@ -2,7 +2,7 @@ import Logo from "./Logo";
 import Click from "./Click";
 import Icon from "./Icon";
 import HoverBox from "./HoverBox";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 
@@ -15,10 +15,6 @@ export default function Navbar() {
         login();
         navigate("/");
     };
-
-    useEffect(() => {
-    console.log("AUTH STATE CHANGED:", user);
-        }, [user]);
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-olive border-b border-border 
@@ -46,7 +42,7 @@ export default function Navbar() {
                         <div onMouseEnter={() => setShowHoverBox(true)} onMouseLeave={() => setShowHoverBox(false)}>
                             <Icon 
                             classes="cursor-pointer transition-all ease-in-out
-                                    hover:bg-glow hover:animate-none hover:border-white"/>
+                                    hover:bg-glow hover:animate-none hover:border-white" source={user.profile.avatarUrl}/>
                             {showHoverBox && (
                                 <div>
                                     <HoverBox />
