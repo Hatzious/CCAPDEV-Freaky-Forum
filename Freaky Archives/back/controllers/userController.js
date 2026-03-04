@@ -21,7 +21,7 @@ exports.getUserProfile = async(req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server error!");
-    };
+    }
 }
 
 // Follow the user
@@ -58,7 +58,7 @@ exports.followUser = async(req, res) => {
 
         console.error(err.message);
         res.status(500).send("Server error!");
-    };
+    }
 }
 
 // Unfollow the user
