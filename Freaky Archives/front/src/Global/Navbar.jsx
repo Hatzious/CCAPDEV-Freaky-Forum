@@ -31,17 +31,15 @@ export default function Navbar() {
                 <Click label="SEARCH" />
             </div>
             ) : (
-            <div className="flex-none flex justify-center gap-24 pl-5">
-                <Click label="FORUM" to="/forum" />
-                <div>
-                    <Click label="SEARCH" onClick={() => setShowHoverBox(!showHoverBox)} />
-                            {showHoverBox && (
-                                <div>
-                                    <SearchBar />
-                                </div>
+                <div className="flex items-center justify-center gap-24 pl-5">
+                    <Click label="FORUM" to="/forum" />
+                    <div className="flex items-center gap-4">
+                        {!showHoverBox ? (
+                            <Click label="SEARCH" onClick={() => setShowHoverBox(true)} />
+                        ) : (<SearchBar onClose={() => setShowHoverBox(false)} />
                         )}
+                    </div>
                 </div>
-            </div>
             )
            }
 

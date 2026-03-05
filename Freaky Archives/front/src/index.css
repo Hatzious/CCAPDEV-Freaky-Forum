@@ -56,6 +56,16 @@
         0 0 6px var(--color-glow), 
         0 0 7px var(--color-glow);
 
+    --animate-scale: scale 0.3s;
+    @keyframes scale {
+      0% {
+        transform: scaleX(0);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
     --text-shadow-faint: 0 0 12px rgba(255, 255, 255, 0.5);
 
     /* Border Sizes */
