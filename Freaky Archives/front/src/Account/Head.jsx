@@ -15,7 +15,7 @@ export default function Account() {
                     {user.username}
                 </Prettytext>
                 <Prettytext>
-                    I shall be the last, and when the universe is silent and still forever, I shall, perhaps, in that impossible moment, before I vanish, finally be satisfied.
+                    {user.profile.bio}
                 </Prettytext>
                 <Infocontainer />
             </Mastercontainer>

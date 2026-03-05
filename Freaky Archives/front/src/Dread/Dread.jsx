@@ -14,9 +14,9 @@ export default function Dread() {
     const { user, login } = useAuth();
     const navigate = useNavigate();
 
-     if (!user) {
-            return <div className="text-white text-center mt-20">Identifying User...</div>;
-        }
+    if (!user) {
+        return <div className="text-white text-center mt-20">Identifying User...</div>;
+    }
 
     const handleAvatarSelect = async (imgUrl) => {
 
