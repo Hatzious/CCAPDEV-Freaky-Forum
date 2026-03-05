@@ -2,6 +2,7 @@ import Logo from "./Logo";
 import Click from "./Click";
 import Icon from "./Icon";
 import HoverBox from "./HoverBox";
+import SearchBar from "./SearchBar";
 import { useState } from "react";
 import { useAuth } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +33,14 @@ export default function Navbar() {
             ) : (
             <div className="flex-none flex justify-center gap-24 pl-5">
                 <Click label="FORUM" to="/forum" />
-                <Click label="SEARCH" to="/account" />
+                <div>
+                    <Click label="SEARCH" onClick={() => setShowHoverBox(!showHoverBox)} />
+                            {showHoverBox && (
+                                <div>
+                                    <SearchBar />
+                                </div>
+                        )}
+                </div>
             </div>
             )
            }
