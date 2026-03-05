@@ -50,7 +50,7 @@ export default function Navbar() {
                         <div onMouseEnter={() => setShowHoverBox(true)} onMouseLeave={() => setShowHoverBox(false)}>
                             <Icon 
                             classes="cursor-pointer transition-all ease-in-out
-                                    hover:bg-glow hover:animate-none hover:border-white"/>
+                                    hover:bg-glow hover:animate-none hover:border-white" source={user.profile.avatarUrl}/>
                             {showHoverBox && (
                                 <div>
                                     <HoverBox />
