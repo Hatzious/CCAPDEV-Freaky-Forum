@@ -19,7 +19,7 @@ exports.getUserProfile = async(req, res) => {
 
         res.json(user);
     } catch (err) {
-        console.error(err.message);
+        console.error("getUserProfile error:", err.message);
         res.status(500).send("Server error!");
     }
 }
@@ -56,7 +56,7 @@ exports.followUser = async(req, res) => {
             return res.status(400).json({ msg:"Already following this user!" });
         }
 
-        console.error(err.message);
+        console.error("followUser error:", err.message);
         res.status(500).send("Server error!");
     }
 }
@@ -73,7 +73,7 @@ exports.unfollowUser = async(req, res) => {
 
         res.json({ msg:"User unfollowed successfully!" });
     } catch (err) {
-        console.error(err.message);
+        console.error("unfollowUser error:", err.message);
         res.status(500).send("Server error!");
     }
 }
@@ -85,7 +85,7 @@ exports.getFollowers = async(req, res) => {
 
         res.json(followers.map(f => f.follower));
     } catch (err) {
-        console.error(err.message);
+        console.error("getFollowers error:", err.message);
         res.status(500).send("Server error!");
     }
 }
@@ -97,7 +97,7 @@ exports.getFollowing = async(req, res) => {
 
         res.json(following.map(f => f.following));
     } catch (err) {
-        console.error(err.message);
+        console.error("getfollowing error:", err.message);
         res.status(500).send("Server error!");
     }
 }
