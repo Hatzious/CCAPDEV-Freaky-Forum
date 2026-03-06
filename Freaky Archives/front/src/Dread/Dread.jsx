@@ -14,6 +14,8 @@ export default function Dread() {
     const { user, login } = useAuth();
     const navigate = useNavigate();
 
+    console.log("Current user: " + user.username);
+
     if (!user) {
         return <div className="text-white text-center mt-20">Identifying User...</div>;
     }
