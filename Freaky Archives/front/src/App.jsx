@@ -8,10 +8,13 @@ import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
 import Account from "./Account/Account";
 import Register from "./Register/Register";
-import Post from "./Post/CreatePost"
+import Post from "./Post/CreatePost";
+import Music from "./Global/music";
 
 export default function App() {
   return ( 
+    <>
+      <Music />
       <Router>
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -28,5 +31,6 @@ export default function App() {
           </Route>
         </Routes>
       </Router>
+    </>
   );
 }

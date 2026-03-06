@@ -80,6 +80,18 @@
     border-width: 0.8px;
   }
 
+  .audio {
+    cursor: pointer;
+    position: fixed;
+    margin: 0;
+    right: 0;
+    bottom: 0;
+    width: 3vw;
+    height: 5vh;
+    font-size: var(--text-xs);
+    z-index: 50;
+  }
+
 @layer components {
   .badge {
     padding: 1px;
