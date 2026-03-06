@@ -31,6 +31,7 @@
     --color-upvote: #16361B;/* Upvote color */
     --color-downvote: #5D0D0D;/* Downvote color */
     --color-info: #757849; /* For small info on post */
+    --color-textbox: #070800; /* Textbox background color */
 
     /* Font Sizes */
     --text-xxxxxs: 12px;
