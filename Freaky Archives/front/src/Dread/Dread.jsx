@@ -11,14 +11,8 @@ export default function Dread() {
     const botRow= allImages.slice(5, 11);
     const midRow1= allImages.slice(11, 13);
     const midRow2= allImages.slice(13, 16);
-    const { user, login } = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
-
-    console.log("Current user: " + user.username);
-
-    if (!user) {
-        return <div className="text-white text-center mt-20">Identifying User...</div>;
-    }
 
     const handleAvatarSelect = async (imgUrl) => {
 
@@ -29,7 +23,6 @@ export default function Dread() {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 
-                    userId: user.id, 
                     avatarUrl: cleanUrl 
                 })
             });
