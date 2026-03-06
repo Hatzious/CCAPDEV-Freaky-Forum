@@ -91,11 +91,11 @@ export default function Register() {
     return (
         <Explayout classes="justify-center pt-10">
             <div className="w-full flex justify-center">
-                <img
+                {/* <img
                     src="/pic/card.png"
                     alt="card"
                     style={{ width: 336, height: 487, objectFit: "cover" }}
-                />
+                /> */}
                 <div className="flex flex-col items-center gap-y-5">
                     <Logo size="text-medium" />
 
