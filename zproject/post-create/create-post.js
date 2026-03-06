@@ -119,7 +119,7 @@ const insertMarkdown = (token) => {
     const insertValue = token.includes(" ") ? `${token}${selection}` : `${token}${selection}${token}`;
     bodyInput.value = `${before}${insertValue}${after}`;
 
-    const cursor = before.length + insertValue.length;
+    const cursor = before.length + insertValue.length ;
     bodyInput.setSelectionRange(cursor, cursor);
     bodyInput.focus();
     renderPreview();

@@ -8,6 +8,7 @@ import PostView from "./PostView/PostView";
 import Settings from "./Settings/Settings";
 import Account from "./Account/Account";
 import Register from "./Register/Register";
+import Post from "./Post/CreatePost"
 
 export default function App() {
   return ( 
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/postview" element={<PostView />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/createpost" element={<Post />} />
           </Route>
         </Routes>
       </Router>
