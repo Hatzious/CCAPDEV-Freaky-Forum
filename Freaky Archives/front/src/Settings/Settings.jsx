@@ -13,6 +13,17 @@ export default function Settings() {
                 <div className="flex flex-col items-start w-9/10 gap-y-16">
                     <Option idName="music-toggle" label="ON" description="Turn Off MUSIC of this website by clicking the toggle button." />
                     <Option idName="surprise-button" description="Click The BUTTON for a suprise!!" />
+                    <hr className="w-full border-t border-border" />
+
+                    {/* Edit details for username, editing profile picture, date of birth, password (IN TEXT FIELDS) */}
+                    <Option idName="username" label="Edit Username" description="Change your username at any time." />
+                    <Option idName="profile-picture" label="Edit Profile Picture" description="Upload a new profile picture." />
+                    <Option idName="date-of-birth" label="Edit Date of Birth" description="Update your date of birth." />
+                    <Option idName="password" label="Change Password" description="Update your password." />
+                    <hr className="w-full border-t border-border" />
+
+                    {/* Delete account option */}
+                    <Option idName="delete-account" label="Delete Account" description="Permanently delete your account and all associated data." />
                 </div>
             </div>
         </div>
