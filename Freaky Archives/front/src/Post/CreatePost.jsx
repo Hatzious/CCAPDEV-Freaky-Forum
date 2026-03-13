@@ -46,7 +46,7 @@ export default function CreatePost() {
                             onChange={(e) => setTitle(e.target.value)}
                         />
                         {titleInvalid && hasSubmitted && (
-                            <p className="text-red-500 text-xxxxxs mt-1">
+                            <p className="text-red-500 text-xxxxxs">
                                 Title is required
                             </p>
                         )}
@@ -74,7 +74,7 @@ export default function CreatePost() {
                             onChange={(e) => setBody(e.target.value)}>
                         </textarea>
                         {bodyInvalid && hasSubmitted && (
-                            <p className="text-red-500 text-xxxxxs mt-1">
+                            <p className="text-red-500 text-xxxxxs">
                                 Body is required
                             </p>
                         )}
