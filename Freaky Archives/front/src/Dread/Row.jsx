@@ -10,7 +10,7 @@ export default function Row({ arr, onSelect }) {
     return (
         <div className="grid gap-x-7" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
             {arr.map((imgSrc, index) => (
-                <div key={index} onClick={() => onSelect(imgSrc)} className="h-[16vh] w-[8vw]">
+                <div key={index} onClick={() => onSelect(imgSrc)} className="h-[16vh] w-[8vw] cursor-pointer">
                     <img src={imgSrc} alt={`Dread item ${index}`} />
                 </div>
             ))}

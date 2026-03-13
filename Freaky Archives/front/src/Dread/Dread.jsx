@@ -22,6 +22,7 @@ export default function Dread() {
             const response = await fetch("http://localhost:5000/api/Dread", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include",
                 body: JSON.stringify({ 
                     avatarUrl: cleanUrl 
                 })
