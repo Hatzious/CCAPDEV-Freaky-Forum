@@ -42,19 +42,22 @@ export default function RegisterForm({
             </div>
 
             <div>
-        
                 <input
-                    type="date"
+                    type={form.dob ? "date" : "text"}
                     value={form.dob}
+                    onFocus={(e) => e.target.type = "date"}
+                    onBlur={(e) => {
+                        if (!e.target.value) { e.target.type = "text"}
+                    }}
                     onChange={(e) => handleChange("dob", e.target.value)}
-                    className="w-full px-4 py-3 border border-primary-2 rounded-sm bg-primary-1 text-primary-2 focus:outline-none focus:border-secondary-1 focus:shadow-lg focus:shadow-secondary-1"
+                    placeholder="Date of Birth"
+                    className="w-full px-4 py-3 border border-primary-2 rounded-sm bg-primary-1 text-primary-2 placeholder-primary-2 placeholder-opacity-25 focus:outline-none focus:border-secondary-1 focus:shadow-lg focus:shadow-secondary-1"
                     />
                 {dobError && (
                     <p className="text-red-500 text-xxxxxs mt-1">
                         {dobError}
                     </p>
                 )}
-                    
             </div>
 
             <div>
