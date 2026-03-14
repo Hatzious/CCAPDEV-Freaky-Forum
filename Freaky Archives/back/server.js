@@ -109,7 +109,7 @@ app.get('/api/Posts', async (req, res) => {
         if (viewer === "most") {
             sorted = { views: -1 };
         } else if (viewer === "least") {
-            sorted = { views: -1 };
+            sorted = { views: 1 };
         }
 
         if (tags) {
@@ -121,7 +121,7 @@ app.get('/api/Posts', async (req, res) => {
             } else {
                 tagList = [tags.toLowerCase()];
             }
-            query.tags = { $all: tagList };
+            quarry.tags = { $all: tagList };
         }
 
         const posts = await Post.find(quarry)
