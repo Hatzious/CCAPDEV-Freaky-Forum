@@ -33,6 +33,8 @@ app.post('/api/Register', async (req, res) => {
         const { username, email, password, dob} = req.body;
         const newUser = await User.create({username, email, password, dob});
 
+        await newUser.setOnline();
+
         req.session.user = newUser;
 
         res.status(201).json({
@@ -44,6 +46,26 @@ app.post('/api/Register', async (req, res) => {
     }
 }); 
 
+app.post('/api/Login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
+        
+        // Verify password
+        
+        if (user) {
+            await user.setOnline();
+            req.session.user = user;
+            console.log("logged in!");
+            res.json({ message: "Logged in", user });
+        } else {
+            res.status(401).json({ message: "Invalid credentials" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 app.put('/api/Dread', async (req, res) => {
     try {
         if (!req.session.user) return res.status(401).send({ message: "Unauthorized" });
@@ -52,7 +74,7 @@ app.put('/api/Dread', async (req, res) => {
     
         const updatedUser = await User.findByIdAndUpdate(
             req.session.user._id, 
-            { "profile.avatarUrl": avatarUrl },
+            { "profile.avatarUrl": avatarUrl, "status.lastActive": new Date(), "status.isOnline": true },
             { new: true }
         );
 
@@ -71,10 +93,26 @@ app.get('/api/me', (req, res) => {
     res.json({ loggedIn: false });
 });
 
-app.post('/api/Logout', (req, res) => {
-    req.session.destroy();
-    res.clearCookie('connect.sid');
-    res.json({ message: "Logged out" });
+app.post('/api/Logout', async (req, res) => {
+    try {
+        if (req.session.user) {
+            const user = await User.findById(req.session.user._id);
+            if (user) {
+                await user.setOffline();
+            }
+        }
+
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).json({ message: "Could not log out completely" });
+            }
+        });
+
+        res.clearCookie('connect.sid');
+        res.json({ message: "Logged out" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 app.get('/api/Posts', async (req, res) => {

@@ -13,14 +13,33 @@ export default function Login() {
     const passwordInvalid = !password;
     const isInvalid = usernameInvalid || passwordInvalid;
 
-    const signIn = () => {
-        setHasSubmitted(true);
+    const signIn = async () => {
+        const userData = {
+            username: username,
+            password: password
+        };
 
-        if (isInvalid) {
+        try {
+            const response = await fetch("http://localhost:5000/api/Login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(userData)
+            });
+            const data = await response.json();
+            console.log("Response data:", data);
+
+            setHasSubmitted(true);
+
+            if (isInvalid) {
+                return;
+            }
+
+            console.log("Log in:", { username, password });
+        } catch (err) {
+            console.error("Error logging in:", err);
             return;
-        }
-
-        console.log("Sign in:", { username, password });
+        }  
     };
 
     const forgotPassword = () => {

@@ -22,16 +22,14 @@ const UserSchema =  new mongoose.Schema({
     toObject: { virtuals: true }});
 
 // Middleware
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function() {
     if (this.isNew) {
         this.status.lastActive = new Date();
     }
-    next();
 });
 
-UserSchema.pre('findOneAndUpdate', function(next) {
+UserSchema.pre('findOneAndUpdate', function() {
     this.set({ 'status.lastActive': new Date() });
-    next();
 });
 
 // Functions
@@ -43,12 +41,14 @@ UserSchema.methods.updateLastActive = function() {
 UserSchema.methods.setOnline = function() {
     this.status.isOnline = true;
     this.status.lastActive = new Date();
+    this.markModified('status');
     return this.save();
 };
 
 UserSchema.methods.setOffline = function() {
     this.status.isOnline = false;
     this.status.lastActive = new Date();
+    this.markModified('status');
     return this.save();
 }
 

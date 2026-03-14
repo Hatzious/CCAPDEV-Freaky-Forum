@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
     const logout = async () => {
         const request = await fetch("http://localhost:5000/api/Logout", {
             method: "POST",
-            credentials: "include",
+            credentials: "include"
         })
         const data = await request.json();
         console.log("Logout message: " + data.message);
