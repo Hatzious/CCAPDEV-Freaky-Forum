@@ -1,4 +1,5 @@
 import Option from "./Option";
+import FieldOption from "./FieldOption";
 
 export default function Settings() {
     return (
@@ -16,10 +17,10 @@ export default function Settings() {
                     <hr className="w-full border-t border-border" />
 
                     {/* Edit details for username, editing profile picture, date of birth, password (IN TEXT FIELDS) */}
-                    <Option idName="username" label="Edit Username" description="Change your username at any time." />
-                    <Option idName="profile-picture" label="Edit Profile Picture" description="Upload a new profile picture." />
-                    <Option idName="date-of-birth" label="Edit Date of Birth" description="Update your date of birth." />
-                    <Option idName="password" label="Change Password" description="Update your password." />
+                    <Option idName="profile-picture" label="+" description="Upload a new profile picture." />
+                    <FieldOption idName="username" placeholder="Edit Username" description="Change your username." />
+                    <FieldOption idName="date-of-birth" placeholder="Edit Date of Birth" description="Update your date of birth." />
+                    <FieldOption idName="password" placeholder="Change Password" description="Update your password." />
                     <hr className="w-full border-t border-border" />
 
                     {/* Delete account option */}
