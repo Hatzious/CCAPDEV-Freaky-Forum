@@ -1,11 +1,11 @@
 import Tag from "./Tag";
 
-export default function Tags() {
+export default function Tags({ tags = [] }) {
     return (
         <div className="flex gap-x-2">
-            <Tag label="#statement"/>
-            <Tag label="#detective"/>
-            <Tag label="#hawk tuah"/>
+            {tags.map((t, index) => (
+                <Tag key={index} label={`#${t}`} />
+            ))}
         </div>
     );
 }

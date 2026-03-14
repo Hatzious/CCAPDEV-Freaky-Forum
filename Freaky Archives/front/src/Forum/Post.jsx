@@ -3,16 +3,25 @@ import Icon from "../Global/Icon";
 import Titlebox from "./Titlebox";
 import Vote from "./Vote";
 import PostPreviewCard from "./PostPreviewCard";
+import { prettyDate } from "../Services/function";
 
-export default function Post({
-    title = "Statement of Detective Alice Daisy Tonner, regarding a traffic stop...",
-    author = "My Mom",
-    date = "67/67/2067",
-    views = 123,
-    upvotes = 42,
-    excerpt = "The sun had barely risen when the first sirens echoed through the quiet streets. Detective Tonner knew the night would be long, but she was prepared to follow every lead...",
-}) {
+export default function Post({ data }) {
     const [isHovered, setIsHovered] = useState(false);
+
+    const { 
+        title, 
+        author, 
+        createdAt, 
+        views, 
+        score, 
+        content,
+        tags 
+    } = data;
+
+    const displayDate = prettyDate(createdAt);
+
+    const username = author?.username || "Anonymous";
+    const avatar = author?.profile?.avatarUrl || "/pic/puppy.jpg";
 
     return (
         <div
@@ -20,9 +29,9 @@ export default function Post({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="flex flex-row bg-olive h-[16vh] w-full border-border border-post items-center py-1 px-6 gap-x-4">
-                <Icon />
-                <Titlebox title={title} author={author} date={date} />
+            <div className="flex flex-row bg-olive h-[16vh] w-[66vw] border-border border-post items-center py-1 px-6 gap-x-4">
+                <Icon source={avatar} />
+                <Titlebox title={title} author={username} date={displayDate} tags={tags} />
                 <Vote />
             </div>
 
@@ -30,10 +39,8 @@ export default function Post({
                 <PostPreviewCard
                     title={title}
                     author={author}
-                    date={date}
+                    date={displayDate}
                     views={views}
-                    upvotes={upvotes}
-                    excerpt={excerpt}
                 />
             )}
         </div>

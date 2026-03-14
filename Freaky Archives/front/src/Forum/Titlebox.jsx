@@ -6,9 +6,10 @@ export default function Titlebox({
     title = "",
     author = "",
     date = "",
+    tags = []
 }) {
     return (
-        <div className="flex flex-col grow-2 gap-y-2 h-full justify-center">
+        <div className="flex flex-col grow gap-y-2 h-full justify-center">
             <Click 
             label={title}
             size="text-xxxs"
@@ -16,7 +17,7 @@ export default function Titlebox({
             post="true"
             />
             <Info author={author} date={date} />
-            <Tags />
+            <Tags tags={tags} />
         </div>
     );
 }
