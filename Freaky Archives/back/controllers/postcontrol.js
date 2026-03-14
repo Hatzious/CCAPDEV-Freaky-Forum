@@ -1,3 +1,4 @@
+const Post = require('../models/Post');
 const User = require('../models/User');
 
 exports.postFilter = async (req, res) => {
@@ -53,6 +54,7 @@ exports.postFilter = async (req, res) => {
         res.json(posts);
 
     } catch (err) {
+        console.error("FILTER ERROR:", err); 
         res.status(500).json({ message: err.message });
     }
 };
