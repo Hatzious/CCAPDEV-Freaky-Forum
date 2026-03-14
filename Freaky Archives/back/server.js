@@ -49,15 +49,13 @@ app.post('/api/Register', async (req, res) => {
 app.post('/api/Login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        const user = await User.findOne({ username });
-        
-        // Verify password
+        const user = await User.findOne({ username, password });
         
         if (user) {
             await user.setOnline();
-            req.session.user = user;
+            req.session.user = user.toObject({ virtuals: true });
             console.log("logged in!");
-            res.json({ message: "Logged in", user });
+            res.json({ message: "Logged in", user: req.session.user });
         } else {
             res.status(401).json({ message: "Invalid credentials" });
         }

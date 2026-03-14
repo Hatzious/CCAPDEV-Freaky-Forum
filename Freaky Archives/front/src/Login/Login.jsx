@@ -3,11 +3,13 @@ import Logo from "../Global/Logo";
 import Explayout from "../Contain/Explayout";
 import LoginForm from "./LoginForm";
 import LoginRegister from "./LoginRegister";
+import { useAuth } from "../Services/Auth";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    const { login } = useAuth();
 
     const usernameInvalid = !username.trim();
     const passwordInvalid = !password;
@@ -26,10 +28,14 @@ export default function Login() {
                 credentials: "include",
                 body: JSON.stringify(userData)
             });
-            const data = await response.json();
-            console.log("Response data:", data);
 
             setHasSubmitted(true);
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Response data:", data);
+                login(data.user);
+            }
 
             if (isInvalid) {
                 return;
