@@ -43,3 +43,28 @@ exports.logoutUser = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+ exports.meUser = (req, res) => {
+    if (req.session.user) {
+        return res.json({ loggedIn: true, user: req.session.user });
+    }
+    res.json({ loggedIn: false });
+};
+
+exports.registerUser = async (req, res) => {
+    try {
+        const { username, email, password, dob} = req.body;
+        const newUser = await User.create({username, email, password, dob});
+
+        await newUser.setOnline();
+
+        req.session.user = newUser;
+
+        res.status(201).json({
+            message: "User registered successfully!",
+            user: newUser
+        });
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}; 

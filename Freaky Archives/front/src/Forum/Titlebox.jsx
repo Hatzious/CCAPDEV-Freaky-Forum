@@ -2,16 +2,20 @@ import Click from "../Global/Click";
 import Info from "./Info";
 import Tags from "./Tags";
 
-export default function Titlebox() {
+export default function Titlebox({
+    title = "",
+    author = "",
+    date = "",
+}) {
     return (
         <div className="flex flex-col grow-2 gap-y-2 h-full justify-center">
             <Click 
-            label="Statement of Detective Alice Daisy Tonner, regarding a traffic stop..."
+            label={title}
             size="text-xxxs"
             to="/postview"
             post="true"
             />
-            <Info />
+            <Info author={author} date={date} />
             <Tags />
         </div>
     );

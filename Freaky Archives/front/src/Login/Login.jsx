@@ -36,12 +36,15 @@ export default function Login() {
                 console.log("Response data:", data);
                 login(data.user);
             }
+            else {
+                console.log("Invalid login but the api call was successful");
+            }
 
             if (isInvalid) {
                 return;
             }
 
-            console.log("Log in:", { username, password });
+            console.log("Log in attempt:", { username, password });
         } catch (err) {
             console.error("Error logging in:", err);
             return;
