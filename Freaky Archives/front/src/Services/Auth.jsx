@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/me", { credentials: "include" })
+        fetch("http://localhost:5000/api/Auth/me", { credentials: "include" })
             .then(res => res.json())
             .then(data => {
                 console.log("Miku miku beaaaaaaaaaam: " + data);
