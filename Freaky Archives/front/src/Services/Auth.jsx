@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
     };
 
     const logout = async () => {
-        const request = await fetch("http://localhost:5000/api/Logout", {
+        const request = await fetch("http://localhost:5000/api/Auth/logout", {
             method: "POST",
             credentials: "include"
         })

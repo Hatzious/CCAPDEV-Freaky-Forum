@@ -21,3 +21,25 @@ exports.loginUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.logoutUser = async (req, res) => {
+    try {
+        if (req.session.user) {
+            const user = await User.findById(req.session.user._id);
+            if (user) {
+                await user.setOffline();
+            }
+        }
+
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).json({ message: "Could not log out completely" });
+            }
+            
+            res.clearCookie('connect.sid');
+            res.json({ message: "Logged out" });
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};

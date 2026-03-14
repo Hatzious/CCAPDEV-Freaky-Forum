@@ -6,6 +6,7 @@ const { MongoStore } = require('connect-mongo');
 const User = require('./models/User');
 const Post = require('./models/Post');
 const app = express();
+const authRoute = require('./routes/authroute');
 
 connectDB();
 
@@ -46,8 +47,7 @@ app.post('/api/Register', async (req, res) => {
     }
 }); 
 
-const loginRoute = require('./routes/loginroute');
-app.use('/api/Login', loginRoute);
+app.use('/api/Auth', authRoute);
 
 app.put('/api/Dread', async (req, res) => {
     try {
