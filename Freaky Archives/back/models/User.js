@@ -21,4 +21,35 @@ const UserSchema =  new mongoose.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true }});
 
+// Middleware
+UserSchema.pre('save', function(next) {
+    if (this.isNew) {
+        this.status.lastActive = new Date();
+    }
+    next();
+});
+
+UserSchema.pre('findOneAndUpdate', function(next) {
+    this.set({ 'status.lastActive': new Date() });
+    next();
+});
+
+// Functions
+UserSchema.methods.updateLastActive = function() {
+    this.status.lastActive = new Date();
+    return this.save();
+}
+
+UserSchema.methods.setOnline = function() {
+    this.status.isOnline = true;
+    this.status.lastActive = new Date();
+    return this.save();
+};
+
+UserSchema.methods.setOffline = function() {
+    this.status.isOnline = false;
+    this.status.lastActive = new Date();
+    return this.save();
+}
+
 module.exports = mongoose.model("User", UserSchema);

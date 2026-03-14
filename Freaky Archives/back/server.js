@@ -1,9 +1,9 @@
 const express = require('express');
 const connectDB = require('./config/connect');
 const cors = require('cors')
-const User = require('./models/User');
 const session = require('express-session');
 const { MongoStore } = require('connect-mongo');
+const User = require('./models/User');
 const Post = require('./models/Post');
 const app = express();
 
