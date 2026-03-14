@@ -14,7 +14,7 @@ export default function Infocontainer() {
                 <Prettytext fontStyle="font-varela">Followers: { user.stats.followerCount }</Prettytext>
             </div>
             <div className="flex flex-col gap-y-1">
-                <Prettytext fontStyle="font-varela">Last Active: { formattedTime } hours ago</Prettytext>
+                <Prettytext fontStyle="font-varela">Last Active: { formattedTime }</Prettytext>
                 <Prettytext fontStyle="font-varela">Following: { user.stats.followingCount }</Prettytext>
             </div>
         </div>

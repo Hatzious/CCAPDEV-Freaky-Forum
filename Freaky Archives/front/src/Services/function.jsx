@@ -11,7 +11,9 @@ export function prettyDate(baseDate) {
 export function prettyTime(baseDate) {
     const date = new Date(baseDate);
 
-    const hours = String(date.getHours()).padStart(2, '0');
-
-    return `${hours}`;
+    return `${date.toLocaleTimeString ('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+    })}`;
 }
