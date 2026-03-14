@@ -46,23 +46,8 @@ app.post('/api/Register', async (req, res) => {
     }
 }); 
 
-app.post('/api/Login', async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        const user = await User.findOne({ username, password });
-        
-        if (user) {
-            await user.setOnline();
-            req.session.user = user.toObject({ virtuals: true });
-            console.log("logged in!");
-            res.json({ message: "Logged in", user: req.session.user });
-        } else {
-            res.status(401).json({ message: "Invalid credentials" });
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+const loginRoute = require('./routes/loginroute');
+app.use('/api/Login', loginRoute);
 
 app.put('/api/Dread', async (req, res) => {
     try {
