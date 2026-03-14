@@ -8,7 +8,7 @@ export default function Forum() {
     return (
         <Middlelayout>
             <Prettytext fontSize="text-medium">
-                You called for "{query}" and you find...
+                You searched for "{query}" and you find...
             </Prettytext>
             <div className="pt-8"></div>
             <Post />
