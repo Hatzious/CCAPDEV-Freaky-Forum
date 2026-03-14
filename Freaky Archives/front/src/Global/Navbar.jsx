@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const [showHoverBox, setShowHoverBox] = useState(false);
+    const [showSearchBar, setShowSearchBar] = useState(false);
     const { user, login } = useAuth();
     const navigate = useNavigate();
     const signingUp = () => {
@@ -25,41 +26,33 @@ export default function Navbar() {
                 <Logo size="text-normal" />
             </div>
            
-           {user ? (
-            <div className="flex-none flex justify-center gap-24 pr-25">
+            <div className="flex items-center justify-center gap-24 pl-5">
                 <Click label="FORUM" to="/forum" />
-                <Click label="SEARCH" />
-            </div>
-            ) : (
-                <div className="flex items-center justify-center gap-24 pl-5">
-                    <Click label="FORUM" to="/forum" />
-                    <div className="flex items-center gap-4">
-                        {!showHoverBox ? (
-                            <Click label="SEARCH" onClick={() => setShowHoverBox(true)} />
-                        ) : (<SearchBar onClose={() => setShowHoverBox(false)} />
-                        )}
-                    </div>
+                <div className="flex items-center gap-4">
+                    {!showSearchBar ? (
+                        <Click label="SEARCH" onClick={() => setShowSearchBar(true)} />
+                    ) : (<SearchBar onClose={() => setShowSearchBar(false)} />
+                    )}
                 </div>
-            )
-           }
+            </div>
 
             <div className="flex justify-end relative gap-x-4">
                 {user ? (
-                        <div onMouseEnter={() => setShowHoverBox(true)} onMouseLeave={() => setShowHoverBox(false)}>
-                            <Icon 
-                            classes="cursor-pointer transition-all ease-in-out
-                                    hover:bg-glow hover:animate-none hover:border-white" source={user.profile.avatarUrl}/>
-                            {showHoverBox && (
-                                <div>
-                                    <HoverBox />
-                                </div>
-                )}
-                        </div>
-                        ) : (
-                            <>
-                                <Click label="Sign in" to="/login" size="text-xxs" bordered={true}/>
-                                <Click label="Sign up" to="/register" size="text-xxs" bordered={true}/>
-                            </>)
+                    <div onMouseEnter={() => setShowHoverBox(true)} onMouseLeave={() => setShowHoverBox(false)}>
+                        <Icon 
+                        classes="cursor-pointer transition-all ease-in-out
+                                hover:bg-glow hover:animate-none hover:border-white" source={user.profile.avatarUrl}/>
+                        {showHoverBox && (
+                            <div>
+                                <HoverBox />
+                            </div>
+                        )}
+                    </div>
+                    ) : (
+                    <>
+                        <Click label="Sign in" to="/login" size="text-xxs" bordered={true}/>
+                        <Click label="Sign up" to="/register" size="text-xxs" bordered={true}/>
+                    </>)
                 }
             </div>
         </nav>
