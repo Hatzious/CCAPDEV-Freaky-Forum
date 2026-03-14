@@ -7,21 +7,21 @@ export default function PostPreviewCard({
   excerpt = "No preview available.",
 }) {
   return (
-    <div className="absolute left-20 top-full mt-2 w-[min(25rem,92vw)] rounded-xl border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-md text-white z-50">
+    <div className="absolute left-20 top-full mt-2 w-[min(25rem,92vw)] border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-md text-white z-50">
       <div className="flex flex-col gap-2">
-        <h1 className="text-xxxs font-semibold leading-tight line-clamp-2 text-white">
+        <h1 className="text-xxxs font-french-canon leading-tight line-clamp-2 text-white">
           {title}
         </h1>
 
         <div className="flex flex-row gap-4 text-xxxxxs text-info font-varela">
-          <span>{date}</span>
+          <span >{date}</span>
           <span>Views: {views}</span>
           <span>Upvotes: {upvotes}</span>
         </div>
 
         <hr className="border-border my-2" />
 
-        <p className="text-xxxxxs leading-relaxed line-clamp-3 text-white">
+        <p className="text-xxxxxs leading-relaxed line-clamp-3 text-white font-french-canon">
           {excerpt}
         </p>
       </div>
