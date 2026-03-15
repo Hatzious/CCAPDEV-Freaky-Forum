@@ -26,7 +26,7 @@ export default function Settings() {
                     <hr className="w-full border-t border-border" />
                 </div>
 
-                {/* Edit details for username, editing profile picture, date of birth, password (IN TEXT FIELDS) */}
+
                 <div className="flex flex-col items-start w-9/10 gap-y-16">
                     <FieldOption idName="username" label="Edit Username" description="Change your username at any time."/>
                     <FieldOption idName="profile-picture" label="Edit Profile Picture" description="Upload a new profile picture." />
@@ -50,16 +50,8 @@ export default function Settings() {
                     <hr className="w-full border-t border-border" />
                 </div>
 
-                {/* Options */}
                 <div className="flex flex-col items-start w-9/10 gap-y-16">
-                    <Option idName="music-toggle" label="ON" description="Turn Off MUSIC of this website by clicking the toggle button." />
-                    <div className="content-end mt-4">
-                        <div className="absolute self-end items-center w-36 h-8 pl-7 bg-accent-dark-1 border border-border text-glow font-french-canon
-                            text-xxxs cursor-pointer 
-                            hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out">
-                            DELETE
-                        </div>
-                    </div>
+                    <Option idName="delete-account" label="ON" description="Clicking DELETE will permanently remove your account." />
                 </div>
             </div>
         </div></>

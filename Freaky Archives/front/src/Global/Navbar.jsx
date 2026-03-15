@@ -26,7 +26,7 @@ export default function Navbar() {
                 <Logo size="text-normal" />
             </div>
            
-            <div className="flex items-center justify-center gap-24 pl-5">
+            <div className="flex items-center justify-center gap-24">
                 <Click label="FORUM" to="/forum" />
                 <div className="flex items-center gap-4">
                     {!showSearchBar ? (
