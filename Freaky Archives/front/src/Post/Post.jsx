@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Icon from "../Global/Icon";
-import Titlebox from "./Titlebox";
-import Vote from "./Vote";
-import PostPreviewCard from "./PostPreviewCard";
+import Titlebox from "../Forum/Titlebox";
+import Vote from "../Forum/Vote";
+import PostPreviewCard from "../Forum/PostPreviewCard";
 import { prettyDate } from "../Services/function";
 
 export default function Post({ data }) {
     const [isHovered, setIsHovered] = useState(false);
+
+    if (!data) return null;
 
     const { 
         title, 

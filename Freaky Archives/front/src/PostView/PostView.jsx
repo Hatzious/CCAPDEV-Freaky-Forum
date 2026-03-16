@@ -1,4 +1,4 @@
-import Post from "../Forum/Post";
+import Post from "../Post/Post";
 import Body from "./Body";
 import Comments from "./Comments";
 
