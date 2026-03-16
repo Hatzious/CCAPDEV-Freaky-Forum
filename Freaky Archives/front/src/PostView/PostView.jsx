@@ -6,7 +6,7 @@ export default function PostView() {
     return (
         <div className="flex flex-row justify-center">
             <div className="w-7/12 h-screen flex flex-col justify-start">
-                <Post />
+                {/* <Title /> */}
                 <Body />
                 <Comments />
             </div>
