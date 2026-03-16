@@ -11,6 +11,7 @@ import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Post from "./Post/CreatePost";
 import Music from "./Global/music";
+import SwipePost from "./Account/SwipePost";
 
 export default function App() {
   return ( 
