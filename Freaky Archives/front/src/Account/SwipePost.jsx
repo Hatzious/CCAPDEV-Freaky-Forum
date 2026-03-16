@@ -1,10 +1,14 @@
 import { useSwipeable } from "react-swipeable";
-import Post from "./Post";
+import Post from "../Post/Post";
 
-export default function SwipePost({ post, onDelete }) {
+export default function SwipePost({ post, onDelete, canDelete }) {
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => onDelete(post._id),
+        onSwipedLeft: () => {
+            if (canDelete) {
+                onDelete(post._id);
+            }
+        },
         trackMouse: true,
         preventScrollOnSwipe: true
     });
