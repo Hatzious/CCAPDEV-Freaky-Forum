@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Post from "./Post";
+import Post from "../Post/Post";
 import PostButton from "./PostButton";
 import Middlelayout from "../Contain/Middlelayout";
 

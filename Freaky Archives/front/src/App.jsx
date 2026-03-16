@@ -29,7 +29,7 @@ export default function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/postview" element={<PostView />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/account/:username" element={<Account />} />
             <Route path="/createpost" element={<Post />} />
           </Route>
         </Routes>

@@ -1,42 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; 
+import { useAuth } from "../Services/Auth";
 import Middlelayout from "../Contain/Middlelayout";
 import Head from "./Head";
-import SwipePost from "./SwipePost";
+import Post from "../Post/Post";
 
 export default function Account() {
+    const { username } = useParams(); 
+    const { user } = useAuth(); 
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            title: 'Statement of Detective Alice "Daisy" Tonner, regarding a traffic stop...',
-            content: 'Discuss anything and everything here.'
-        },
-        {
-            id: 2,
-            title: 'Statement of Detective Alice "Daisy" Tonner, regarding a traffic stop...',
-            content: 'Discuss anything and everything here.'
+    useEffect(() => {
+        const fetchUserPosts = async () => {
+            setLoading(true);
+            try {
+               
+                const response = await fetch(`http://localhost:5000/api/Poster/filter?name=${username}`, {
+                    credentials: "include"
+                });
+                const data = await response.json();
+                setPosts(data);
+            } catch (error) {
+                console.error("Archive retrieval failed:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (username) {
+            fetchUserPosts();
         }
-    ]);
+    }, [username]); 
 
-    const deletePost = (id) => {
-        setPosts(prev => prev.filter(post => post.id !== id));
-    };
+    if (loading) return <Middlelayout><div className="text-glow">Accessing User Files...</div></Middlelayout>;
 
     return (
         <Middlelayout>
+            
+            <Head username={username} isOwnProfile={user?.username === username} />
 
-            <Head />
+            <div className="bg-white h-px my-2 opacity-20"></div>
 
-            <div className="bg-white h-px w-full my-2"></div>
-
-            {posts.map(post => (
-                <SwipePost
-                    key={post.id}
-                    post={post}
-                    onDelete={deletePost}
-                />
-            ))}
-
+            <div className="flex flex-col w-[66vw] gap-y-4">
+                {posts.length > 0 ? (
+                    posts.map((post) => (
+                        <Post key={post._id} data={post} />
+                    ))
+                ) : (
+                    <div className="text-info p-10">This investigator has recorded no statements.</div>
+                )}
+            </div>
         </Middlelayout>
     );
 }

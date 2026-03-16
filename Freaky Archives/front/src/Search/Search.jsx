@@ -1,6 +1,6 @@
 import Middlelayout from "../Contain/Middlelayout";
 import Prettytext from "../Account/Prettytext";
-import Post from "../Forum/Post";
+import Post from "../Post/Post";
 
 export default function Forum() {
     const query = "Jeffrey Epstein"
