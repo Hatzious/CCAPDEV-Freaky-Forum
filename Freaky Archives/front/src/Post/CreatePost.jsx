@@ -1,21 +1,48 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CreatePost() {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    const navigate = useNavigate();
 
     const titleInvalid = !title.trim();
     const bodyInvalid = !body.trim();
     const isInvalid = titleInvalid || bodyInvalid;
 
-    const isFilled = (e) => {
+    const isFilled = async (e) => {
         e.preventDefault();
         setHasSubmitted(true);
 
         if (isInvalid)
             return;
+
+        try {
+            const response = await fetch("http://localhost:5000/api/Poster/create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include", 
+                body: JSON.stringify({ 
+                    title: title, 
+                    content: body,
+                    tags: ["sixseven"] 
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Archive Success:", data.message);
+                navigate("/forum");
+            } else {
+                const errorData = await response.json();
+                alert(errorData.message);
+            }
+        } catch (error) {
+            console.error("Network Error:", error);
+        }
+
     };
 
     const richTextButtons = `bg-olive border border-border text-glow font-french-canon
