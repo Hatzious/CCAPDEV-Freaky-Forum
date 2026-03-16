@@ -23,7 +23,7 @@ export default function HoverToTop() {
                        flex items-center justify-center text-lg hover:bg-olive transition-all duration-200 ease-in-out
                        focus:outline-none focus:ring-2 focus:ring-info"
         >
-            ↑
+            ^
         </button>
     );
 }
