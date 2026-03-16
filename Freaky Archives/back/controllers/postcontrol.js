@@ -58,3 +58,26 @@ exports.postFilter = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+exports.createPost = async (req, res) => {
+    try {
+        
+        if (!req.session.user) {
+            return res.status(401).json({ message: "You must be logged in to make a statement." });
+        }
+
+        const { title, content, tags } = req.body;
+
+        
+        const newPost = await Post.create({
+            author: req.session.user._id, 
+            title,
+            content,
+            tags: tags || ["empty"] 
+        });
+
+        res.status(201).json({ message: "Statement Archived", post: newPost });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

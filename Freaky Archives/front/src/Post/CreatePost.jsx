@@ -90,11 +90,6 @@ export default function CreatePost() {
                         </button>
                     </div>
                 </form>
-
-                {/* <div className="flex flex-col gap-2.5 bg-olive border border-border p-5">
-                    <div className="font-['var(--font-varela)'] text-glow text-xs tracking-[1px]">Preview</div>
-                    <div id="post-preview" className="font-['var(--font-french-canon)'] text-glow text-lg tracking-[0.6px] leading-[1.6]"></div>
-                </div> */}
             </div>
         </div>
     );
