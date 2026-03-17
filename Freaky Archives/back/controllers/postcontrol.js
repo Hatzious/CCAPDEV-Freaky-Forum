@@ -106,3 +106,17 @@ exports.deletePost = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.getPost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.postId).populate('author','username profile');
+
+        if (!post) {
+            return res.status(404).json({ message: "Statement not found." });
+        }
+
+        res.status(200).json(post);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

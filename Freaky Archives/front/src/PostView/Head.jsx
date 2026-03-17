@@ -14,7 +14,7 @@ export default function Head({
                 <Click label={title} size="text-small" />
                 <Info author={author} date={date} />
                 <Tags tags={tags} />
-            </div>     
+            </div>
         </div>
     );
 }
