@@ -1,4 +1,4 @@
-import HoverToTop from "../Global/HoverToTop";
+import HoverToTop from "./HoverToTop";
 
 export default function Explayout({ children, classes="" }) {
     return (
