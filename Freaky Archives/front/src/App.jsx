@@ -22,9 +22,9 @@ export default function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dread" element={<Dread />} />
 
-          <Route element={<Mainlayout />}>
-            <Route path="/dread" element={<Dread />} />
+          <Route element={<Mainlayout />}>        
             <Route path="/forum" element={<Forum />} />
             <Route path="/search" element={<Search />} />
             <Route path="/postview/:id" element={<PostView />} />
