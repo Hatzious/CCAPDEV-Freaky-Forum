@@ -19,7 +19,7 @@ exports.createComment = async (req, res) => {
         
         const newComment = await Comment.create({
             content: content,
-            post: post,
+            postId: post,
             stuff});
 
         res.status(201).json({ message: "Comment sent", comment: newComment });
