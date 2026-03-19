@@ -42,9 +42,10 @@ export default function Post({ data }) {
             {isHovered && (
                 <PostPreviewCard
                     title={title}
-                    author={author}
+                    author={author.username}
                     date={displayDate}
                     views={views}
+                    content={content}
                 />
             )}
         </div>
