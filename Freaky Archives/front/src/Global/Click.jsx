@@ -13,6 +13,7 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
 
     let tostyles = `inline-flex text-glow font-french-canon cursor-pointer
             ${size}
+            truncate w-full
             `;
 
     if (bordered) {
