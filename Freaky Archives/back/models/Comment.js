@@ -1,4 +1,6 @@
-const commentSchema = new mongoose.Schema({
+const mongoose = require('mongoose');
+
+const CommentSchema = new mongoose.Schema({
     postId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post',
@@ -31,3 +33,5 @@ const commentSchema = new mongoose.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 });
+
+module.exports = mongoose.model('Comment', CommentSchema);
