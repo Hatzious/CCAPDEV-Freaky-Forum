@@ -11,6 +11,10 @@ const CommentSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+     score: {
+        type: Number,
+        default: 0
+    },
     content: [{
         sourceId: { 
             type: mongoose.Schema.Types.ObjectId, 

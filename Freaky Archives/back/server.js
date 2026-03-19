@@ -38,7 +38,7 @@ app.use('/api/Edit', editRoute);
 
 app.use('/api/Poster', postRoute);
 
-app.use('/api/Commenter', postRoute);
+app.use('/api/Commenter', commentRoute);
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

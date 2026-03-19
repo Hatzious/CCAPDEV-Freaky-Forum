@@ -25,14 +25,12 @@ export default function PostView() {
                 }
             } catch (err) {
                 console.error("Error fetching post:", err);
-            } finally {
-                setLoading(false);
-            }
+            } 
         }
 
         const fetchComment = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/Commenter/show?postId=${postId}`, {
+                const response = await fetch(`http://localhost:5000/api/Commenter/show?postId=${id}`, {
                     method: "GET",
                     credentials: "include"
                 });
@@ -45,6 +43,8 @@ export default function PostView() {
                 }
             } catch (err) {
                 console.error("Error fetching comments:", err);
+            } finally {
+                setLoading(false);
             }
         }
 

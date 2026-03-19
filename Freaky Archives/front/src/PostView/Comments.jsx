@@ -21,12 +21,6 @@ export default function Comments({ coming }) {
                         ) : (
                             <div className="text-info p-10">No Commento</div>
                         )}
-            <Reply author="Chase" hasQuote={false}
-                   content="House, we need to cure this patient. He is very sick. 
-                            Lorem ipsum testing if the paragraph being long can extend 
-                            below the reply, extending the container and keeping the 
-                            vote element in the top right side and the profile icon on 
-                            the top left side." />
             
         </div>
     );
