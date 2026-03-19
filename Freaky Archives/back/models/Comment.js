@@ -1,9 +1,4 @@
 const commentSchema = new mongoose.Schema({
-    replyId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
-        default: null
-    },
     postId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post',
@@ -18,14 +13,10 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    quote: {
-        text: { type: String, default: null },
-        sourceType: { 
-            type: String, 
-            enum: ['post', 'comment', 'none'], 
-            default: 'none' 
-        }
-    }
+    quotes: [{
+        text: { type: String, required: true },
+        source: {type: String, required: true }
+    }]
 }, { 
     timestamps: true,
     toJSON: { virtuals: true },
