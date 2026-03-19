@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import confetti from "https://cdn.skypack.dev/canvas-confetti";
 
 export default function CreatePost() {
 
@@ -43,6 +44,13 @@ export default function CreatePost() {
             if (response.ok) {
                 const data = await response.json();
                 console.log("Archive Success:", data.message);
+                postCreatedAudio.play();
+                confetti({
+                    spread: 1000,
+                    particleCount: 700,
+                    startVelocity: 80,
+                    origin: { y: 0.7 }
+                });
                 navigate("/forum");
             } else {
                 const errorData = await response.json();
@@ -138,7 +146,7 @@ export default function CreatePost() {
                             className="min-w-[120px] px-2 py-1.5 bg-accent-dark-1 border border-border 
                                     text-glow font-french-canon tracking-[0.6px] text-xxxxs cursor-pointer 
                                     hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out" 
-                            type="submit" onClick={() => postCreatedAudio.play()}>
+                            type="submit">
                                 Post
                         </button>
                     </div>
