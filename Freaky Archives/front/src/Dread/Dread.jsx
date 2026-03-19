@@ -2,6 +2,7 @@ import Row from "./Row";
 import Middle from "./Middle";
 import { useAuth } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
+import Explayout from "../Contain/Explayout";
 
 const images = import.meta.glob('../../public/pic/*.{png,jpg,jpeg,SVG}', { eager: true });
 const allImages = Object.values(images).map((mod) => mod.default);
@@ -40,16 +41,18 @@ export default function Dread() {
         };
 
     return (
-        <div className="flex flex-col gap-y-24">
-            <div className="flex items-center flex-col gap-x-1">
-                <Row arr={topRow} onSelect={handleAvatarSelect}/>
+        <Explayout classes="justify-center items-center">
+            <div className="flex flex-col gap-y-24">
+                <div className="flex items-center flex-col gap-x-1">
+                    <Row arr={topRow} onSelect={handleAvatarSelect}/>
+                </div>
+                <div className="flex items-center flex-col gap-x-1">
+                    <Middle arr1={midRow1} arr2={midRow2} onSelect={handleAvatarSelect} />
+                </div>
+                <div className="flex items-center flex-col gap-x-1">
+                    <Row arr={botRow} onSelect={handleAvatarSelect} />
+                </div>
             </div>
-            <div className="flex items-center flex-col gap-x-1">
-                <Middle arr1={midRow1} arr2={midRow2} onSelect={handleAvatarSelect} />
-            </div>
-            <div className="flex items-center flex-col gap-x-1">
-                <Row arr={botRow} onSelect={handleAvatarSelect} />
-            </div>
-        </div>
+        </Explayout>
     );
 }

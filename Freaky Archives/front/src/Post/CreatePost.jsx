@@ -7,10 +7,17 @@ export default function CreatePost() {
     const [body, setBody] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const navigate = useNavigate();
+    const [selectedTags, setSelectedTags] = useState([]);
+
+    const tags = ["TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", "TheDark"];
 
     const titleInvalid = !title.trim();
     const bodyInvalid = !body.trim();
     const isInvalid = titleInvalid || bodyInvalid;
+
+    const toggleTag = (tag) => {
+        setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
+    };
 
     const isFilled = async (e) => {
         e.preventDefault();
@@ -27,7 +34,7 @@ export default function CreatePost() {
                 body: JSON.stringify({ 
                     title: title, 
                     content: body,
-                    tags: ["sixseven"] 
+                    tags: selectedTags 
                 })
             });
 
@@ -104,6 +111,24 @@ export default function CreatePost() {
                                 Body is required
                             </p>
                         )}
+                    </div>
+
+                    <div className="flex flex-col gap-2.5">
+                        <span className="font-french-canon text-glow text-xs">Tags</span>
+                        <div className="flex justify-between justify-center flex-wrap gap-2">
+                            {tags.map((tag) => {
+                                const isActive = selectedTags.includes(tag);
+                                return (
+                                    <div
+                                        key={tag}
+                                        className={`${richTextButtons} ${isActive ? 'bg-primary-1 border-white' : 'bg-accent-dark-1'}`}
+                                        onClick={() => toggleTag(tag)}
+                                    >
+                                        {tag}
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
 
                     <div className="flex justify-between items-center">
