@@ -9,6 +9,7 @@ const app = express();
 const authRoute = require('./routes/authroute');
 const editRoute = require('./routes/editroute');
 const postRoute = require('./routes/postroute');
+const commentRoute = require('./routes/commentroute');
 
 connectDB();
 

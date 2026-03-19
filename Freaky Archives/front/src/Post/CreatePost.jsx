@@ -76,8 +76,7 @@ export default function CreatePost() {
                                     focus:border-info" 
                             type="text" 
                             name="title" 
-                            placeholder="Give your post a title" 
-                            maxLength="120" 
+                            placeholder="Give your post a title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
