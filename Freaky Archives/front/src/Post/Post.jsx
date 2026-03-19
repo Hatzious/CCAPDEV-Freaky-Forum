@@ -20,6 +20,8 @@ export default function Post({ data }) {
         tags 
     } = data;
 
+    const postId = data._id || data.id; // Mongoose 'id' var issue fix
+
     const displayDate = prettyDate(createdAt);
 
     const username = author?.username || "Anonymous";
@@ -33,7 +35,7 @@ export default function Post({ data }) {
         >
             <div className="flex flex-row bg-olive h-[16vh] w-[66vw] border-border border-post items-center py-1 px-6 gap-x-4">
                 <Icon source={avatar} />
-                <Titlebox title={title} author={username} date={displayDate} tags={tags} />
+                <Titlebox id={postId} title={title} author={username} date={displayDate} tags={tags} />
                 <Vote />
             </div>
 

@@ -27,7 +27,7 @@ export default function App() {
             <Route path="/dread" element={<Dread />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/postview" element={<PostView />} />
+            <Route path="/postview/:id" element={<PostView />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/account/:username" element={<Account />} />
             <Route path="/createpost" element={<Post />} />
