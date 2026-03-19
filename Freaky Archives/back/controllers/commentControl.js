@@ -1,5 +1,3 @@
-const Post = require('../models/Post');
-const User = require('../models/User');
 const Comment = require('../models/Comment');
 
 exports.createComment = async (req, res) => {
@@ -9,7 +7,6 @@ exports.createComment = async (req, res) => {
         }
 
         const { postId, content } = req.body;
-        let stuff = []
 
         if (!postId) return res.status(400).json({ message: "Post ID missing." });
 
@@ -27,6 +24,24 @@ exports.createComment = async (req, res) => {
             .populate('author', 'username profile');
 
         res.status(201).json({ message: "Comment sent", comment: populatedComment });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+exports.showComment = async (req, res) => {
+    try {
+        const { postId } = req.query;
+
+        if (!postId) {
+            return res.status(400).json({ message: "Post ID missing." });
+        }
+
+        const comments = await Comment.find({ postId: postId })
+            .populate('author', 'username profile') 
+            .sort({ createdAt: 1 });
+
+        res.status(200).json(comments);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

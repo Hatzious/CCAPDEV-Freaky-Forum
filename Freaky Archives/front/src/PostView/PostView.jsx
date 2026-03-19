@@ -9,6 +9,7 @@ export default function PostView() {
 
     const { id } = useParams();
     const [post, setPost] = useState(null);
+    const [comms, setComms] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -29,12 +30,32 @@ export default function PostView() {
             }
         }
 
+        const fetchComment = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/api/Commenter/show?postId=${postId}`, {
+                    method: "GET",
+                    credentials: "include"
+                });
+                const info = await response.json();
+
+                if (response.ok) {
+                    setComms(info);
+                } else {
+                    console.error("We're called to serve", info.message);
+                }
+            } catch (err) {
+                console.error("Error fetching comments:", err);
+            }
+        }
+
         fetchPost();
+        fetchComment();
     }, [id]);
 
     if (loading) return <div className="text-glow p-10">Loading post...</div>;
     if (!post) return <div className="text-glow text-red-500 p-10">Post not found.</div>;
 
+    const postId = post._id;
     const authorName = post.author?.username || "Anonymous";
     const displayDate = prettyDate(post.createdAt);
 
@@ -43,7 +64,7 @@ export default function PostView() {
             <div className="w-7/12 h-screen flex flex-col justify-start">
                 <Head title={post.title} author={authorName} date={displayDate} tags={post.tags} />
                 <Body text={post.content} />
-                <Comments /> {/* TODO: Comments */}
+                <Comments coming={comms} />
             </div>
         </div>
     );
