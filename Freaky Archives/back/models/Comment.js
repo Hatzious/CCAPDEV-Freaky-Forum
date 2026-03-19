@@ -9,13 +9,14 @@ const commentSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    content: {
+    content: [{
         type: String,
+        source: {
+            type: String,
+            default: 'none',
+            enum: ['none', 'user', 'post']
+        },
         required: true
-    },
-    quotes: [{
-        text: { type: String, required: true },
-        source: {type: String, required: true }
     }]
 }, { 
     timestamps: true,
