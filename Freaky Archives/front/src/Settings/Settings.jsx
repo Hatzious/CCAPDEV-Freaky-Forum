@@ -1,7 +1,9 @@
+import EditProfilePic from "./EditProfilePic";
 import DateOption from "./DateOption";
 import PasswordOption from "./PasswordOption";
 import FieldOption from "./FieldOption";
 import Option from "./Option";
+import Edit from "../Account/Edit";
 
 export default function Settings() {
     return (
@@ -29,7 +31,7 @@ export default function Settings() {
 
                 <div className="flex flex-col items-start w-9/10 gap-y-16">
                     <FieldOption idName="username" label="Edit Username" description="Change your username at any time."/>
-                    <FieldOption idName="profile-picture" label="Edit Profile Picture" description="Upload a new profile picture." />
+                    <EditProfilePic idName="profile-pic" label="Edit Profile Picture" description="Update your profile picture." />
                     <DateOption idName="date-of-birth" label="Edit Date of Birth" description="Update your date of birth." />
                     <PasswordOption idName="password" label="Change Password" description="Update your password." />
 
