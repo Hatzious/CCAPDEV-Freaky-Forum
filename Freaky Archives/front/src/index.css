@@ -2,10 +2,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    text-shadow: 0 0 6px var(--color-glow);
+    text-shadow: 0 0 100px var(--color-glow);
   }
   50% {
-    text-shadow: 0 0 8px var(--color-glow), 0 0 10px var(--color-glow);
+    text-shadow: 0 0 50px var(--color-glow), 0 0 50px var(--color-glow);
   }
 }
 
@@ -73,7 +73,7 @@
     --spacing-button: 100px;
 
     /* Idle glowing */
-    --animate-pulse: glow-pulse 4s infinite ease-in-out;
+    --animate-pulse: glow-pulse 3s infinite ease-in-out;
 }
 
 @layer utilities {

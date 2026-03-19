@@ -5,13 +5,15 @@ export default function Row({ arr, onSelect }) {
         return (<Link to="/"><span className="text-white">Problem with component, return to welcome</span></Link>);
     }
 
+    let cardAudio = new Audio("/audio/card-picked.mp3");
+
     const cols = arr.length;
 
     return (
-        <div className="grid gap-x-7" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+        <div className="grid gap-x-16" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
             {arr.map((imgSrc, index) => (
-                <div key={index} onClick={() => onSelect(imgSrc)} className="h-[16vh] w-[8vw] cursor-pointer">
-                    <img src={imgSrc} alt={`Dread item ${index}`} />
+                <div key={index} onMouseEnter={() => cardAudio.play()} onClick={() => onSelect(imgSrc)} className="h-[18vh] w-[9vw] cursor-pointer">
+                    <img className="hover:scale-110 transition-transform duration-200" src={imgSrc} alt={`Dread item ${index}`} />
                 </div>
             ))}
         </div>

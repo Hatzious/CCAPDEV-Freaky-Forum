@@ -15,6 +15,8 @@ export default function CreatePost() {
     const bodyInvalid = !body.trim();
     const isInvalid = titleInvalid || bodyInvalid;
 
+    let postCreatedAudio = new Audio("/audio/post-created.mp3");
+
     const toggleTag = (tag) => {
         setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
     };
@@ -137,7 +139,7 @@ export default function CreatePost() {
                             className="min-w-[120px] px-2 py-1.5 bg-accent-dark-1 border border-border 
                                     text-glow font-french-canon tracking-[0.6px] text-xxxxs cursor-pointer 
                                     hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out" 
-                            type="submit">
+                            type="submit" onClick={() => postCreatedAudio.play()}>
                                 Post
                         </button>
                     </div>

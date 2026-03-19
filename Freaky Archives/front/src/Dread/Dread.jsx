@@ -41,7 +41,7 @@ export default function Dread() {
         };
 
     return (
-        <Explayout classes="justify-center items-center">
+        <Explayout classes="justify-center items-center -mt-10">
             <div className="flex flex-col gap-y-24">
                 <div className="flex items-center flex-col gap-x-1">
                     <Row arr={topRow} onSelect={handleAvatarSelect}/>
