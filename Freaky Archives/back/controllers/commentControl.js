@@ -8,17 +8,15 @@ exports.createComment = async (req, res) => {
             return res.status(401).json({ message: "Nah dawg, we don't allow anonymussy replies" });
         }
 
-        const { content, quote, post, state } = req.body;
+        const { author, post, content } = req.body;
 
-        let stuff = {};
+        if (content.length > 0) {
 
-        if (quote) {
-            stuff.quote = quote
         }
         
         
         const newComment = await Comment.create({
-            content: content,
+            author: author,
             postId: post,
             stuff});
 

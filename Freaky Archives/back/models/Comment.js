@@ -10,13 +10,21 @@ const commentSchema = new mongoose.Schema({
         required: true
     },
     content: [{
-        type: String,
+        sourceId: { 
+            type: mongoose.Schema.Types.ObjectId, 
+            required: false, 
+            refPath: 'content.source' 
+        },
+        text: { type: String, required: true },
         source: {
             type: String,
             default: 'none',
-            enum: ['none', 'user', 'post']
+            enum: ['none', 'User', 'Post'] 
         },
-        required: true
+        label: { 
+            type: String, 
+            default: null 
+        }
     }]
 }, { 
     timestamps: true,
