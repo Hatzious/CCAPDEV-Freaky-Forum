@@ -85,8 +85,8 @@
     cursor: pointer;
     position: fixed;
     margin: 0;
-    right: 0;
-    bottom: 0;
+    left: 10px;
+    bottom: 10px;
     width: 3vw;
     height: 5vh;
     font-size: var(--text-xs);

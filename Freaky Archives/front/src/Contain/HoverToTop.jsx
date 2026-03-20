@@ -19,7 +19,7 @@ export default function HoverToTop() {
         <button
             type="button"
             onClick={scrollToTop}
-            className="fixed left-4 bottom-4 z-50 w-12 h-12 bg-olive border border-border text-glow shadow-lg
+            className="fixed right-4 bottom-5 z-50 w-12 h-12 bg-olive border border-border text-glow shadow-lg
                        flex items-center justify-center text-lg hover:bg-olive transition-all duration-200 ease-in-out
                        focus:outline-none focus:ring-2 focus:ring-info"
         >

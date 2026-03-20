@@ -10,8 +10,7 @@ import Settings from "./Settings/Settings";
 import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Post from "./Post/CreatePost";
-import Music from "./Global/music";
-import SwipePost from "./Account/SwipePost";
+import Music from "./Global/Music";
 
 export default function App() {
   return ( 
