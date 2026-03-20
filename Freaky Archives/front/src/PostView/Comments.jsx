@@ -136,10 +136,6 @@ export default function Comments({ coming, id, setComms, post }) {
                 />
             </div>
 
-            {/* {postLocked && !isAuthor && (
-                <p className="text-warning text-[10px] uppercase mt-1">Comments are locked for this post.</p>
-            )} */}
-
             {error && <p className="text-red-500 text-[10px] uppercase">{error}</p>}
 
             {/* Comment Panel */}
