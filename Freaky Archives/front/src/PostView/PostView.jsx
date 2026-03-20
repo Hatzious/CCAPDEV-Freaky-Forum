@@ -55,16 +55,15 @@ export default function PostView() {
     if (loading) return <div className="text-glow p-10">Loading post...</div>;
     if (!post) return <div className="text-glow text-red-500 p-10">Post not found.</div>;
 
-    const postId = post._id;
     const authorName = post.author?.username || "Anonymous";
     const displayDate = prettyDate(post.createdAt);
 
     return (
         <div className="flex flex-row justify-center">
-            <div className="w-7/12 h-screen flex flex-col justify-start">
+            <div className="w-7/12 min-h-screen flex flex-col justify-start">
                 <Head title={post.title} author={authorName} date={displayDate} tags={post.tags} />
                 <Body text={post.content} />
-                <Comments coming={comms} />
+                <Comments coming={comms} id={id} setComms={setComms} />
             </div>
         </div>
     );
