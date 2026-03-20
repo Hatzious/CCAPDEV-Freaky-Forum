@@ -2,6 +2,7 @@ import { useState } from "react";
 import Click from "../Global/Click";
 import Comment from "./Comment";
 import { useAuth } from "../Services/Auth";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function Comments({ coming, id, setComms }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -10,9 +11,15 @@ export default function Comments({ coming, id, setComms }) {
     const { user } = useAuth();
     const [error, setError] = useState("");
 
+    const resetError = () => {
+        if (error) {
+            setError("");
+        }
+    }
+
     const handleCommentClick = () => {
         if (!user) {
-            alert("Identification required to leave a statement.");
+            setError("Identification required to leave a statement.");       
             return;
         }
         setIsVisible(!isVisible);
@@ -61,12 +68,15 @@ export default function Comments({ coming, id, setComms }) {
         }
 
     return (
+        <OutsideClickHandler onOutsideClick={resetError}>
         <div className="flex flex-col h-auto w-full items-center gap-y-4 mt-5 mb-20">
             {/* Buttons */}
             <div className="flex w-full justify-end gap-x-10">
                 <Click label="Lock" size="text-xxxs" />
                 <Click label="Comment" size="text-xxxs" onClick={handleCommentClick} />
             </div>
+
+            {error && <p className="text-red-500 text-[10px] uppercase">{error}</p>}
 
             {/* Comment Panel */}
             {isVisible && (
@@ -114,5 +124,6 @@ export default function Comments({ coming, id, setComms }) {
             )}
             
         </div>
+        </OutsideClickHandler>
     );
 }
