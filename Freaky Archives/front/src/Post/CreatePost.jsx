@@ -5,6 +5,7 @@ import confetti from "https://cdn.skypack.dev/canvas-confetti";
 export default function CreatePost() {
 
     const [title, setTitle] = useState("");
+    const [summary, setSummary] = useState("");
     const [body, setBody] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const navigate = useNavigate();
@@ -13,8 +14,9 @@ export default function CreatePost() {
     const tags = ["TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", "TheDark"];
 
     const titleInvalid = !title.trim();
+    const summaryInvalid = !summary.trim();
     const bodyInvalid = !body.trim();
-    const isInvalid = titleInvalid || bodyInvalid;
+    const isInvalid = titleInvalid || summaryInvalid || bodyInvalid;
 
     let postCreatedAudio = new Audio("/audio/post-created.mp3");
 
@@ -36,6 +38,7 @@ export default function CreatePost() {
                 credentials: "include", 
                 body: JSON.stringify({ 
                     title: title, 
+                    summary: summary,
                     content: body,
                     tags: selectedTags 
                 })
@@ -91,6 +94,25 @@ export default function CreatePost() {
                         {titleInvalid && hasSubmitted && (
                             <p className="text-red-500 text-xxxxxs">
                                 Title is required
+                            </p>
+                        )}
+                    </label>
+                    <label className="flex flex-col gap-2.5">
+                        <div className="font-french-canon text-glow text-xs"><span>Summary</span></div>
+                        <input 
+                            id="post-summary" 
+                            className="bg-textbox border border-border text-glow 
+                                    font-french-canon text-lg tracking-[0.6px] p-3 outline-none 
+                                    focus:border-info" 
+                            type="text" 
+                            name="summary" 
+                            placeholder="Give your post a summary"
+                            value={summary}
+                            onChange={(e) => setSummary(e.target.value)}
+                        />
+                        {summaryInvalid && hasSubmitted && (
+                            <p className="text-red-500 text-xxxxxs">
+                                Summary is required
                             </p>
                         )}
                     </label>

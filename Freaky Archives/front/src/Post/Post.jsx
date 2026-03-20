@@ -12,6 +12,7 @@ export default function Post({ data }) {
 
     const { 
         title, 
+        summary, 
         author, 
         createdAt, 
         views, 
@@ -45,7 +46,7 @@ export default function Post({ data }) {
                     author={author.username}
                     date={displayDate}
                     views={views}
-                    content={content}
+                    summary={summary}
                 />
             )}
         </div>

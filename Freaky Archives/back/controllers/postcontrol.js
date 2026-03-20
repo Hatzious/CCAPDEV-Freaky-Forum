@@ -66,12 +66,13 @@ exports.createPost = async (req, res) => {
             return res.status(401).json({ message: "You must be logged in to make a statement." });
         }
 
-        const { title, content, tags } = req.body;
+        const { title, summary, content, tags } = req.body;
 
         
         const newPost = await Post.create({
             author: req.session.user._id, 
             title,
+            summary,
             content,
             tags: tags || ["empty"] 
         });

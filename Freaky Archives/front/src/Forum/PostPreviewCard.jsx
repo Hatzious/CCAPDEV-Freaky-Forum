@@ -4,7 +4,7 @@ export default function PostPreviewCard({
   date = "Unknown date",
   views = 0,
   upvotes = 0,
-  content = "No preview available.",
+  summary = "No summary available.",
 }) {
   return (
     <div className="absolute left-20 top-full mt-2 w-[min(25rem,92vw)] border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-md text-white z-50">
@@ -23,7 +23,7 @@ export default function PostPreviewCard({
         <hr className="border-border my-2" />
 
         <p className="text-xxxxxs leading-relaxed line-clamp-10 text-white font-french-canon">
-          {content}
+          {summary}
         </p>
       </div>
     </div>
