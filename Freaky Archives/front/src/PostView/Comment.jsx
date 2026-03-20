@@ -2,7 +2,7 @@ import Icon from "../Global/Icon";
 import Vote from "../Forum/Vote";
 import { prettyDate } from "../Services/function";
 
-export default function Reply({ data }) {
+export default function Comment({ data }) {
    
     if (!data) return null;
 

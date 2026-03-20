@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Click from "../Global/Click";
-import Reply from "./Reply";
+import Comment from "./Comment";
 
 export default function Comments({ coming }) {
     const [isVisible, setIsVisible] = useState(false);
 
-    const handleReplyClick = () => {
+    const handleCommentClick = () => {
         // TODO: if a user is logged in
             setIsVisible(!isVisible);
         // Else do not set visible
@@ -16,10 +16,10 @@ export default function Comments({ coming }) {
             {/* Buttons */}
             <div className="flex w-full justify-end gap-x-10">
                 <Click label="Lock" size="text-xxxs" />
-                <Click label="Comment" size="text-xxxs" onClick={handleReplyClick} />
+                <Click label="Comment" size="text-xxxs" onClick={handleCommentClick} />
             </div>
 
-            {/* Reply Panel */}
+            {/* Comment Panel */}
             {isVisible && (
                 <div className="flex flex-col bg-olive h-auto w-full border-border border-post items-start py-6 px-6 gap-2.5">
                     <span className="font-french-canon text-glow text-xs">
@@ -55,10 +55,10 @@ export default function Comments({ coming }) {
                 </div>
             )}
 
-            {/* Replies */}
+            {/* Comments */}
             {coming.length > 0 ? (
                 coming.map((entry) => (
-                    <Reply
+                    <Comment
                         key={entry._id}
                         data={entry} 
                     />
