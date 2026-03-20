@@ -120,3 +120,34 @@ exports.getPost = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.setCommentLock = async (req, res) => {
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ message: "You must be logged in to update lock state." });
+        }
+
+        const { postId } = req.params;
+        const { locked } = req.body;
+
+        if (typeof locked !== 'boolean') {
+            return res.status(400).json({ message: "Locked flag must be boolean." });
+        }
+
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ message: "Statement not found." });
+        }
+
+        if (post.author.toString() !== req.session.user._id.toString()) {
+            return res.status(403).json({ message: "You can only lock/unlock your own statement comments." });
+        }
+
+        post.commentsLocked = locked;
+        await post.save();
+
+        res.status(200).json({ message: locked ? "Comments locked." : "Comments unlocked.", post });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

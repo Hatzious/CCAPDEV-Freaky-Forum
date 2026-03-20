@@ -1,4 +1,5 @@
 const Comment = require('../models/Comment');
+const Post = require('../models/Post');
 
 exports.createComment = async (req, res) => {
     try {      
@@ -9,6 +10,15 @@ exports.createComment = async (req, res) => {
         const { postId, content } = req.body;
 
         if (!postId) return res.status(400).json({ message: "Post ID missing." });
+
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ message: "Post not found." });
+        }
+
+        if (post.commentsLocked) {
+            return res.status(403).json({ message: "Comments are locked for this post." });
+        }
 
         if (!content || content.length === 0) {
             return res.status(400).json({ message: "Archive requires actual text." });

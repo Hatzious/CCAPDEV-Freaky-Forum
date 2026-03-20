@@ -31,6 +31,10 @@ const PostSchema = new mongoose.Schema({
     views: {
         type: Number,
         default: 0
+    },
+    commentsLocked: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true,
     toJSON: { virtuals: true },

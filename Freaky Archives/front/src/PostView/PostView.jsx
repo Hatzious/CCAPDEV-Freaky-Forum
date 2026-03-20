@@ -61,9 +61,21 @@ export default function PostView() {
     return (
         <div className="flex flex-row justify-center">
             <div className="w-7/12 min-h-screen flex flex-col justify-start">
-                <Head title={post.title} author={authorName} date={displayDate} tags={post.tags} />
-                <Body text={post.content} />
-                <Comments coming={comms} id={id} setComms={setComms} />
+                <Head 
+                title={post.title} 
+                author={authorName} 
+                date={displayDate} 
+                tags={post.tags} 
+                />
+                <Body 
+                text={post.content} 
+                />
+                <Comments
+                    coming={comms}
+                    id={id}
+                    setComms={setComms}
+                    post={post}
+                />
             </div>
         </div>
     );
