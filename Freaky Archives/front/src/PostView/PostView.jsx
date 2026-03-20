@@ -63,6 +63,7 @@ export default function PostView() {
             <div className="w-7/12 min-h-screen flex flex-col justify-start">
                 <Head 
                 title={post.title} 
+                summary={post.summary}
                 author={authorName} 
                 date={displayDate} 
                 tags={post.tags} 
