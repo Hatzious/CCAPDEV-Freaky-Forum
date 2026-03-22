@@ -1,22 +1,30 @@
 const User = require('../models/User');
+const crypto = require('bcrypt');
+const salty = 10;
 
 exports.loginUser = async (req, res) => {
     try {
         const { username, password } = req.body;
+
         const user = await User.findOne({ 
             username: username.trim(), 
-            password: password 
         });
 
-        if (user) {
-            await user.setOnline();
-            req.session.user = user.toObject({ virtuals: true });
-            
-            console.log(`${user.username} logged in!`);
-            res.status(200).json({ message: "Logged in", user: req.session.user });
-        } else {
-            res.status(401).json({ message: "Invalid credentials" });
+        if (!user) {
+            return res.status(401).json({ message: "User does not exist" });
         }
+
+        const saltyHashBrowns = await crypto.compare(password, user.password);
+        if (!saltyHashBrowns) {
+            return res.status(401).json({ message: "Wrong password" });
+        }
+        
+        await user.setOnline();
+        req.session.user = user.toObject({ virtuals: true });
+            
+        console.log(`${user.username} logged in!`);
+        res.status(200).json({ message: "Logged in", user: req.session.user });
+        
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -54,15 +62,16 @@ exports.logoutUser = async (req, res) => {
 exports.registerUser = async (req, res) => {
     try {
         const { username, email, password, dob} = req.body;
-        const newUser = await User.create({username, email, password, dob});
+        const hashBrowns = await crypto.hash(password, salty);
+        const newUser = await User.create({username, email, password: hashBrowns, dob});
 
         await newUser.setOnline();
 
-        req.session.user = newUser;
+        req.session.user = newUser.toObject({ virtuals: true });
 
         res.status(201).json({
             message: "User registered successfully!",
-            user: newUser
+            user: req.session.user
         });
     } catch (error) {
         res.status(500).json({message: error.message});
