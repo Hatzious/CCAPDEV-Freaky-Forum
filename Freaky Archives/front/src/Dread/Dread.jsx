@@ -20,7 +20,7 @@ export default function Dread() {
         const cleanUrl = imgUrl.split('public')[1] || imgUrl;
 
         try {
-            const response = await fetch("http://localhost:5000/api/Auth/editPic", {
+            const response = await fetch("http://localhost:5000/api/Auth/updateProfile", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

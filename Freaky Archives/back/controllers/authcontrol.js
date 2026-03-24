@@ -78,21 +78,37 @@ exports.registerUser = async (req, res) => {
     }
 };
 
-exports.editPic = async (req, res) => {
+exports.updateProfile = async (req, res) => {
     try {
         if (!req.session.user) return res.status(401).send({ message: "Unauthorized" });
+        let update = {};
 
-        const { avatarUrl } = req.body;
-    
+        const { username, dob, bio, avatarUrl, password } = req.body;
+
+        if (username) update.username = username.trim();
+        if (dob) update.dob = dob;
+        if (bio) update["profile.bio"] = bio;
+        if (avatarUrl) update["profile.avatarUrl"] = avatarUrl
+        if (password && password.trim() !== "") {
+            update.password = await crypto.hash(password, salty);
+        }
+
+        if (username && username !== req.session.user.username) {
+            const existingUser = await User.findOne({ username: username.trim() });
+            if (existingUser) {
+                return res.status(400).json({ message: "This investigator name is already active." });
+            }
+        }
+
         const updatedUser = await User.findByIdAndUpdate(
             req.session.user._id, 
-            { "profile.avatarUrl": avatarUrl, "status.lastActive": new Date(), "status.isOnline": true },
+            { $set: update, "status.lastActive": new Date(), "status.isOnline": true },
             { new: true }
         );
 
-        req.session.user = updatedUser;
+        req.session.user = updatedUser.toObject({ virtuals: true });
 
-        res.status(200).json({ message: "Avatar updated", user: updatedUser });
+        res.status(200).json({ message: "Avatar updated", user: req.session.user });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
