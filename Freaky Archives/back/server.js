@@ -7,7 +7,6 @@ const User = require('./models/User');
 const Post = require('./models/Post');
 const app = express();
 const authRoute = require('./routes/authroute');
-const editRoute = require('./routes/editroute');
 const postRoute = require('./routes/postroute');
 const commentRoute = require('./routes/commentroute');
 
@@ -33,8 +32,6 @@ app.use(session({
 }));
 
 app.use('/api/Auth', authRoute);
-
-app.use('/api/Edit', editRoute);
 
 app.use('/api/Poster', postRoute);
 
