@@ -12,10 +12,8 @@ export default function Forum() {
             try {
                 const response = await fetch("http://localhost:5000/api/Poster/filter", { 
                     credentials: "include" 
-                });
-                
-                const data = await response.json();
-                
+                });               
+                const data = await response.json();        
                 setPosts(data);
                 setLoading(false);
             } catch (error) {

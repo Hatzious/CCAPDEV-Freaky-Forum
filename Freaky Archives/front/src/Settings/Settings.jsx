@@ -4,8 +4,44 @@ import PasswordOption from "./PasswordOption";
 import FieldOption from "./FieldOption";
 import Option from "./Option";
 import Edit from "../Account/Edit";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Services/Auth";
+import { useState } from "react";
 
 export default function Settings() {
+    const { user, login } = useAuth();
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        username: user?.username || "",
+        dob: user?.dob ? new Date(user.dob).toISOString().split('T')[0] : "",
+        password: "",
+        bio: user?.profile?.bio || ""
+    });
+
+     const handleChange = (field, value) => {
+        setFormData(prev => ({ ...prev, [field]: value }));
+    };
+
+    const handleEdits = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/api/Auth/updateProfile", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(formData) 
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                login(data.user);      
+                if (formData.username !== user.username) {
+                    navigate(`/account/${data.user.username}`);
+                }
+            }
+        } catch (error) {
+            console.error("Failed to update profile", error);
+        }
+    };
     return (
         <><div className="flex flex-row justify-center mb-8">
             <div className="flex flex-col bg-olive w-7/12 h-auto border-border border-post items-center pt-4 pb-8 px-6">
@@ -30,17 +66,17 @@ export default function Settings() {
 
 
                 <div className="flex flex-col items-start w-9/10 gap-y-16">
-                    <FieldOption idName="username" label="Edit Username" description="Change your username at any time."/>
+                    <FieldOption value={formData.username} onChange={(val) => handleChange("username", val)} idName="username" label="Edit Username" description="Change your username at any time."/>
                     <EditProfilePic idName="profile-pic" label="Edit Profile Picture" description="Update your profile picture." />
-                    <DateOption idName="date-of-birth" label="Edit Date of Birth" description="Update your date of birth." />
-                    <PasswordOption idName="password" label="Change Password" description="Update your password." />
+                    <DateOption value={formData.dob} onChange={(val) => handleChange("dob", val)} idName="date-of-birth" label="Edit Date of Birth" description="Update your date of birth." />
+                    <PasswordOption value={formData.password} onChange={(val) => handleChange("password", val)} idName="password" label="Change Password" description="Update your password." />
 
-                    <div className="content-end mt-4">
-                        <div className="absolute self-end items-center w-36 h-8 pl-3 bg-accent-dark-1 border border-border text-glow font-french-canon
+                    <div className="content-end mt-4 mb-6">
+                        <button onClick={handleEdits} className="absolute self-end items-center w-36 h-8 pl-3 bg-accent-dark-1 border border-border text-glow font-french-canon
                             text-xxxs cursor-pointer 
                             hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out">
                             Save Changes
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

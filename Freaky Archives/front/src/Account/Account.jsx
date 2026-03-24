@@ -15,8 +15,7 @@ export default function Account() {
     useEffect(() => {
         const fetchUserPosts = async () => {
             setLoading(true);
-            try {
-               
+            try {              
                 const response = await fetch(`http://localhost:5000/api/Poster/filter?name=${username}`, {
                     credentials: "include"
                 });
