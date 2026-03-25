@@ -4,6 +4,7 @@ import { useAuth } from "../Services/Auth";
 import Middlelayout from "../Contain/Middlelayout";
 import Head from "./Head";
 import SwipePost from "./SwipePost";
+import { API_BASE } from "../Services/api";
 
 export default function Account() {
     const { username } = useParams(); 
@@ -16,7 +17,7 @@ export default function Account() {
         const fetchUserPosts = async () => {
             setLoading(true);
             try {              
-                const response = await fetch(`http://localhost:5000/api/Poster/filter?name=${username}`, {
+                const response = await fetch(`${API_BASE}/Poster/filter?name=${username}`, {
                     credentials: "include"
                 });
                 const data = await response.json();

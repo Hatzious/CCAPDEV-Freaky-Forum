@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Post from "../Post/Post";
 import PostButton from "./PostButton";
 import Middlelayout from "../Contain/Middlelayout";
+import { API_BASE } from "../Services/api";
 
 export default function Forum() {
     const [posts, setPosts] = useState([]);
@@ -10,7 +11,7 @@ export default function Forum() {
     useEffect(() => {
         const loadPosts = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/Poster/filter", { 
+                const response = await fetch(`${API_BASE}/Poster/filter`, { 
                     credentials: "include" 
                 });               
                 const data = await response.json();        

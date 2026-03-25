@@ -4,6 +4,7 @@ import Explayout from "../Contain/Explayout";
 import LoginForm from "./LoginForm";
 import LoginRegister from "./LoginRegister";
 import { useAuth } from "../Services/Auth";
+import { API_BASE } from "../Services/api";
 
 export default function Login() {
     const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ export default function Login() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/api/Auth/login", {
+            const response = await fetch(`${API_BASE}/Auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

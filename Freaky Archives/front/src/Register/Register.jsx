@@ -5,6 +5,7 @@ import Explayout from "../Contain/Explayout";
 import Click from "../Global/Click";
 import RegisterForm from "./RegisterForm";
 import { useAuth } from "../Services/Auth";
+import { API_BASE } from "../Services/api";
 
 export default function Register() {
     const { login } = useAuth();
@@ -18,7 +19,7 @@ export default function Register() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/api/Auth/register", {
+            const response = await fetch(`${API_BASE}/Auth/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

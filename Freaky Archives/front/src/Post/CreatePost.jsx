@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from "https://cdn.skypack.dev/canvas-confetti";
+import { API_BASE } from "../Services/api";
 
 export default function CreatePost() {
 
@@ -32,7 +33,7 @@ export default function CreatePost() {
             return;
 
         try {
-            const response = await fetch("http://localhost:5000/api/Poster/create", {
+            const response = await fetch(`${API_BASE}/Poster/create`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include", 

@@ -7,6 +7,7 @@ import Edit from "../Account/Edit";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Services/Auth";
 import { useState } from "react";
+import { API_BASE } from "../Services/api";
 
 export default function Settings() {
     const { user, login } = useAuth();
@@ -24,7 +25,7 @@ export default function Settings() {
 
     const handleEdits = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/Auth/updateProfile", {
+            const response = await fetch(`${API_BASE}/Auth/updateProfile`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

@@ -3,6 +3,7 @@ import Middle from "./Middle";
 import { useAuth } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 import Explayout from "../Contain/Explayout";
+import { API_BASE } from "../Services/api";
 
 const images = import.meta.glob('../../public/pic/*.{png,jpg,jpeg,SVG}', { eager: true });
 const allImages = Object.values(images).map((mod) => mod.default);
@@ -20,7 +21,7 @@ export default function Dread() {
         const cleanUrl = imgUrl.split('public')[1] || imgUrl;
 
         try {
-            const response = await fetch("http://localhost:5000/api/Auth/updateProfile", {
+            const response = await fetch(`${API_BASE}/Auth/updateProfile`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

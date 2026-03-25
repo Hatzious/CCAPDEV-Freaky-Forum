@@ -4,6 +4,7 @@ import { prettyDate } from "../Services/function";
 import Head from "./Head";
 import Body from "./Body";
 import Comments from "./Comments";
+import { API_BASE } from "../Services/api";
 
 export default function PostView() {
 
@@ -15,7 +16,7 @@ export default function PostView() {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/Poster/${id}`);
+                const response = await fetch(`${API_BASE}/Poster/${id}`);
                 const data = await response.json();
 
                 if (response.ok) {
