@@ -31,7 +31,7 @@ export default function PostView() {
 
         const fetchComment = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/Commenter/show?postId=${id}`, {
+                const response = await fetch(`${API_BASE}/Commenter/show?postId=${id}`, {
                     method: "GET",
                     credentials: "include"
                 });

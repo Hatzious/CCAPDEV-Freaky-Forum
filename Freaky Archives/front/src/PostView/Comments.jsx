@@ -3,6 +3,7 @@ import Click from "../Global/Click";
 import Comment from "./Comment";
 import { useAuth } from "../Services/Auth";
 import OutsideClickHandler from "react-outside-click-handler";
+import { API_BASE } from "../Services/api";
 
 export default function Comments({ coming, id, setComms, post }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -35,7 +36,7 @@ export default function Comments({ coming, id, setComms, post }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/Poster/${id}/lock`, {
+            const response = await fetch(`${API_BASE}/Poster/${id}/lock`, {
                 method: "PATCH",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
@@ -93,7 +94,7 @@ export default function Comments({ coming, id, setComms, post }) {
                 label: null
             }];
 
-            const response = await fetch(`http://localhost:5000/api/Commenter/create`, {
+            const response = await fetch(`${API_BASE}/Commenter/create`, {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
