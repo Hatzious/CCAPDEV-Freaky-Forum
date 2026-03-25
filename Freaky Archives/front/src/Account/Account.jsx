@@ -36,7 +36,7 @@ export default function Account() {
 
     const deletePost = async (postId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/Poster/${postId}`, {
+            const response = await fetch(`${API_BASE}/Poster/${postId}`, {
                 method: "DELETE",
                 credentials: "include"
             });
