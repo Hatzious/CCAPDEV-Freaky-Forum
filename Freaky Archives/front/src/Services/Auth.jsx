@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { API_BASE } from "../Services/api";
 
 const authContext = createContext();
 
@@ -7,7 +8,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/Auth/me", { credentials: "include" })
+        fetch(`${API_BASE}/Auth/me`, { credentials: "include" })
             .then(res => res.json())
             .then(data => {
                 console.log("Miku miku beaaaaaaaaaam: " + data);
@@ -22,7 +23,7 @@ export function AuthProvider({ children }) {
     };
 
     const logout = async () => {
-        const request = await fetch("http://localhost:5000/api/Auth/logout", {
+        const request = await fetch(`${API_BASE}/Auth/logout`, {
             method: "POST",
             credentials: "include"
         })
