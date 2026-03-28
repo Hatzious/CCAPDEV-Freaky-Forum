@@ -7,5 +7,6 @@ router.post('/create', postController.createPost);
 router.delete('/:postId', postController.deletePost);
 router.get('/:postId', postController.getPost);
 router.patch('/:postId/lock', postController.setCommentLock);
+router.post('/vote', postController.votePost);
 
 module.exports = router;

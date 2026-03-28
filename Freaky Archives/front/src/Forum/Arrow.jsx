@@ -1,8 +1,34 @@
-export default function Arrow({ direction = "up", color = "var(--color-upvote)" }) {
+import { API_BASE } from "../Services/api";
+
+export default function Arrow({ direction = "up", color = "var(--color-upvote)", postId="", onVoteSuccess }) {
+    const handleVote = async () => {
+        try {
+            const action = direction === "up" ? 1 : -1;
+            const response = await fetch(`${API_BASE}/Poster/vote`, {
+                method: "POST",
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    voteValue: action,
+                    postId: postId 
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                onVoteSuccess(data.changes.score, data.changes.userVote);
+                console.log("Front end success calling vote: " + data.message + data.changes.score + data.changes.userVote);
+            }
+
+        } catch (error) {
+            console.log("Front end there was a problem with vote: " + error.message);
+        }
+    }
     return (
         <button 
             className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none w-fit h-fit"
             aria-label={direction === "up" ? "Upvote" : "Downvote"}
+            onClick={handleVote}
         >
             <svg 
                 width="50" 

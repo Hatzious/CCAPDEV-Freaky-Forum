@@ -1,6 +1,6 @@
 const Post = require('../models/Post');
 const User = require('../models/User');
-const Comment = require('../models/Comment');
+const Vote = require('../models/Vote');
 const { yeetusDeletus } = require('../services/purger');
 
 exports.postFilter = async (req, res) => {
@@ -50,9 +50,28 @@ exports.postFilter = async (req, res) => {
             quarry.tags = { $all: tagList };
         }
 
-        const posts = await Post.find(quarry)
+        let posts = await Post.find(quarry)
         .populate("author", "username profile")
-        .sort(sorted);
+        .sort(sorted)
+        .lean();
+
+        if (req.session.user) {
+            const userId = req.session.user._id;
+        
+            const userVotes = await Vote.find({ 
+                userId, 
+                postId: { $in: posts.map(p => p._id) } 
+            });
+
+            posts = posts.map(post => {
+                const voteEntry = userVotes.find(v => v.postId.toString() === post._id.toString());
+                return {
+                    ...post,
+                    currentUserVote: voteEntry ? voteEntry.voteValue : 0
+                };
+            });
+        }
+
         res.json(posts);
 
     } catch (err) {
@@ -152,5 +171,46 @@ exports.setCommentLock = async (req, res) => {
         res.status(200).json({ message: locked ? "Comments locked." : "Comments unlocked.", post });
     } catch (error) {
         res.status(500).json({ message: error.message });
+    }
+};
+
+exports.votePost = async (req, res) => {
+    try {
+        
+        if (!req.session.user) {
+            return res.status(401).json({ message: "You must be logged in to vote." });
+        }
+
+        const userId = req.session.user._id;
+        let { postId, voteValue } = req.body;
+        voteValue = Number(voteValue);
+        const vote = await Vote.findOne({userId, postId});
+        let change = 0;
+
+        if (!vote) {
+            await Vote.create({userId, postId, voteValue});
+            change = voteValue;
+        } else if (vote.voteValue === voteValue) {
+            await Vote.deleteOne({userId, postId});
+            change = -voteValue; 
+        } else {
+            change = 2 * voteValue
+            vote.voteValue = voteValue;
+            await vote.save();
+        }
+        
+        const updatedPost = await Post.findByIdAndUpdate(postId, {$inc:{score: change}}, {new: true});
+
+        if (!updatedPost) {
+            return res.status(404).json({ message: "Statement no longer exists in archives." });
+        }
+
+        res.status(200).json({ message: "Voting is done", changes: {
+            score: updatedPost.score,
+            userVote: vote && vote.voteValue === voteValue ? 0 : voteValue
+        }});
+
+    } catch (error) {
+        res.status(500).json({ message: "Problem at votePost API: " + error.message });
     }
 };

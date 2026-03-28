@@ -17,7 +17,7 @@ export default function Post({ data }) {
         createdAt, 
         views, 
         score, 
-        content,
+        currentUserVote,
         tags 
     } = data;
 
@@ -26,7 +26,7 @@ export default function Post({ data }) {
     const displayDate = prettyDate(createdAt);
 
     const username = author?.username || "Anonymous";
-    const avatar = author?.profile?.avatarUrl || "/pic/puppy.jpg";
+    const avatar = author?.profile?.avatarUrl || "/puppy.jpg";
 
     return (
         <div
@@ -37,7 +37,7 @@ export default function Post({ data }) {
             <div className="flex flex-row bg-olive h-[16vh] w-[66vw] border-border border-post items-center py-1 px-6 gap-x-4">
                 <Icon source={avatar} />
                 <Titlebox id={postId} title={title} author={username} date={displayDate} tags={tags} />
-                <Vote />
+                <Vote score={score} postId={postId} initialUserVote={currentUserVote} />
             </div>
 
             {isHovered && (
