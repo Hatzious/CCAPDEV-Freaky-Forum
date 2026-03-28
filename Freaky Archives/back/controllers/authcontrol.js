@@ -1,6 +1,17 @@
 const User = require('../models/User');
+const Post = require('../models/Post');
+const Comment = require('../models/Comment');
 const crypto = require('bcrypt');
+const { yeetusDeletus } = require('../services/purger');
 const salty = 10;
+
+const clearSessionAndCookie = (req, res, successMessage) => {
+    req.session.destroy((err) => {
+        if (err) return res.status(500).json({ message: "Session clear failed" });
+        res.clearCookie('connect.sid');
+        return res.status(200).json({ message: successMessage });
+    });
+};
 
 exports.loginUser = async (req, res) => {
     try {
@@ -39,14 +50,8 @@ exports.logoutUser = async (req, res) => {
             }
         }
 
-        req.session.destroy((err) => {
-            if (err) {
-                return res.status(500).json({ message: "Could not log out completely" });
-            }
-            
-            res.clearCookie('connect.sid');
-            res.json({ message: "Logged out" });
-        });
+        clearSessionAndCookie(req, res, "Logged out successfully");
+
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -111,5 +116,30 @@ exports.updateProfile = async (req, res) => {
         res.status(200).json({ message: "Avatar updated", user: req.session.user });
     } catch (error) {
         res.status(500).json({ message: error.message });
+    }
+};
+
+exports.deleteUser = async (req, res) => {
+    try {
+        if (!req.session.user) return res.status(401).send({ message: "Cannot delete, not logged in" });
+
+        const userId = req.session.user._id;
+        const posts = await Post.find({ author: userId });
+
+        for (let post of posts) {
+            await yeetusDeletus(post._id);
+        }
+
+        await Comment.deleteMany({ author: userId });
+        const deletedUser = await User.findByIdAndDelete(userId);
+
+        if (!deletedUser) {
+            return res.status(404).json({ message: "User could not be found for deletion" });
+        }
+ 
+        clearSessionAndCookie(req, res, "User has now been cast into the shadow realm");
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 };

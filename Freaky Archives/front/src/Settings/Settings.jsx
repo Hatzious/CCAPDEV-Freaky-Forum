@@ -8,10 +8,20 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Services/Auth";
 import { useState } from "react";
 import { API_BASE } from "../Services/api";
+import { useEffect } from "react";
 
 export default function Settings() {
     const { user, login } = useAuth();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/login");
+        }
+    }, [user, navigate]);
+
+    if (!user) return null;
+
     const [formData, setFormData] = useState({
         username: user?.username || "",
         dob: user?.dob ? new Date(user.dob).toISOString().split('T')[0] : "",
@@ -19,7 +29,7 @@ export default function Settings() {
         bio: user?.profile?.bio || ""
     });
 
-     const handleChange = (field, value) => {
+    const handleChange = (field, value) => {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
@@ -73,7 +83,7 @@ export default function Settings() {
                     <PasswordOption value={formData.password} onChange={(val) => handleChange("password", val)} idName="password" label="Change Password" description="Update your password." />
 
                     <div className="content-end mt-4 mb-6">
-                        <button onClick={handleEdits} className="absolute self-end items-center w-36 h-8 pl-3 bg-accent-dark-1 border border-border text-glow font-french-canon
+                        <button onClick={handleEdits} className="self-end items-center w-36 h-8 pl-3 bg-accent-dark-1 border border-border text-glow font-french-canon
                             text-xxxs cursor-pointer 
                             hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out">
                             Save Changes

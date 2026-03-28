@@ -1,6 +1,7 @@
 const Post = require('../models/Post');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
+const { yeetusDeletus } = require('../services/purger');
 
 exports.postFilter = async (req, res) => {
     try {
@@ -101,8 +102,7 @@ exports.deletePost = async (req, res) => {
             return res.status(403).json({ message: "You can only delete your own statements." });
         }
 
-        await Comment.deleteMany({ postId: postId });
-        await Post.findByIdAndDelete(postId);
+        await yeetusDeletus(postId);
         res.json({ message: "Statement deleted successfully." });
 
     } catch (error) {

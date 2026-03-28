@@ -1,7 +1,33 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { API_BASE } from "../Services/api";
+import { useAuth } from '../Services/Auth';
 
 export default function Option({ idName, label="button", description="does something useful" }) {
     const [showConfirm, setShowConfirm] = useState(false);
+    const navigate = useNavigate();
+    const { logout } = useAuth();
+
+    const userDeletion = async () => {
+                try {
+                    const response = await fetch(`${API_BASE}/Auth/delete`, {
+                        method: "DELETE",
+                        credentials: "include"
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(data.message);
+                        setShowConfirm(false)
+                        logout();
+                        navigate('/');
+                    }
+        
+        
+                } catch (error) {
+                    console.error("User deletion failed at front:", error);
+                }
+            };
 
     if (idName === "delete-account") {
         if (showConfirm) {
@@ -18,7 +44,7 @@ export default function Option({ idName, label="button", description="does somet
                         <div className="items-center w-16 h-8 text-center bg-accent-dark-1 border border-border text-glow font-french-canon
                             text-xxxs cursor-pointer 
                             hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out"
-                            onClick={() => setShowConfirm(false)}>
+                            onClick={userDeletion}>
                             Yes
                         </div>
                     </div>
