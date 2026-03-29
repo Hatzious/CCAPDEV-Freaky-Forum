@@ -58,7 +58,7 @@ export default function SwipePost({ post, onDelete, canDelete }) {
     return (
         <OutsideClickHandler onOutsideClick={handleOutsideClick}>
             {/* Main container */}
-            <div className="relative overflow-hidden w-full mb-2 border-border border">
+            <div className="relative overflow-hidden w-full">
                 {/* Confirm delete container */}
                 {canDelete && (
                     <div
@@ -77,7 +77,7 @@ export default function SwipePost({ post, onDelete, canDelete }) {
                         transform: `translateX(${offset}px)`,
                         transition: isDragging ? "none" : "transform 0.3s ease-out"
                     }}
-                    className="relative z-10 w-full h-full bg-olive cursor-grab active:cursor-grabbing">
+                    className="cursor-grab active:cursor-grabbing">
                         <div className={isOpen ? "pointer-events-none" : ""}>
                             <Post data={post} isAccount={true} />
                         </div>
