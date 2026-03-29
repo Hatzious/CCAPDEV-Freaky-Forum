@@ -8,7 +8,7 @@ export default function UserCard({ data }) {
 
     return (
         <Resizebox>
-            <Icon dimensions="w-40 h-38" source={profile.avatarUrl} />
+            <Icon dimensions="w-40 h-38" source={profile?.avatarUrl || "/puppy.jpg"} />
             <Mastercontainer>
                 <Prettytext fontSize="text-medium">
                     {username}

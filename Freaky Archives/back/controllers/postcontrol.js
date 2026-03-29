@@ -39,14 +39,7 @@ exports.postFilter = async (req, res) => {
         }
 
         if (tags) {
-            let tagList;
-            if (Array.isArray(tags)) {
-                tagList = tags.map(t => t.toLowerCase());
-            } else if (tags.includes(',')) {
-                tagList = tags.split(',').map(t => t.toLowerCase());
-            } else {
-                tagList = [tags.toLowerCase()];
-            }
+            let tagList = tags.includes(',') ? tags.split(',') : tags;
             quarry.tags = { $all: tagList };
         }
 

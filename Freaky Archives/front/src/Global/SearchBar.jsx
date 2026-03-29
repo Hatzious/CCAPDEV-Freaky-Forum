@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../Services/Auth";
+import { useState } from "react";
 
 export default function SearchBar({ onClose, classes = "visible" }) {
     const navigate = useNavigate();
+    const [input, setInput] = useState('');
 
     const handleEnter = (e) => {
-        if (e.key === 'Enter') {
-            navigate("/search");
+        if (e.key === 'Enter' && input.trim()) {
+            navigate(`/search?q=${encodeURIComponent(input.trim())}`);
+
+            if (onClose) onClose();
         }
     };
 
@@ -19,6 +22,8 @@ export default function SearchBar({ onClose, classes = "visible" }) {
                 <input autoFocus
                     type="text"
                     placeholder="Search forums. Press Enter to search..."
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleEnter}
                     className="search-input w-140 outline-none text-glow font-french-canon bg-transparent" 
                 />

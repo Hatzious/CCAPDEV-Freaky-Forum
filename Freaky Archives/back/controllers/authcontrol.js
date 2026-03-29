@@ -65,6 +65,7 @@ exports.meUser = (req, res) => {
 };
 
 exports.queryUser = async (req, res) => {
+    // For visiting user profiles, not to be confused with searchUsers
     try {
         const targetUser = await User.findOne({ username: req.params.username });
 
@@ -77,6 +78,24 @@ exports.queryUser = async (req, res) => {
             profile: targetUser.profile,
             stats: targetUser.stats
         })
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.searchUsers = async (req, res) => {
+    try {
+        const { q } = req.query;
+        if (!q) return res.json([]);
+
+        // Search is NOT case-sensitive
+        const users = await User.find({
+            username: { $regex: q, $options: 'i' }
+        })
+        .select('username profile stats')
+        .limit(10);
+
+        res.status(200).json(users);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
