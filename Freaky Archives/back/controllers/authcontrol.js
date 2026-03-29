@@ -57,11 +57,29 @@ exports.logoutUser = async (req, res) => {
     }
 };
 
- exports.meUser = (req, res) => {
+exports.meUser = (req, res) => {
     if (req.session.user) {
         return res.json({ loggedIn: true, user: req.session.user });
     }
     res.json({ loggedIn: false });
+};
+
+exports.queryUser = async (req, res) => {
+    try {
+        const targetUser = await User.findOne({ username: req.params.username });
+
+        if (!targetUser) {
+            return res.status(404).json({ message:"User not found" });
+        }
+
+        res.status(200).json({
+            username: targetUser.username,
+            profile: targetUser.profile,
+            stats: targetUser.stats
+        })
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 exports.registerUser = async (req, res) => {
