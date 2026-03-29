@@ -5,7 +5,7 @@ import Vote from "../Forum/Vote";
 import PostPreviewCard from "../Forum/PostPreviewCard";
 import { prettyDate } from "../Services/function";
 
-export default function Post({ data }) {
+export default function Post({ data, isAccount = false }) {
     const [isHovered, setIsHovered] = useState(false);
 
     if (!data) return null;
@@ -37,7 +37,9 @@ export default function Post({ data }) {
             <div className="flex flex-row bg-olive h-[16vh] w-[66vw] border-border border-post items-center py-1 px-6 gap-x-4">
                 <Icon source={avatar} />
                 <Titlebox id={postId} title={title} author={username} date={displayDate} tags={tags} />
-                <Vote score={score} postId={postId} initialUserVote={currentUserVote} />
+                { !isAccount && (
+                    <Vote score={score} postId={postId} initialUserVote={currentUserVote} />
+                )}
             </div>
 
             {isHovered && (

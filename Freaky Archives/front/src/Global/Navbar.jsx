@@ -26,7 +26,7 @@ export default function Navbar() {
                 <Logo size="text-normal" />
             </div>
            
-            <div className="flex items-center justify-center gap-24">
+            <div className="flex items-center justify-center gap-24 -ml-[15vh]">
                 <Click label="FORUM" to="/forum" />
                 <div className="flex items-center gap-4">
                     {!showSearchBar ? (
@@ -50,8 +50,8 @@ export default function Navbar() {
                     </div>
                     ) : (
                     <>
-                        <Click label="Sign in" to="/login" size="text-xxs" bordered={true}/>
-                        <Click label="Sign up" to="/register" size="text-xxs" bordered={true}/>
+                        <Click label="Sign in" to="/login" size="text-xxs"/>
+                        <Click label="Sign up" to="/register" size="text-xxs"/>
                     </>)
                 }
             </div>
