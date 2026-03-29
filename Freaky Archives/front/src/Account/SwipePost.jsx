@@ -79,7 +79,7 @@ export default function SwipePost({ post, onDelete, canDelete }) {
                     }}
                     className="relative z-10 w-full h-full bg-olive cursor-grab active:cursor-grabbing">
                         <div className={isOpen ? "pointer-events-none" : ""}>
-                            <Post data={post} />
+                            <Post data={post} isAccount={true} />
                         </div>
                 </div>
             </div>

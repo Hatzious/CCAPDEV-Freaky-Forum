@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Click({ label = "Forgor", size = "text-xxs", to, onClick, bordered = false, menu = false, post = false}) {
+export default function Click({ label = "Forgor", size = "text-xxs", to, onClick, menu = false, post = false}) {
 
     const shadows = menu ? "hover:text-shadow-compact hover:brightness-80" : "hover:text-shadow-glow hover:brightness-100";
 
@@ -16,8 +16,12 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
             truncate w-full
             `;
 
-    if (bordered) {
-        styles = styles + " border-solid border-glow border-post px-2"
+    if (label == "Sign in" || label == "Sign up") {
+        return (
+            <Link to={to} className={styles + " border border-border px-2 py-1"}>
+                {label}
+            </Link>
+        );
     }
     
     if (to && !post) {
@@ -28,7 +32,7 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
         );
     }
 
-    if (post && to) {
+    if (to && post) {
         return (
             <Link to={to} className={tostyles}>
                 {label}
@@ -44,7 +48,7 @@ export default function Click({ label = "Forgor", size = "text-xxs", to, onClick
         );
     }
 
-    if (label === "LOGOUT" || label === "SETTINGS" || label === "ACCOUNT") {
+    if (menu) {
         return (
             <span className={styles + " text-center border-none p-0"}>
                 {label}
