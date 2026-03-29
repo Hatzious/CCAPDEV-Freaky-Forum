@@ -1,8 +1,9 @@
 import Middlelayout from "../Contain/Middlelayout";
 import Prettytext from "../Account/Prettytext";
+import UserCard from "./UserCard";
 import Post from "../Post/Post";
 
-export default function Forum() {
+export default function Search() {
     const query = "query here"
 
     return (
@@ -12,10 +13,12 @@ export default function Forum() {
             </Prettytext>
             <div className="pt-8"></div>
 
-            {/* List of queried users */}
+            {/* List of queried users if any */}
+            <UserCard />
+            <UserCard />
             <div className="pt-8"></div>
 
-            {/* List of queried posts */}
+            {/* List of queried posts if any */}
             <Post />
             <Post />
             <Post />
