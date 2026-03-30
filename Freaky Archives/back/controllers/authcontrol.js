@@ -156,6 +156,36 @@ exports.updateProfile = async (req, res) => {
     }
 };
 
+exports.resetPassword = async (req, res) => {
+    try {
+        const { username, newPassword } = req.body;
+
+        if (!username || !newPassword) {
+            return res.status(400).json({ message: "Username and new password are required." });
+        }
+
+        const user = await User.findOne({ username: username.trim() });
+        if (!user) {
+            return res.status(400).json({ message: "This user doesn't exist." });
+        }
+
+        const hashire = await crypto.hash(newPassword, salty);
+        user.password = hashire;
+
+        await user.save();
+
+        await user.setOnline();
+        req.session.user = user.toObject({ virtuals: true });
+
+        res.status(200).json({
+            message: "Password reset successfully",
+            user: req.session.user
+        })
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
 exports.deleteUser = async (req, res) => {
     try {
         if (!req.session.user) return res.status(401).send({ message: "Cannot delete, not logged in" });

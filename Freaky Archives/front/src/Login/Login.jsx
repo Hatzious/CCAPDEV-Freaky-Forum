@@ -5,12 +5,15 @@ import LoginForm from "./LoginForm";
 import LoginRegister from "./LoginRegister";
 import { useAuth } from "../Services/Auth";
 import { API_BASE } from "../Services/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    
     const { login } = useAuth();
+    const navigate = useNavigate();
 
     const usernameInvalid = !username.trim();
     const passwordInvalid = !password;
@@ -53,7 +56,12 @@ export default function Login() {
     };
 
     const forgotPassword = () => {
-        console.log("forgot password clicked");
+        if (!username.trim()) {
+            alert("Please enter your username to reset your password.");
+            return;
+        }
+
+        navigate("/newpassword", { state: { username } });
     };
 
     return (

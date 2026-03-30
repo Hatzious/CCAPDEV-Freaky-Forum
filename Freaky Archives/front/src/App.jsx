@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
 import Login from "./Login/Login";
+import NewPassword from "./Login/NewPassword";
 import Dread from "./Dread/Dread";
 import Mainlayout from "./Contain/Mainlayout";
 import Forum from "./Forum/Forum";
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/newpassword" element={<NewPassword />} />
           <Route path="/dread" element={<Dread />} />
 
           <Route element={<Mainlayout />}>        
