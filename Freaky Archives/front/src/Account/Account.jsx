@@ -72,7 +72,7 @@ export default function Account() {
                 </div>
             )}
 
-            <div className="flex flex-col w-[66vw] gap-y-4">
+            <div className="flex flex-col w-[66vw] pb-4">
                 {posts.length > 0 ? (
                     posts.map((post) => (
                         <SwipePost
