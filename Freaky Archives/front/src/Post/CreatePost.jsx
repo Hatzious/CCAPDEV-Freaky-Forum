@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import confetti from "https://cdn.skypack.dev/canvas-confetti";
+import confetti from 'canvas-confetti';
 import { API_BASE } from "../Services/api";
 
 export default function CreatePost() {
