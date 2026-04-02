@@ -7,7 +7,7 @@ export default function EyesBlinking() {
     useEffect(() => {
       const randomX = Math.floor(Math.random() * 16 - 8); 
       const randomY = Math.floor(Math.random() * 20 - 10); 
-      const randomScale = 0.8 + Math.random() * 0.5;      
+      const randomScale = 0.3 + Math.random() * 0.9;      
       const randomRotate = Math.floor(Math.random() * 20 - 10); 
 
       setRandomStyle({
