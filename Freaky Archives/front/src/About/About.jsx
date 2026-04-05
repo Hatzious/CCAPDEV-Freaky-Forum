@@ -1,7 +1,7 @@
 import Logo from "../Global/Logo";
 import HBar from "./HBar.jsx"
+import ProfileTile from "./ProfileTile.jsx";
 import Click from "../Global/Click";
-import Icon from "../Global/Icon";
 import Middlelayout from "../Contain/Middlelayout";
 
 export default function About() {
@@ -12,10 +12,34 @@ export default function About() {
                     <Logo size="text-ml" />
 
                     <HBar text="ABOUT" />
+                    <p className="text-glow">
+                        This forum was developed with inspiration from Magnus Archives, a series of horror stories created by a group called Rusty Quill. This forum website exists to provide a community around sharing and investigating horror stories. Most existing websites serve as non-persistent discussion boards even if the content revolves around horror fiction, but Freaky Archives provide a centralized venue for users to contribute to a repository of user-made horror stories (a.k.a creepy pasta) for everyone to access.
+                    </p>
 
                     <HBar text="CREATORS" />
+                    <div className="flex">
+                        <ProfileTile name="Aya-ay, Viktor Rafale" pic="" />
+                        <ProfileTile name="Esguerra, Darryl Matthew" pic="" />
+                        <ProfileTile name="Policarpio, Rozette Dominique" pic="" />
+                        <ProfileTile name="Tiu, Avram Nathaniel" pic="" />
+                    </div>
 
                     <HBar text="FRAMEWORKS & PACKAGES" />
+                    <div className="flex gap-x-64">
+                        <ul className="text-glow list-disc list-inside">
+                            <li>Node.js</li>
+                            <li>MongoDB</li>
+                            <li>MongoDB Atlas</li>
+                            <li>Mongoose</li>
+                            <li>Express</li>
+                            <li>Nodemon</li>
+                        </ul>
+
+                        <ul className="text-glow list-disc list-inside">
+                            <li>react-outside-click-handler by airbnb</li>
+                            <li>canvas-confetti by catdad</li>
+                        </ul>
+                    </div>
 
                     <HBar pic="../public/eyecursor.png" />
                 </div>
