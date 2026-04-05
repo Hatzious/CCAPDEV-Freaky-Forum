@@ -68,7 +68,7 @@ const Music = () => {
     return (
         <>
             <audio ref={audioRef} loop preload="auto">
-                <source src="/audio/Remember.m4a" type="audio/mpeg" />
+                <source src="/audio/Remember.m4a" type="audio/mp4" />
             </audio>
             <span
                 className="audio"

@@ -48,11 +48,15 @@ export default function CreatePost() {
             if (response.ok) {
                 const data = await response.json();
                 console.log("Archive Success:", data.message);
+                postCreatedAudio.volume = 0.5;
                 postCreatedAudio.play();
+                setTimeout(() => postCreatedAudio.pause(), 5000);
                 confetti({
                     spread: 1000,
                     particleCount: 700,
                     startVelocity: 80,
+                    gravity: 0.6,
+                    ticks: 300,
                     origin: { y: 0.7 }
                 });
                 navigate("/forum");
