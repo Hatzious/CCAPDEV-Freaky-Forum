@@ -13,12 +13,16 @@ import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Post from "./Post/CreatePost";
 import Music from "./Global/Music";
+import EyesBackground from "./Global/EyesBackground";
+import Cursor from "./Global/Cursor";
 
 export default function App() {
   return ( 
     <>
+      <Cursor />
       <Music />
       <Router>
+        <EyesBackground />
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />

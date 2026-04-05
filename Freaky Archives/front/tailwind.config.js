@@ -21,7 +21,25 @@ export default {
         french: ['"IM Fell French Canon"', 'serif'],
         island: ['"Island Moments"', 'cursive'],
         scary: ['"IM Fell Great Primer"', 'serif']
+      },
+      keyframes: {
+      jitter: {
+        '0%': { transform: 'translate(0, 0)' },
+        '10%': { transform: 'translate(-3px, 2px)' },
+        '20%': { transform: 'translate(3px, -1px)' },
+        '30%': { transform: 'translate(-2px, -3px)' },
+        '40%': { transform: 'translate(2px, 3px)' },
+        '50%': { transform: 'translate(-1px, 2px)' },
+        '60%': { transform: 'translate(1px, -2px)' },
+        '70%': { transform: 'translate(-3px, 1px)' },
+        '80%': { transform: 'translate(3px, -3px)' },
+        '90%': { transform: 'translate(-1px, -1px)' },
+        '100%': { transform: 'translate(0, 0)' },
       }
+    },
+    animation: {
+      jitter: 'jitter 0.12s infinite steps(2)',
+    }
     },
   },
   plugins: [],
