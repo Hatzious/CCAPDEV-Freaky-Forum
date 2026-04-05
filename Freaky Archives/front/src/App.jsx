@@ -13,10 +13,12 @@ import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Post from "./Post/CreatePost";
 import Music from "./Global/Music";
+import Cursor from "./Global/Cursor";
 
 export default function App() {
   return ( 
     <>
+      <Cursor />
       <Music />
       <Router>
         <Routes>
