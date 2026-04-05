@@ -46,9 +46,7 @@ export default function Settings() {
             if (response.ok) {
                 const data = await response.json();
                 login(data.user);      
-                if (formData.username !== user.username) {
-                    navigate(`/account/${data.user.username}`);
-                }
+                navigate(`/account/${data.user.username}`);       
             }
         } catch (error) {
             console.error("Failed to update profile", error);
