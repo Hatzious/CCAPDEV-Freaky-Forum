@@ -102,4 +102,8 @@
   .border-badge {
     border-width: 0.6px;
   }
+
+  * {
+    cursor: none !important;
+  }
 }

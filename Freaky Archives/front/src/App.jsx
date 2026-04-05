@@ -14,10 +14,12 @@ import Register from "./Register/Register";
 import Post from "./Post/CreatePost";
 import Music from "./Global/Music";
 import EyesBackground from "./Global/EyesBackground";
+import Cursor from "./Global/Cursor";
 
 export default function App() {
   return ( 
     <>
+      <Cursor />
       <Music />
       <Router>
         <EyesBackground />
