@@ -34,6 +34,7 @@ export default function Navbar() {
                     ) : (<SearchBar onClose={() => setShowSearchBar(false)} />
                     )}
                 </div>
+                <Click label="ABOUT" to="/about" />
             </div>
 
             <div className="flex justify-end relative gap-x-4">
