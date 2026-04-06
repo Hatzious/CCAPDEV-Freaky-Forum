@@ -29,7 +29,7 @@ export default function EyesBlinking() {
 
   return (
       <img 
-        src={isOpen ? "/eye static/OpenedEye.png" : "/eye static/ClosedEye.png"} 
+        src={isOpen ? "/eyers/OpenedEye.png" : "/eyers/ClosedEye.png"} 
         alt="Eye"
         style={randomStyle}
         className="w-full h-full object-cover transition-opacity duration-100"
