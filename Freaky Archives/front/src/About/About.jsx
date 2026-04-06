@@ -6,7 +6,7 @@ import Middlelayout from "../Contain/Middlelayout";
 export default function About() {
     return (
         <Middlelayout>
-            <div className="flex flex-col bg-olive h-auto w-[66vw] border-border border py-1 px-12">
+            <div className="flex flex-col bg-olive h-auto w-[66vw] border-border border py-1 px-32">
                 <div className="flex flex-col gap-y-4 justify-center items-center pt-12 pb-12">
                     <Logo size="text-ml" />
 
@@ -57,6 +57,39 @@ export default function About() {
                             <li>react-outside-click-handler <span className="text-secondary-1">by airbnb</span></li>
                             <li>nodemon <span className="text-secondary-1">by Remy Sharp</span></li>
                             <li>cors <span className="text-secondary-1">by Express.js</span></li>
+                        </ul>
+                    </div>
+
+                    <HBar text="FAQ" />
+                    <div className="text-glow font-french-canon">
+                        <p className="text-center italic">
+                            How do you delete posts?
+                        </p>
+                        <ul className="list-disc list-inside">
+                            <li>Hover over your profile picture {'>'} Account {'>'} Drag one of the existing posts to the left {'>'} Click the confirmation button</li>
+                        </ul>
+                        <br></br>
+
+                        <p className="text-center italic">
+                            How do you search specific topics?
+                        </p>
+                        <ul className="list-disc list-inside">
+                            <li>Click Search in the Navigation Bar {'>'} Type what you need to find</li>
+                            <li>There are special conditions that you can include in your search:</li>
+                            <li>Default search (no tagging): Just searches titles of posts & users</li>
+                            <li><span className="font-mono">author:{'<username>'}</span>: Searches posts made by a specific user; disables searching of users</li>
+                            <li><span className="font-mono">#{'<tag>'}</span>: Searches posts with associated tag; can be multiple</li>
+                            <li>The possible tags are only the following: "TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", "TheDark"</li>
+                        </ul>
+                        <br></br>
+
+                        <p className="text-center italic">
+                            How do you filter and sort while searching?
+                        </p>
+                        <ul className="list-disc list-inside">
+                            <li>In your search query, you can include one or both of the following:</li>
+                            <li><span className="font-mono">scorer:{'<"most"/"least">'}</span>: Sorts posts by most scored</li>
+                            <li><span className="font-mono">viewer:{'<"most"/"least">'}</span>: Sorts posts by most viewed</li>
                         </ul>
                     </div>
 
