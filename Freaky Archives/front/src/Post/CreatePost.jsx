@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from 'canvas-confetti';
 import { API_BASE } from "../Services/api";
@@ -11,6 +11,7 @@ export default function CreatePost() {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const navigate = useNavigate();
     const [selectedTags, setSelectedTags] = useState([]);
+    const textareaRef = useRef(null);
 
     const tags = ["TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", "TheDark"];
 
@@ -20,6 +21,29 @@ export default function CreatePost() {
     const isInvalid = titleInvalid || summaryInvalid || bodyInvalid;
 
     let postCreatedAudio = new Audio("/audio/post-created.mp3");
+
+    const applyFormatting = (tag) => {
+        const el = textareaRef.current;
+        if (!el) return;
+
+        const start = el.selectionStart; 
+        const end = el.selectionEnd;
+        const text = el.value;
+
+        
+        const before = text.substring(0, start);
+        const selected = text.substring(start, end);
+        const after = text.substring(end);
+
+        const newText = `${before}${tag}${selected}${tag}${after}`;
+
+        setBody(newText);
+
+        setTimeout(() => {
+            el.focus();
+            el.setSelectionRange(start + tag.length, end + tag.length);
+        }, 0);
+    };
 
     const toggleTag = (tag) => {
         setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
@@ -125,15 +149,14 @@ export default function CreatePost() {
                     <div className="flex flex-col gap-2.5">
                         <span className="font-french-canon text-glow text-xs">Body</span>
                         <div className="flex flex-wrap gap-2" role="toolbar" aria-label="Formatting">
-                            <button type="button" className={richTextButtons} data-md="**">Bold</button>
-                            <button type="button" className={richTextButtons} data-md="*">Italic</button>
-                            <button type="button" className={richTextButtons} data-md="~~">Strike</button>
-                            <button type="button" className={richTextButtons} data-md="`">Code</button>
-                            <button type="button" className={richTextButtons} data-md="> ">Quote</button>
-                            <button type="button" className={richTextButtons} data-md="- ">List</button>
+                            <button type="button" onClick={() => applyFormatting("**")} className={richTextButtons} data-md="**">Bold</button>
+                            <button type="button" onClick={() => applyFormatting("*")} className={richTextButtons} data-md="*">Italic</button>
+                            <button type="button" onClick={() => applyFormatting("~~")} className={richTextButtons} data-md="~~">Strike</button>
+                            <button type="button" onClick={() => applyFormatting("`")} className={richTextButtons} data-md="`">Code</button>
                         </div>
                         <textarea 
-                            id="post-body" 
+                            id="post-body"
+                            ref={textareaRef} 
                             className="bg-textbox border border-border 
                                     text-glow font-french-canon text-lg tracking-[0.6px] 
                                     p-3 outline-none focus:border-infomax-w-[100%]" 
