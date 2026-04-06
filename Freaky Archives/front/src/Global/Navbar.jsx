@@ -44,9 +44,7 @@ export default function Navbar() {
                         classes="cursor-pointer transition-all ease-in-out
                                 hover:bg-glow hover:animate-none hover:border-white" source={user.profile.avatarUrl}/>
                         {showHoverBox && (
-                            <div>
-                                <HoverBox />
-                            </div>
+                            <HoverBox type="navbar"/>                           
                         )}
                     </div>
                     ) : (
