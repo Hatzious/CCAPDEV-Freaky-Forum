@@ -18,9 +18,9 @@ export default function About() {
 
                     <HBar text="CREATORS" />
                     <div className="flex gap-x-16 text-center">
-                        <ProfileTile name="Aya-ay, Viktor Rafale" pic="/pic/Rafale_Photo.jpg" />
-                        <ProfileTile name="Esguerra, Darryl Matthew" pic="/pic/Darryl_Photo.jpg" />
-                        <ProfileTile name="Policarpio, Rozette Dominique" pic="/pic/Rozette_Photo.jpg" />
+                        <ProfileTile name="Aya-ay, Viktor Rafale" pic="/creators/Rafale_Photo.jpg" />
+                        <ProfileTile name="Esguerra, Darryl Matthew" pic="/creators/Darryl_Photo.jpg" />
+                        <ProfileTile name="Policarpio, Rozette Dominique" pic="/creators/Rozette_Photo.jpg" />
                         <ProfileTile name="Tiu, Avram Nathaniel" pic="/public/puppy.jpg" />
                     </div>
 
