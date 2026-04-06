@@ -1,7 +1,6 @@
 import Logo from "../Global/Logo";
 import HBar from "./HBar.jsx"
 import ProfileTile from "./ProfileTile.jsx";
-import Click from "../Global/Click";
 import Middlelayout from "../Contain/Middlelayout";
 
 export default function About() {
