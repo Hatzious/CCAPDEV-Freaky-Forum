@@ -1,8 +1,9 @@
 import Icon from "../Global/Icon";
 import Vote from "../Forum/Vote";
+import Click from "../Global/Click";
 import { prettyDate } from "../Services/function";
 
-export default function Comment({ data }) {
+export default function Comment({ data, onQuote, id }) {
    
     if (!data) return null;
 
@@ -15,7 +16,7 @@ export default function Comment({ data }) {
     const dateDisplay = `${prettyDate(createdAt)}`;
 
     return (
-        <div className="flex flex-row bg-olive h-auto w-full border-border border-post items-start py-3 px-6 gap-x-4">
+        <div id={id} className="flex flex-row bg-olive h-auto w-full border-border border-post items-start py-3 px-6 gap-x-4">
             <div className="flex flex-1 pt-4 gap-x-4">
                
                 <Icon source={avatar} dimensions="w-10 h-10" />
@@ -23,7 +24,21 @@ export default function Comment({ data }) {
                 <div className="flex flex-col flex-1 min-w-0">
                    
                     <div className="text-glow font-french-canon text-xs">{username}</div>
-                    <div className="text-info font-varela text-xxxxxs mb-3">{dateDisplay}</div>
+                    <div className="text-info font-varela text-xxxxxs mb-3 flex items-center gap-2">
+                        {dateDisplay}
+                        {onQuote && (
+                            <Click
+                                label="Quote"
+                                size="text-xxxxxs"
+                                onClick={() => onQuote({
+                                    text: content.map(block => block.text).join(' '),
+                                    sourceType: 'User',
+                                    sourceId: data._id,
+                                    authorName: username
+                                })}
+                            />
+                        )}
+                    </div>
 
                    
                     <div className="flex flex-col gap-y-3">
@@ -47,7 +62,7 @@ export default function Comment({ data }) {
                                             ${isPost ? 'bg-primary-1/5 border-primary-1 hover:bg-primary-1/10' : 'bg-accent-dark-2 border-glow hover:bg-white/5'}`}
                                     >
                                         <span className="underline opacity-70">
-                                            {isPost ? "Referencing Statement" : `${block.label} recorded:`}
+                                            {isPost ? "Referencing Statement" : `${block.label} said:`}
                                         </span>
                                         <div className="mt-1 italic text-glow/80">
                                             "{block.text}"

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { prettyDate } from "../Services/function";
 import Head from "./Head";
@@ -12,6 +12,7 @@ export default function PostView() {
     const [post, setPost] = useState(null);
     const [comms, setComms] = useState(null);
     const [loading, setLoading] = useState(true);
+    const commentsRef = useRef();
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -59,6 +60,12 @@ export default function PostView() {
     const authorName = post.author?.username || "Anonymous";
     const displayDate = prettyDate(post.createdAt);
 
+    const handleQuote = ({ text, sourceType, sourceId, authorName }) => {
+        if (commentsRef.current) {
+            commentsRef.current.handleQuote({ text, sourceType, sourceId, authorName });
+        }
+    };
+
     return (
         <div className="flex flex-row justify-center">
             <div className="w-7/12 min-h-screen flex flex-col justify-start">
@@ -71,12 +78,16 @@ export default function PostView() {
                 />
                 <Body 
                 text={post.content} 
+                onQuote={handleQuote}
+                postData={post}
+                id={post._id}
                 />
                 <Comments
                     coming={comms}
                     id={id}
                     setComms={setComms}
                     post={post}
+                    ref={commentsRef}
                 />
             </div>
         </div>

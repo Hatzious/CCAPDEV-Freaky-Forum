@@ -1,17 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import Click from "../Global/Click";
 import Comment from "./Comment";
 import { useAuth } from "../Services/Auth";
 import OutsideClickHandler from "react-outside-click-handler";
 import { API_BASE } from "../Services/api";
 
-export default function Comments({ coming, id, setComms, post }) {
+const Comments = forwardRef(({ coming, id, setComms, post }, ref) => {
     const [isVisible, setIsVisible] = useState(false);
     const [body, setBody] = useState("");
+    const [quoteMetadata, setQuoteMetadata] = useState([]); // Track quote positions and metadata
     const [postLocked, setPostLocked] = useState(post?.commentsLocked ?? false);
     const bodyInvalid = !body.trim();
     const { user } = useAuth();
     const [error, setError] = useState("");
+
+    useImperativeHandle(ref, () => ({
+        handleQuote
+    }));
 
     const isAuthor = user && post && post.author && post.author._id === user._id;
 
@@ -68,7 +73,91 @@ export default function Comments({ coming, id, setComms, post }) {
         setIsVisible(!isVisible);
     };
 
-    const handleBodyValidity = () => {
+    const handleQuote = ({ text, sourceType, sourceId, authorName }) => {
+        if (!user) {
+            setError("Identification required to leave a statement.");
+            return;
+        }
+        if (postLocked) {
+            setError("Comments are locked on this post.");
+            return;
+        }
+
+        const quoteText = `[QUOTE="${authorName}"]${text}[/QUOTE]\n`;
+        const quoteId = `quote-${Date.now()}-${Math.random()}`;
+
+        setQuoteMetadata(prev => [...prev, {
+            id: quoteId,
+            sourceType,
+            sourceId,
+            authorName,
+            text
+        }]);
+
+        setBody(prevBody => prevBody + quoteText);
+        setIsVisible(true);
+        resetError();
+    };
+
+    const parseContent = (textareaContent) => {
+        const blocks = [];
+        const quoteRegex = /\[QUOTE="([^"]+)"\](.*?)\[\/QUOTE\]/gs;
+
+        let lastIndex = 0;
+        let match;
+        let quoteIndex = 0;
+
+        while ((match = quoteRegex.exec(textareaContent)) !== null) {
+            if (match.index > lastIndex) {
+                const beforeText = textareaContent.slice(lastIndex, match.index).trim();
+                if (beforeText) {
+                    blocks.push({
+                        text: beforeText,
+                        source: 'none',
+                        label: null
+                    });
+                }
+            }
+
+            const authorName = match[1];
+            const quotedText = match[2].trim();
+
+            const metadata = quoteMetadata[quoteIndex];
+            if (metadata && metadata.authorName === authorName && metadata.text === quotedText) {
+                blocks.push({
+                    text: quotedText,
+                    source: metadata.sourceType,
+                    sourceId: metadata.sourceId,
+                    label: authorName
+                });
+            } else {
+                blocks.push({
+                    text: quotedText,
+                    source: 'User',
+                    sourceId: null,
+                    label: authorName
+                });
+            }
+
+            quoteIndex++;
+            lastIndex = quoteRegex.lastIndex;
+        }
+
+        if (lastIndex < textareaContent.length) {
+            const afterText = textareaContent.slice(lastIndex).trim();
+            if (afterText) {
+                blocks.push({
+                    text: afterText,
+                    source: 'none',
+                    label: null
+                });
+            }
+        }
+
+        return blocks;
+    };
+
+    const handleSubmit = async () => {
         if (bodyInvalid) {
             setError("Comment cannot be empty");
             return;
@@ -77,22 +166,9 @@ export default function Comments({ coming, id, setComms, post }) {
             setError("Comments are locked on this post.");
             return;
         }
-        setError("");
-        createComment();
-    }
 
-    const createComment = async () => {
         try {
-            if (postLocked) {
-                setError("Comments are locked on this post.");
-                return;
-            }
-
-            const contentBlocks = [{
-                text: body,
-                source: 'none',
-                label: null
-            }];
+            const contentBlocks = parseContent(body);
 
             const response = await fetch(`${API_BASE}/Commenter/create`, {
                 method: "POST",
@@ -108,16 +184,17 @@ export default function Comments({ coming, id, setComms, post }) {
             if (response.ok) {
                 setComms((prevComms) => [...(prevComms || []), info.comment]);
                 setBody("");
+                setQuoteMetadata([]);
                 setError("");
                 setIsVisible(false);
             } else {
                 setError(info.message || "Unable to post comment.");
             }
         } catch (err) {
-            console.error("Error fetching comments:", err);
+            console.error("Error posting comment:", err);
             setError("We're called to serve.");
         }
-    }
+    };
 
     return (
         <OutsideClickHandler onOutsideClick={resetError}>
@@ -165,7 +242,7 @@ export default function Comments({ coming, id, setComms, post }) {
                             className="min-w-[120px] px-2 py-1.5 bg-accent-dark-1 border border-border 
                                     text-glow font-french-canon tracking-[0.6px] text-xxxxs cursor-pointer 
                                     hover:text-shadow-compact hover:brightness-80 transition-all duration-300 ease-in-out" 
-                            type="submit" onClick={handleBodyValidity}>
+                            type="submit" onClick={handleSubmit}>
                                 Post Comment
                         </button>
                     </div>
@@ -177,7 +254,9 @@ export default function Comments({ coming, id, setComms, post }) {
                 coming.map((entry) => (
                     <Comment
                         key={entry._id}
-                        data={entry} 
+                        data={entry}
+                        onQuote={handleQuote}
+                        id={entry._id}
                     />
                 ))
             ) : (
@@ -187,4 +266,8 @@ export default function Comments({ coming, id, setComms, post }) {
         </div>
         </OutsideClickHandler>
     );
-}
+});
+
+Comments.displayName = 'Comments';
+
+export default Comments;

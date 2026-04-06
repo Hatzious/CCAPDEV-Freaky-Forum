@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const EYE_PAIRS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+const EYE_PAIRS_LIMIT = 100; // configurable limit for max eyes to spawn
 
-const MIN_SPAWN_INTERVAL = 2000;
+const MIN_SPAWN_INTERVAL = 10000;
 const MAX_SPAWN_INTERVAL = 60000;
 const MIN_SHOW_DELAY = 250; // time before overlay first appears
 const MAX_SHOW_DELAY = 600;
@@ -17,14 +18,30 @@ const getShowDelay = () => Math.random() * (MAX_SHOW_DELAY - MIN_SHOW_DELAY) + M
 const getHideDuration = () => Math.random() * (MAX_HIDE_DURATION - MIN_HIDE_DURATION) + MIN_HIDE_DURATION;
 const getVisibleDuration = () => Math.random() * (MAX_VISIBLE_DURATION - MIN_VISIBLE_DURATION) + MIN_VISIBLE_DURATION;
 
+// Bias X position to left and right sides of the page
+const getRandomXBiased = () => {
+  const side = Math.random() < 0.5 ? 'left' : 'right';
+  if (side === 'left') {
+    return Math.random() * 20; // 0-20% for left side
+  } else {
+    return Math.random() * 20 + 80; // 80-100% for right side
+  }
+};
+
+const getRandomEyeNumber = (availableEyes) => {
+  const randomIndex = Math.floor(Math.random() * availableEyes.length);
+  return availableEyes[randomIndex];
+};
+
 export default function EyesBackground() {
   const location = useLocation();
   const [visibleEyes, setVisibleEyes] = useState([]);
 
   useEffect(() => {
-    let eyeIndex = 0;
+    let spawnCount = 0;
     let spawnTimeoutId;
     const overlayTimeouts = new Map();
+    const availableEyeNumbers = [...EYE_PAIRS];
 
     const updateEye = (eyeId, update) => {
       setVisibleEyes(prev => prev.map(eye => eye.id === eyeId ? { ...eye, ...update } : eye));
@@ -49,15 +66,17 @@ export default function EyesBackground() {
     };
 
     const spawnEye = () => {
-      if (eyeIndex >= EYE_PAIRS.length) {
+      if (spawnCount >= EYE_PAIRS_LIMIT) {
         return;
       }
 
-      const eyeNumber = EYE_PAIRS[eyeIndex];
-      const randomX = Math.random() * 92 + 4; 
-      const randomY = Math.random() * 86 + 4;   
+      const eyeNumber = getRandomEyeNumber(availableEyeNumbers);
+
+      // const randomX = getRandomXBiased();
+      const randomX = Math.random() * 86 + 4;
+      const randomY = Math.random() * 86 + 4;
       const showDelay = getShowDelay();
-      const eyeId = `eye-${eyeNumber}-${eyeIndex}`;
+      const eyeId = `eye-${eyeNumber}-${spawnCount}`;
 
       setVisibleEyes(prev => [
         ...prev,
@@ -76,9 +95,9 @@ export default function EyesBackground() {
       }, showDelay);
 
       overlayTimeouts.set(`${eyeId}-initial`, initialTimeout);
-      eyeIndex += 1;
+      spawnCount += 1;
 
-      if (eyeIndex < EYE_PAIRS.length) {
+      if (spawnCount < EYE_PAIRS_LIMIT) {
         spawnTimeoutId = setTimeout(spawnEye, getRandomDelay());
       }
     };
