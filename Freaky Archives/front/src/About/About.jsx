@@ -21,7 +21,7 @@ export default function About() {
                         <ProfileTile name="Aya-ay, Viktor Rafale" pic="/creators/Rafale_Photo.jpg" />
                         <ProfileTile name="Esguerra, Darryl Matthew" pic="/creators/Darryl_Photo.jpg" />
                         <ProfileTile name="Policarpio, Rozette Dominique" pic="/creators/Rozette_Photo.jpg" />
-                        <ProfileTile name="Tiu, Avram Nathaniel" pic="/public/puppy.jpg" />
+                        <ProfileTile name="Tiu, Avram Nathaniel" pic="/creators/Tiu.jpg" />
                     </div>
 
                     <HBar text="FRAMEWORKS & PACKAGES" />
