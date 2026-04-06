@@ -1,7 +1,7 @@
 import Resizebox from "../Account/Resizebox";
+import Click from "../Global/Click";
 import Icon from "../Global/Icon";
 import Mastercontainer from "../Account/Mastercontainer";
-import Prettytext from "../Account/Prettytext";
 
 export default function UserCard({ data }) {
     const { username, profile } = data || {};
@@ -10,9 +10,11 @@ export default function UserCard({ data }) {
         <Resizebox>
             <Icon dimensions="w-40 h-38" source={profile?.avatarUrl || "/puppy.jpg"} />
             <Mastercontainer>
-                <Prettytext fontSize="text-medium">
-                    {username}
-                </Prettytext>
+                <Click 
+                label={username}
+                size="text-medium"
+                to={`/account/${username}`}
+                />
             </Mastercontainer>
         </Resizebox>
     );
