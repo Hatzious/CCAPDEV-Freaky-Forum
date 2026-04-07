@@ -40,8 +40,9 @@ export default function HoverBox({classes = "visible", type = "", onFilter}) {
             <nav className={`${FilterSyles} ${classes}`}>
                 <Click label="Most Upvoted" onClick={() => onFilter('scorer', 'most')} size="xxxs"/>
                 <Click label="Most Downvoted" onClick={() => onFilter('scorer', 'least')} size="xxxs"/>
-                <Click label="Most Viewed" onClick={() => onFilter('viewer', 'most')} size="xxxs"/> 
-                <Click label="Least Viewed" onClick={() => onFilter('viewer', 'least')} size="xxxs"/>
+                <Click label="Oldest Posts" onClick={() => onFilter('sorter', 'old')} size="xxxs"/>
+                    
+                {/* <Click label="Most Viewed" onClick={() => onFilter('viewer', 'most')} size="xxxs"/>  */}
             </nav>
         );
     }

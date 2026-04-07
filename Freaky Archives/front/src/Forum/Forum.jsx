@@ -28,12 +28,18 @@ export default function Forum() {
     };
 
     const applyFilter = (filterType, value) => {
-        const filter = { filterParams };
+        const filter = { ...filterParams };
         
         if (filterType === 'scorer') {
             filter.scorer = value;
         } else if (filterType === 'viewer') {
             filter.viewer = value;
+            delete filter.scorer;
+            delete filter.commenter;
+        } else if (filterType === 'sorter') {
+            filter.sorter = value;
+            delete filter.scorer;
+            delete filter.viewer;
         }
         
         setFilterParams(filter);

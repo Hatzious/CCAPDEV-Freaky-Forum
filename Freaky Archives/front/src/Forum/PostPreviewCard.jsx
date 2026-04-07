@@ -3,7 +3,7 @@ export default function PostPreviewCard({
   author = "Unknown",
   date = "Unknown date",
   views = 0,
-  upvotes = 0,
+  score = 0,
   summary = "No summary available.",
 }) {
   return (
@@ -17,7 +17,7 @@ export default function PostPreviewCard({
           <span >{author}</span>
           <span >{date}</span>
           <span>Views: {views}</span>
-          <span>Upvotes: {upvotes}</span>
+          <span>Score: {score}</span>
         </div>
 
         <hr className="border-border my-2" />

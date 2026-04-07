@@ -49,6 +49,7 @@ export default function Post({ data, isAccount = false }) {
                     date={displayDate}
                     views={views}
                     summary={summary}
+                    score={score}
                 />
             )}
         </div>

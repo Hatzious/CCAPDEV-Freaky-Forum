@@ -2,8 +2,6 @@ import { useState } from "react";
 import { API_BASE } from "../Services/api";
 
 export default function Arrow({ direction = "up", color = "var(--color-upvote)", postId="", onVoteSuccess, active }) {
-    const [isActive, setIsActive] = useState(false);
-
     const handleVote = async () => {
         try {
             const action = direction === "up" ? 1 : -1;
@@ -18,7 +16,6 @@ export default function Arrow({ direction = "up", color = "var(--color-upvote)",
             });
 
             if (response.ok) {
-                setIsActive(!isActive);
                 const data = await response.json();
                 onVoteSuccess(data.changes.score, data.changes.userVote);
                 console.log("Front end success calling vote: " + data.message + data.changes.score + data.changes.userVote);
@@ -28,6 +25,7 @@ export default function Arrow({ direction = "up", color = "var(--color-upvote)",
             console.log("Front end there was a problem with vote: " + error.message);
         }
     }
+
     return (
         <button 
             className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none h-12"
