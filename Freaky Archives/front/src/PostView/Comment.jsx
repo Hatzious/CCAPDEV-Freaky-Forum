@@ -77,11 +77,6 @@ export default function Comment({ data, onQuote, id }) {
                     </div>
                 </div>
             </div>
-
-            {/* 6. Dynamic Score */}
-            <div className="flex-shrink-0 pt-4">
-                <Vote score={score} />
-            </div>
         </div>
     );
 }
