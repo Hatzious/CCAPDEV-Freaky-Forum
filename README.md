@@ -160,4 +160,4 @@ The project uses the **Model-View-Controller (MVC)** architectural standard to e
 ## ⚖️ Status
 This repository is developed for educational academic purposes as part of the CCAPDEV MCO course. 
 
-*Statement recorded. The Archive is now watching.*
+> *<p align="center">"Statement recorded. The Archive is now watching."</p>*
