@@ -7,7 +7,6 @@ import Comments from "./Comments";
 import { API_BASE } from "../Services/api";
 
 export default function PostView() {
-
     const { id } = useParams();
     const [post, setPost] = useState(null);
     const [comms, setComms] = useState(null);
