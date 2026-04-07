@@ -28,7 +28,7 @@ Visit **Freaky Archives** on https://ccapdev-freaky-forum.onrender.com
 ### Forum Organization
 - A list of the latest posts are shown in the forum by default
 - Hover over a post to show its post preview card
-- Instantly filter by most upvoted, most downvoted, and by oldest post date
+- Instantly filter by most/least upvoted, most/least viewed, and by oldest post date
 
 ### Searching System
 - Shows a list of posts and users that match the given query
