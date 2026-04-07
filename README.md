@@ -1,6 +1,44 @@
 # 👁️ Freaky Archives
 
-Welcome to the **Freaky Archives**, a full-stack forum application designed for the documentation and discussion of paranormal statements, unexplained phenomena, and the lingering dread of the unknown.
+---
+
+## Overview
+
+Welcome to **Freaky Archives**, a full-stack forum application that aims to provide a community around documenting and discussing 
+paranormal statements, unexplained phenomena, and the lingering dread of the unknown. The forum provides a centralized venue 
+for users to contribute to a repository of user-made horror stories for everyone to access. Users can 
+post their stories and interact with other users through comments and quoting parts of the discussion.
+
+It is based on [Magnus Archives](https://rustyquill.com/show/the-magnus-archives/), an anthology podcast that tells stories of horror fiction.
+
+---
+
+## 📝 Features
+
+### Community Engagement
+- View, upvote or downvote posts, post comments under posts with a flexible quoting feature
+- Make posts with a title, a summary, and a body for details and clarity
+- Insert markdown text in the body to enhance the meaning behind each post
+- Use pre-defined tags that are tied to the Magnus Archives franchise (The Entities/Fears)
+> *<p align="center">"These things... these forces, they are our fear. Deep fears. Primordial. Always looking for ways to grow and spread."</p>*
+> <p align="right">~ Gerard Keay, MAG 111 (Family Business)</p>
+
+### Forum Organization
+- A list of the latest posts are shown in the forum by default
+- Hover over a post to show its post preview card
+- Instantly filter by most upvoted, most downvoted, and by oldest post date
+
+### Searching System
+- Shows a list of posts and users that match the given query
+- Advanced operators/conditions while searching, such as:
+  - Showing posts made by a specific author
+  - Showing posts associated with one or more tags
+  - Sorting posts by most/least viewed and most/least upvotes
+
+### User Profiles
+- Editable user profiles including biographies and usernames
+- Post statistics per user
+- Information on when the user joined and when they were last active
 
 ---
 

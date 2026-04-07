@@ -76,10 +76,12 @@ export default function About() {
                         <ul className="list-disc list-inside">
                             <li>Click Search in the Navigation Bar {'>'} Type what you need to find</li>
                             <li>There are special conditions that you can include in your search:</li>
-                            <li>Default search (no tagging): Just searches titles of posts & users</li>
-                            <li><span className="font-mono">author:{'<username>'}</span>: Searches posts made by a specific user; disables searching of users</li>
-                            <li><span className="font-mono">#{'<tag>'}</span>: Searches posts with associated tag; can be multiple</li>
-                            <li>The possible tags are only the following: "TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", "TheDark"</li>
+                            <ul className="pl-8">
+                                <p>Default search (no tagging): Just searches titles of posts & users</p>
+                                <p><span className="font-mono">author:{'<username>'}</span>: Searches posts made by a specific user; disables searching of users</p>
+                                <p><span className="font-mono">#{'<tag>'}</span>: Searches posts with associated tag; can be multiple</p>
+                                <p className="text-info">The possible tags are only the following: "TheEnd", "TheWeb", "TheEye", "TheCorruption", "TheBuried", "TheHunt", "TheDesolation", "TheSlaughter", "TheFlesh", "TheStranger", "TheSpiral", "TheLonely", "TheVast", and "TheDark". These are not case-sensitive.</p>
+                            </ul> 
                         </ul>
                         <br></br>
 
@@ -88,8 +90,10 @@ export default function About() {
                         </p>
                         <ul className="list-disc list-inside">
                             <li>In your search query, you can include one or both of the following:</li>
-                            <li><span className="font-mono">scorer:{'<"most"/"least">'}</span>: Sorts posts by most scored</li>
-                            <li><span className="font-mono">viewer:{'<"most"/"least">'}</span>: Sorts posts by most viewed</li>
+                            <ul className="pl-8">
+                                <p><span className="font-mono">scorer:{'<"most"/"least">'}</span>: Sorts posts by most scored</p>
+                                <p><span className="font-mono">viewer:{'<"most"/"least">'}</span>: Sorts posts by most viewed</p>
+                            </ul> 
                         </ul>
                     </div>
 
