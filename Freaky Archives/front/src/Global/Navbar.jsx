@@ -13,10 +13,6 @@ export default function Navbar() {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const { user, login } = useAuth();
     const navigate = useNavigate();
-    const signingUp = () => {
-        login();
-        navigate("/");
-    };
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-olive border-b border-border 

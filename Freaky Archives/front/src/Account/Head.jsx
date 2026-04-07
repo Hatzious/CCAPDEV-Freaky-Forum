@@ -46,7 +46,7 @@ export default function Head({ username, isOwnProfile = false }) {
     
     return (
         <Resizebox>
-            <Icon dimensions="w-36 h-30" source={profileData.profile.avatarUrl} />
+            <Icon dimensions="w-40 h-32" source={profileData.profile.avatarUrl} />
             <Mastercontainer>
                 {isOwnProfile && <Edit></Edit>}
                 <Prettytext fontSize="text-medium">
