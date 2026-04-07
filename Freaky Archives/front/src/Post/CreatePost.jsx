@@ -39,10 +39,6 @@ export default function CreatePost() {
 
         setBody(newText);
 
-        setTimeout(() => {
-            el.focus();
-            el.setSelectionRange(start + tag.length, end + tag.length);
-        }, 0);
     };
 
     const toggleTag = (tag) => {
