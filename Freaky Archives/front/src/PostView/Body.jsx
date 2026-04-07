@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import Click from "../Global/Click";
+import remarkGfm from 'remark-gfm';
 
 export default function Body({text = "oops body issue", onQuote, postData, id}) {
     return (
@@ -7,7 +8,8 @@ export default function Body({text = "oops body issue", onQuote, postData, id}) 
             <div 
                 className="text-glow font-french-canon text-xxxs break-words max-w-full overflow-hidden"
             >
-                <ReactMarkdown 
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm]} 
                     components={{
                         p: ({node, ...props}) => <p className="mb-4 last:mb-0 leading-relaxed" {...props} />
                     }}

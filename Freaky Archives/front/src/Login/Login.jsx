@@ -37,7 +37,6 @@ export default function Login() {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("Response data:", data);
                 login(data.user);
             }
             else {
@@ -48,7 +47,6 @@ export default function Login() {
                 return;
             }
 
-            console.log("Log in attempt:", { username, password });
         } catch (err) {
             console.error("Error logging in:", err);
             return;
