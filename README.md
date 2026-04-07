@@ -11,6 +11,8 @@ post their stories and interact with other users through comments and quoting pa
 
 It is based on [Magnus Archives](https://rustyquill.com/show/the-magnus-archives/), an anthology podcast that tells stories of horror fiction.
 
+Visit **Freaky Archives** on https://ccapdev-freaky-forum.onrender.com
+
 ---
 
 ## 📝 Features
