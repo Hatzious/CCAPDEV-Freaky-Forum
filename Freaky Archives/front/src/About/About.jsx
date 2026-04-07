@@ -55,6 +55,7 @@ export default function About() {
                             <li>connect-mongo <span className="text-secondary-1">by jdesboeufs</span></li>
                             <li>dotenv <span className="text-secondary-1">by motdotla</span></li>
                             <li>react-outside-click-handler <span className="text-secondary-1">by airbnb</span></li>
+                            <li>remark-breaks <span className="text-secondary-1">by remarkjs</span></li>
                             <li>remark-gfm <span className="text-secondary-1">by remarkjs</span></li>
                             <li>nodemon <span className="text-secondary-1">by Remy Sharp</span></li>
                             <li>cors <span className="text-secondary-1">by Express.js</span></li>
